@@ -1,0 +1,31 @@
+---
+title: "Organized"
+author: "Axel Leon"
+date: "9/15/2021"
+output:
+  html_document:
+    css: Lab_Ecol_Gen.css
+    fig_caption: yes
+    highlight: pygments
+#  theme: simplex   To have the TOC in Red
+    toc: yes
+    toc_float: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r echo=FALSE}
+
+Sys.Date()
+```
+
+```{r message=FALSE, warning=FALSE}
+library(tidyverse)
+library(ggplot2)
+library(gt)
+library(reshape)
+library(janitor)
+```
+

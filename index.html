@@ -11,12 +11,12 @@
 
 
 
-<title>Analítica</title>
+<title>Laboratorio de Ecología General</title>
 
 <script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<link href="site_libs/bootstrap-3.3.5/css/spacelab.min.css" rel="stylesheet" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
@@ -33,8 +33,8 @@
 <link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
 <script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
-<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
-<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
 <style type="text/css">
   code{white-space: pre-wrap;}
@@ -45,21 +45,12 @@
   ul.task-list{list-style: none;}
     </style>
 
-<style type="text/css">code{white-space: pre;}</style>
-<script type="text/javascript">
-if (window.hljs) {
-  hljs.configure({languages: []});
-  hljs.initHighlightingOnLoad();
-  if (document.readyState && document.readyState === "complete") {
-    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
-  }
-}
-</script>
 
 
 
 
 
+<link rel="stylesheet" href="Lab_Ecol_Gen.css" type="text/css" />
 
 
 
@@ -313,156 +304,12 @@ div.tocify {
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="index.html">ANALITICA</a>
+      <a class="navbar-brand" href="index.html">Laboratorio de Ecología General</a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-        <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    Estadística básica
-     
-    <span class="caret"></span>
-  </a>
-  <ul class="dropdown-menu" role="menu">
-    <li>
-      <a href="E1-Introducción.html">¿Qué es la Estadística?</a>
-    </li>
-    <li>
-      <a href="E2-Historia.html">Historia breve de la estadística cuantitativa</a>
-    </li>
-    <li>
-      <a href="E3-TallerRFE_I.html">Introducción a R, Rstudio y RMarkdown</a>
-    </li>
-    <li>
-      <a href="E4-Graficos.html">Explorando los datos con gráficos</a>
-    </li>
-    <li>
-      <a href="E5-supuestos.html">Los Supuestos de las pruebas paramétricas</a>
-    </li>
-    <li>
-      <a href="E6-TallerRFE_II.html">Regresión simple y ANOVA</a>
-    </li>
-    <li>
-      <a href="E7-TRAvanzado.html">Modelos Lineales</a>
-    </li>
-    <li>
-      <a href="E8-Tipos_de_Datos.html">Tipos de Datos</a>
-    </li>
-  </ul>
-</li>
-<li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    Visualización
-     
-    <span class="caret"></span>
-  </a>
-  <ul class="dropdown-menu" role="menu">
-    <li>
-      <a href="G1-ggplot2.html">Qué es la visualización de datos y ejemplos historicos</a>
-    </li>
-    <li>
-      <a href="G2-Errores-tipicos-en-la-visualizacion.html">Errores típicos en la visualización</a>
-    </li>
-    <li>
-      <a href="G3-Graficos-por-conteos.html">Gráficos para conteos</a>
-    </li>
-    <li>
-      <a href="G4-Grafico-de-puntos-de-Wilkinson.html">Gráficos de puntos de Wilkinson</a>
-    </li>
-    <li>
-      <a href="G5_geom_area_densidad_freqpoly.html">Gráficos de area y densidad</a>
-    </li>
-    <li>
-      <a href="G6_geom_histogram.html">Histogramas</a>
-    </li>
-    <li>
-      <a href="G7_geom_bar.html">Gráficos de barras</a>
-    </li>
-    <li>
-      <a href="G8_geom_boxplot_geom_violin.html">Gráficos de caja y de violín</a>
-    </li>
-    <li>
-      <a href="G9_Facet_Grid.html">Facet Grid</a>
-    </li>
-    <li>
-      <a href="G10_Facet_wrap.html">Facet Wrap</a>
-    </li>
-    <li>
-      <a href="G11_EVALUANDO_SUPUESTOS.html">Evaluando Supuestos</a>
-    </li>
-    <li>
-      <a href="G12_Mapas_Calor.html">Mapas de Calor</a>
-    </li>
-    <li>
-      <a href="G13_geom_line.html">Gráficos con lineas</a>
-    </li>
-    <li>
-      <a href="G14_geom_point_geom_jitter.html">Geom_point y geom_jitter</a>
-    </li>
-    <li>
-      <a href="G15_gganimate.html">Gráficos animados (en movimiento) 1</a>
-    </li>
-    <li>
-      <a href="G15b_gganimate.html">Gráficos animados (en movimiento) 2</a>
-    </li>
-    <li>
-      <a href="G15c_gganimate_barras.html">Gráficos animados (en movimiento) 3</a>
-    </li>
-  </ul>
-</li>
-<li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    Talleres
-     
-    <span class="caret"></span>
-  </a>
-  <ul class="dropdown-menu" role="menu">
-    <li>
-      <a href="Documento_RMarkdown-ed">Una breve introducción a RMarkdown</a>
-    </li>
-    <li>
-      <a href="Documento_dplyr">Una breve introducción a dplyr</a>
-    </li>
-  </ul>
-</li>
-<li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    Taller para Facultad
-     
-    <span class="caret"></span>
-  </a>
-  <ul class="dropdown-menu" role="menu">
-    <li>
-      <a href="TF_1_Descripción.html">Descripción del taller</a>
-    </li>
-    <li>
-      <a href="TF1_Regresion_Lineal.html">Regresión Lineal</a>
-    </li>
-    <li>
-      <a href="TF2_Regresion_Cuadratica_otro.html">Regresión no lineal</a>
-    </li>
-    <li>
-      <a href="TF3_Regresion_Multiples.html">Regresión Multiples</a>
-    </li>
-    <li>
-      <a href="TF4_GLM.html">Modelos Lineales Generalizados</a>
-    </li>
-    <li>
-      <a href="TF5_Regresion_logistica.html">Regresion Logística</a>
-    </li>
-    <li>
-      <a href="TF6_Regresion_Poisson.html">Regresión Poisson</a>
-    </li>
-    <li>
-      <a href="TF7_Regresion_beta.html">Regresión Beta</a>
-    </li>
-    <li>
-      <a href="TF8_Akaike_Information_Criterion.html">Criterio de Selección</a>
-    </li>
-    <li>
-      <a href="TF9_Ejercicio_Practica.html">Ejercicios de Practica</a>
-    </li>
-  </ul>
+        <li>
+  <a href="Descripcion.html">Home</a>
 </li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -472,7 +319,7 @@ div.tocify {
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="Datos.html">Los Datos</a>
+      <a href="Organized_Data.html">Karn_Penrose</a>
     </li>
   </ul>
 </li>
@@ -488,224 +335,172 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">Analítica</h1>
+<h1 class="title toc-ignore">Laboratorio de Ecología General</h1>
 
 </div>
 
 
-<div id="analítica-fundación" class="section level1">
-<h1>Analítica Fundación</h1>
-<div id="quiénes-somos" class="section level2">
-<h2>Quiénes Somos</h2>
-<p><strong>Analítica Fundación, Inc.</strong>, es una corporación sin fines de lucro incorporada bajo las leyes del Estado Libre Asociado de Puerto Rico en el 2018. Su especialidad es el análisis de datos. Su objetivo principal es proveer todo tipo de servicios educativos, de investigación y capacitación profesional, y el desarrollo de pensamiento crítico en el campo de la analítica.</p>
-<p><strong>Visión</strong>: - Ser un líder en el análisis de datos en el mundo Hispano a través de la práctica y la educación. - Crear una comunidad dinámica de profesionales interesados(as) en los temas del análisis de datos y sus herramientas.</p>
-<p><strong>Misión</strong>:</p>
+<p><strong>Instructor:</strong> Raymond L. Tremblay</p>
+<p><strong>Website</strong>:</p>
+<p><strong>Email</strong>: raymondtremblay_at_upr.edu</p>
+<div id="horario-de-la-clase" class="section level3">
+<h3>Horario de la Clase</h3>
+<p><strong>Laboratorio</strong>: J a las 7:30am hasta las 10:20 pm en el Vagon de Biología.</p>
+<p><strong>Hora de Consulta</strong>:</p>
 <ul>
-<li>Desarrollar profesionales (facultad, estudiantes, empleados) en el campo de la analítica.</li>
-<li>Promover el estudio e investigación de la analítica alrededor del mundo en el lenguaje español (castellano).</li>
-<li>Colaborar en el desarrollo de proyectos de análisis en universidades, centros de investigación, empresas, y organizaciones gubernamentales y no gubernamentales.</li>
-<li>Auspiciar jóvenes estudiantes subgraduados y graduados en la investigación y práctica de la analítica.</li>
-</ul>
-<p><strong>Valores</strong>:</p>
+<li>Tremblay:
 <ul>
-<li>Liderazgo ético en el análisis de datos.</li>
-<li>Cultivo responsable de la próxima generación de analistas en universidades, empresas y gobiernos.</li>
-<li>Excelencia en la innovación y uso de la tecnología del análisis.</li>
-</ul>
-<p><strong>Metas</strong>: Ser uno de los focos más importantes de discusión, distribución de recursos e información, y promoción del análisis de datos en el mundo Hispano.</p>
-<p><strong>Promoción</strong>: <a href="https://drive.google.com/file/d/1r8imhmhc0WAzC8_XBL7lcEE0ksvJgi4N/view?usp=sharing">Opúsculo</a></p>
-</div>
-<div id="objetivos-específicos" class="section level2">
-<h2>Objetivos específicos</h2>
-<ul>
-<li>Diseño, creación, organización y administración de actividades sobre análisis:
-<ul>
-<li>Talleres</li>
-<li>Seminarios</li>
-<li>Conferencias</li>
-<li>Publicaciones</li>
-<li>Asesoría</li>
-<li>Demostraciones</li>
-<li>Investigación</li>
+<li>Lunes 10:30 - 12:30pm</li>
+<li>Jueves 10:30 - 12:30pm</li>
+<li>Jueves 1:00 - 3:00pm</li>
 </ul></li>
-<li>Ofrecer asistencia en el diseño y ejecución de análisis de datos, publicación de resultados y tareas relacionadas.</li>
-<li>Capacitación y apoyo en el diseño, administración y publicación de estudios cuantitativos y cualitativos.</li>
-<li>Creación y venta de libros y manuales técnicos sobre el uso de herramientas de análisis de datos en español (castellano).</li>
 </ul>
 </div>
-<div id="recursos" class="section level2">
-<h2>Recursos</h2>
-</div>
-<div id="gráficas-verstátiles-con-ggplot2-análisis-visual-de-datos" class="section level2">
-<h2><span style="color: blue;"><strong>Gráficas Verstátiles con ggplot2: Análisis Visual de Datos</strong></span></h2>
-<p>Este libro es sobre la visualización y producción efectiva de gráficos. El énfasis es en el paquete de ggplot2, que está basado en el lenguaje de programación R. Contiene una enorme variedad de representaciones de datos con más de 200 ejemplos.</p>
-<p>La visualización ayuda a entender lo que pueden comunicar los datos. Además, ayuda a expandir el análisis estadístico a través de múltiples métodos y expresar las inferencias de ese análisis. Todo los “scripts” de los gráficos están incluidos para facilitar el aprendizaje y uso del paquete ggplot2.</p>
-<p>Este libro está dirigido a científicos y no científicos, analistas de datos, y estudiantes de todos los niveles y de todas las disciplinas que tengan interés en producir gráficos de alta calidad para visualizar datos, llevar a cabo análisis científicos, extrapolar resultados de experimentos y otros tipos de visualización.</p>
-<pre><code>  Capítulo 1: Breve introducción sobre R, el ambiente RStudio y el paquete ggptlo2.
-  Capítulo 2: Continuación con conceptos mínimos de R y explicación de los datos utilizados en el libro.
-  Capítulo 3: Organización de datos para utilizar en ggplot2.
-  Capítulo 4: ggplot2 y alternativas de visualización.
-  Capítulo 5: Gráficos para conteos.
-  Capítulo 6: Gráficos para variables continuas o discretas (gráficos de puntos, histogramas, gráficos de sectores, etc.).
-  Capítulo 7: Gráficos por categorías (facet_wrap).
-  Capítulo 8: Gráficos en cuadrícula (facet_grid).
-  Capítulo 9: Gráficos para dos variables continuas (geom_point, geom_jitter, transformaciones logarítmicas, etc.).
-  Capítulo 10: Gráficos de líneas (geom_line).
-  Capítulo 11: Gráficos mostrando su distribución (mínima/máxima y error estándar, geom_ribbon).
-  Capítulo 12: Gráficos de línea con categorías.
-  Capítulo 13: Líneas con error estándar (geom_errorbar, geom_errorbarh).
-  Capítulo 14: Gráficos estadísticos (geom_boxplot, geom_violin, etc.).
-  Capítulo 15: Diagrama de alfombra (geom_rug).
-  Capítulo 16: Gráficos de distribución continua.
-  Capítulo 17: Gráficos de distribución espacial (geom_spoke).
-  Capítulo 18: Representación gráfica no lineal (geom_step).
-  Capítulo 19: Gráficos de densidad (geom_density2d, stat_denisity2d).
-  Capítulo 20: Visualización de respuestas de cuestionarios (sjp.likert).
-  Capítulo 21: Evaluación gráfica de supuestos subyacentes.
-  Capítulo 22: Creación de una plantilla para estandarizar la presentación de los gráficos.
-  Capítulo 23: Definición de colores con ggplot2.
-  Capítulo 24: Especificación de la estética en los gráficos con ggpplot2.
-  Capítulo 25: Preparación de un gráfico para una presentación.
-  Capítulo 26: Añadir texto a un gráfico.
-  Capítulo 27: Breve introducción de la transformación y manipulación de datos en R.
-  Capítulo 28: Ejemplos detallados para todas las 35 funciones demostradas en el libro.
-  </code></pre>
-<p>Para todas las demostraciones se ofrecen cientos de “scripts” que se pueden copiar fácilmente y más de 200 ejemplos con los datos originales, incluyendo cómo cambiar las características de los elementos de cada gráfico (colores, escalas, ejes, leyendas, etc.).</p>
-<p>Este libro sobre ggplot2 está disponible en formato Kindle <a href="https://www.amazon.com/Gr%C3%A1ficas-Vers%C3%A1tiles-ggplot2-An%C3%A1lisis-Spanish-ebook/dp/B07P2Q87H2/ref=sr_1_1?dchild=1&amp;keywords=gr%C3%A1ficas+vers%C3%A1tiles&amp;qid=1593970135&amp;sr=8-1">aquí</a>.</p>
-</div>
-<div id="historia" class="section level2">
-<h2>Historia</h2>
-<p>Analíca Fundación, Inc. fue creada para atender de una forma más ágil el auspicio, apoyo, creación y producción de recursos en apoyo al campo del análisis en Puerto Rico e Iberoamérica. Aunque existe una enorme producción de recursos provenientes de instituciones universitarias, normalmente esos recursos están muy atados a las instituciones en donde se generan y no necesariamente logran quedar al alcance del público profesional interesado en temas del análisis. Los fundadores hemos querido servir de enlace al inmenso conocimiento que se genera en la academia, organizaciones en el mundo dedicadas a los temas del análisis, e individuos específicos y todos aquellos que se podrían beneficiar del conocimiento, destrezas y herramientas que continuamente se están creando o que ya existen en el mercado que son en su mayor parte libre de costos.</p>
-<p>Para más información sobre Analítica, favor comunicarse con los oficiales como muestra a continuación o en la sección de contactos (más abajo).</p>
-<p>¡Gracias por su interés!</p>
-<div id="directores" class="section level3">
-<h3>Directores</h3>
-<p><strong>Oficial</strong>: Raymond L. Tremblay, PhD (<a href="mailto:raymond.tremblay@gmail.com" class="email">raymond.tremblay@gmail.com</a>)</p>
-<blockquote>
-<p>Profesor de Evolución y Biometría del Departamento de Biología de la Universidad de Puerto Rico en Humacao y Presidente de Analítica, <a href="https://www.researchgate.net/profile/Raymond_Tremblay">ResearchGate</a></p>
-</blockquote>
-<p><strong>Oficial</strong>: Denny S. Fernández-Del-Viso, PhD (<a href="mailto:dsfernandez@gmail.com" class="email">dsfernandez@gmail.com</a>)</p>
-<blockquote>
-<p>Profesor de Ecología y Biometría del Departamento de Biología de la Universidad de Puerto Rico en Humacao y Secretario de Analítica, <a href="https://www.researchgate.net/profile/Denny_Fernandez2">ResearchGate</a></p>
-</blockquote>
-<p><strong>Oficial</strong>: Julián Hernández-Serrano, PhD (<a href="mailto:julian.hernandez.serrano@protonmail.com" class="email">julian.hernandez.serrano@protonmail.com</a>)</p>
-<blockquote>
-<p>Profesor de Tecnología del Departamento de Administración de Empresas de la Universidad de Puerto Rico en Humacao y Tesorero de Analítica, <a href="https://www.researchgate.net/profile/Julian_Hernandez-Serrano">ResearchGate</a></p>
-</blockquote>
-</div>
-</div>
-</div>
-<div id="servicios" class="section level1">
-<h1>Servicios</h1>
-<div id="capacitación" class="section level3">
-<h3>Capacitación</h3>
+<div id="libros" class="section level3">
+<h3>Libros</h3>
 <ul>
-<li>Talleres de estadística y análisis cuantitativo</li>
-<li>Talleres de análisis cualitativo</li>
-<li>Talleres de visualización de datos</li>
-<li>Talleres de introducción a programado y herramientas de análisis, tales como:
+<li>Ninguno</li>
+<li>Habrá lectura científica revisado por pares</li>
+</ul>
+</div>
+<div id="software" class="section level3">
+<h3>Software</h3>
+<ul>
+<li><a href="https://cran.r-project.org/">R- free statistical programming language</a><br />
+</li>
+<li>MS Excel</li>
+</ul>
+</div>
+<div id="prerequisitos" class="section level3">
+<h3>Prerequisitos</h3>
+<ul>
+<li>Biología General</li>
+</ul>
+<hr />
+</div>
+<div id="descripción" class="section level3">
+<h3>Descripción</h3>
+<p>Prácticas de laboratorio complementarias al curso de Ecología General. Experiencias prácticas y viajes de campo que enfatizan aspectos ecológicos de especies comunes en Puerto Rico, la estructura y composición de comunidades terrestres tropicales.</p>
+<hr />
+</div>
+<div id="objetivos-del-laboratorio" class="section level3">
+<h3>Objetivos del Laboratorio</h3>
+<p>Al finalizar este curso los estudiantes podrán:</p>
+<ul>
+<li>Construir una bibliografia para una monografia.</li>
+<li>Buscar información para los informes de los trabajos de investigación.</li>
+<li>Utilizar claves taxonómicas para la identificación de especies.</li>
+<li>Aplicar el método del transecto.</li>
+<li>Construir diagramas climáticos y climógrafos.</li>
+<li>Aplicar el análisis de la vegetación a un bosque de sucesión secundaria.</li>
+<li>Medir variables químicas y físicas del medio ambiente acuático dulce.</li>
+<li>Aplicar el método de captura y recaptura.</li>
+<li>Realizar análisis estadísticos básicos.</li>
+<li>Construir curvas de crecimiento poblacional.</li>
+<li>Discutir las diferencias entre biomas terrestres.</li>
+</ul>
+<hr />
+</div>
+<div id="temas-del-laboratorio" class="section level3">
+<h3>TEMAS DEL LABORATORIO</h3>
+<ol style="list-style-type: decimal">
+<li><p>Investigación en ecología a las herramientas de ecología</p>
 <ul>
 <li>R</li>
 <li>RStudio</li>
 <li>RMarkdown</li>
-<li>Python</li>
-<li>GitHub</li>
-<li>NVivo</li>
-</ul></li>
 </ul>
-</div>
-<div id="análisis-especializados" class="section level3">
-<h3>Análisis Especializados</h3>
-<ul>
-<li>Servicio de análisis de datos existentes para científicos, corporaciones y organizaciones gubernamentales y no gubernamentales
-<ul>
-<li>Diseño de estrategia de análisis</li>
-<li>Recolección de datos</li>
-<li>Preparación para análisis</li>
-<li>Análisis estadístico y aplicación de modelos</li>
-<li>Análisis cualitativo</li>
-<li>Visualización de los datos</li>
-<li>Presentación de resultados</li>
-<li>Recomendaciones</li>
-</ul></li>
-<li>Diseño y organización de actividades de capacitación en el análisis de datos para propuestas locales, federales e internacionales
-<ul>
-<li>Redacción de componentes de análisis de propuestas</li>
-<li>Supervisión y ejecución de la evaluación de programas y proyectos</li>
-<li>Entrega de informe oficial de evaluación intermedia (formativa) y final (sumativa) de metas, procesos y resultados, incluyendo conclusiones y recomendaciones</li>
-</ul></li>
-<li>Colaboración en el análisis de datos existentes
-<ul>
-<li>Subcontratista o asociado para la administración de componentes del análisis de programas o proyectos</li>
-</ul></li>
-<li>Consultoría de análisis para escuelas graduadas y profesionales, y otros centros de investigación
-<ul>
-<li>Por hora o por tarea contratada</li>
-</ul></li>
-</ul>
-</div>
-<div id="evaluación-de-impacto" class="section level3">
-<h3>Evaluación de impacto</h3>
-<ul>
-<li>Conceptualización, diseño, implementación, diseño y administración de un plan de evaluación interna o externa de programas o proyectos que puede incluir:
-<ul>
-<li>Creación o modificación de instrumentos de evaluación (encuestas, depósitos de bases de datos, etc.)</li>
-<li>Dirigir grupos focales y llevar a cabo el análisis (hallazgos y recomendaciones)</li>
-<li>Análisis de documentos o bases de datos existentes</li>
-<li>Creación de pre/postpruebas para evaluación de efectividad de intervenciones educativas</li>
-<li>Entrevistas estructuradas, semiestructuradas o informales a participantes</li>
-<li>Diseño de procesos de rastreo de participantes</li>
-</ul></li>
-</ul>
-</div>
-</div>
-<div id="contactos" class="section level1">
-<h1>Contactos</h1>
-<p><strong>Coreo electrónico</strong>: <a href="mailto:analiticafundacion@gmail.com" class="email">analiticafundacion@gmail.com</a></p>
-<p><strong>Canal en Youtube</strong>: <a href="https://www.youtube.com/channel/UC1gdCGTHxlbbAiY21GHH39A?view_as=subscriber">Analítica Fundación</a></p>
-<p><strong>Twitter</strong>: <span class="citation">@Analitica</span> (<a href="https://twitter.com/AnaliticaF" class="uri">https://twitter.com/AnaliticaF</a>)</p>
-<p><strong>Facebook</strong>: <span class="citation">@analiticafundacion</span> (<a href="https://www.facebook.com/analiticafundacion" class="uri">https://www.facebook.com/analiticafundacion</a>)</p>
-<p><strong>Dirección Postal</strong>:</p>
-<pre><code>      Brisas del Parque I
-      32 Calle Sendero
-      CAGUAS, PR, 00725</code></pre>
-<p><strong>Teléfono</strong>:</p>
-<pre><code>      787-310-4620, 787-214-2448</code></pre>
+<p>Primer ejercicio de ecología, marca y recaptura: Método Petersen</p></li>
+<li><p>Investigación en ecología: método científico, diseño experimental, probabilidades e incertidumbre, análisis estadístico, literatura científica y ecoinformática</p></li>
+<li><p>Ambiente físico: clima y micrometeorología</p></li>
+<li><p>Autoecología: adaptaciones, plasticidad fenotípica y comportamiento animal</p></li>
+<li><p>Ecología de poblaciones: densidad, muestreo, estructura, crecimiento y regulación, dispersión y metapoblaciones</p></li>
+<li><p>Ecología Evolutiva</p></li>
+<li><p>Ecología de comunidades: estructura física, interacciones interespecíficas y biodiversidad</p></li>
+<li><p>Ecología del paisaje: análisis espacial</p></li>
+<li><p>Ecología de ecosistemas: productividad primaria y ciclo de nutrientes</p></li>
+</ol>
+<p>Para cada tema se utilizarán diversas metodologías, organismos y lugares, y en algunos casos en un mismo laboratorio o viaje de campo se obtendrán datos para actividades de varios temas.</p>
 <hr />
-<p>TODO lo de abajo tiene que ser movido a la pestaña de Talleres</p>
-<p>ESTO DEBERIA IR EN OTRA SECCION, UNA QUE DAMOS TALLERES</p>
-<div id="libros-posible-para-los-talleres" class="section level2">
-<h2>Libros posible para los talleres</h2>
-<ul>
-<li><a href="https://es.r4ds.hadley.nz">Garrett Grolemund, Hadley Wickham. R para Ciencia de Datos</a> En Español.</li>
-<li><a href="https://r4ds.had.co.nz">Garrett Grolemund, Hadley Wickham. R for Data Science</a> En Ingles.</li>
-<li><a href="https://www.amazon.com/Gráficas-Versátiles-ggplot2-Análisis-Spanish-ebook/dp/B07P2Q87H2/ref=sr_1_1?dchild=1&amp;keywords=Graficas+versatiles&amp;qid=1591404029&amp;sr=8-1">Tremblay y Hernández-Serrano. Graficas Versatiles con ggplot2, 2018</a>.</li>
-</ul>
-<div id="programados-para-talleres" class="section level3">
-<h3>Programados para talleres</h3>
-<ul>
-<li><a href="https://cran.r-project.org/">R- free statistical programming language™</a></li>
-<li><a href="https://rstudio.com">RStudio™</a></li>
-<li>MS Excel™, Numbers™ o Google Sheet™ para ingresar los datos</li>
-</ul>
 </div>
-<div id="faltar-a-talleres-o-actividades" class="section level3">
-<h3>Faltar a talleres o actividades:</h3>
-<p>Los certificados de participación a los talleres serán limitado a los que participan con un porcentaje significativo de ellos. Para cada grupos de talleres la cantitad necesaria para cumplir con un certificado sera indicado y informado a los participantes popr escrito.</p>
+<div id="puntación" class="section level3">
+<h3>Puntación:</h3>
+<p>The course grade will be based on the following components:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+Componentes
+</th>
+<th style="text-align:left;">
+Nota_porcentual
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Informes individuales de los laboratorios o viajes
+</td>
+<td style="text-align:left;">
+60%
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Proyecto de investigación individual o pareja, con presentación
+</td>
+<td style="text-align:left;">
+20%
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Pruebas cortas (quizes)
+</td>
+<td style="text-align:left;">
+20%
+</td>
+</tr>
+</tbody>
+</table>
+<hr />
 </div>
-<div id="comentario-sobre-grabar-videos-yo-audio-de-los-talleres" class="section level3">
-<h3>Comentario sobre grabar videos y/o audio de los talleres</h3>
-<p>No pueden grabar los talleres por forma de video o audio sin el permiso del instructor. Algunos participantes con necesidades especiales pueden hablar con el instructor para pedir el permiso. Este permiso tiene que ser pedido y aprobado por escrito (por ejemplo por email).</p>
+<div id="examenes" class="section level3">
+<h3>Examenes:</h3>
+<p>No habrá exámenes pero pruebas corta o <strong>anunciado o no anunciado</strong>.</p>
+</div>
+<div id="lectures" class="section level3">
+<h3>Lectures</h3>
+<p>Vea el Prontuario</p>
+</div>
+<div id="laboratorio-de-ecología-general" class="section level3">
+<h3>Laboratorio de Ecología General</h3>
+<p>Vea el prontuario en la pagina de la UPRH. <a href="http://www.uprh.edu/biologia/1.%20Biol%20Prontuario%20PDF/BIOL%203116%20LAB%20ECOLOGIA%20GENERAL.pdf">Lab_Ecol_General</a></p>
+</div>
+<div id="política-de-recuperación-y-trabajo-tardío" class="section level3">
+<h3>Política de recuperación y trabajo tardío:</h3>
+<p>Los actividades y laboratorios perdidos no se pueden recuperar, excepto en el caso de emergencias. Si se pierde una reunión de la clase, es su responsabilidad hablar con uno de sus compañeros de clase sobre lo que se perdió. Si se pierde una reunión de laboratorio, aún es responsable de completar las actividades de laboratorio y escribir en su propio tiempo. Siempre que sea posible, avíseme con anticipación si va a faltar a clases o al laboratorio.</p>
+</div>
+<div id="derechos-de-estudiantes-con-impedimiento" class="section level3">
+<h3>Derechos de Estudiantes con Impedimiento</h3>
+<p>La UPR-Humacao cumple con las leyes ADA (Americans with Disabilities Act) y 51 (Servicios Educativos Integrales para Personas con Impedimentos) para garantizar igualdad en el acceso a la educación y servicios. Estudiantes con impedimentos: informe al (la) profesor(a) de cada curso sobre sus necesidades especiales y/o de acomodo razonable para el curso, en la tarjeta de información de la primera semana y visite la Oficina de Servicios para la Población con Impedimentos (SERPI) a la brevedad posible. Se mantendrá la confidencialidad.</p>
+</div>
+<div id="la-integridad-academica" class="section level3">
+<h3>La integridad Academica</h3>
+<p>La Universidad de Puerto Rico promueve los más altos estándares de integridad académica y científica. El Artículo 6.2 del Reglamento General de Estudiantes de la Universidad de Puerto Rico (Certificación Núm. 13, 2009-2010, de la Junta de Síndicos) establece que la deshonestidad académica incluye, pero no se limita a: acciones fraudulentas, la obtención de notas o grados académicos valiéndose de falsas o fraudulentas simulaciones, copiar total o parcialmente la labor académica de otra persona, plagiar total o parcialmente el trabajo de otra persona, copiar total o parcialmente las respuestas de otra persona a las preguntas de un examen, haciendo o consiguiendo que otro tome en su nombre cualquier prueba o examen oral o escrito, así como la ayuda o facilitación para que otra persona incurra en la referida conducta. Cualquiera de estas acciones estará sujeta a sanciones disciplinarias en conformidad con el procedimiento disciplinario establecido en el Reglamento General de Estudiantes de la UPR vigente.</p>
+</div>
+<div id="comentario-sobre-grabar-videos-yo-audio-de-las-clases" class="section level3">
+<h3>Comentario sobre grabar videos y/o audio de las clases</h3>
+<p>Los estudiantes no PUEDEN grabar la clase por forma de video o audio sin el permiso del profesor. Algunos estudiantes con necesidades especiales pueden hablar con el profesor para pedir el permiso. La solicitud y aprobación del permiso tiene que ser por escrito (por ejemplo por email).</p>
 </div>
 <div id="espacio-libre-de-acoso-sexual" class="section level3">
 <h3>Espacio libre de acoso sexual</h3>
-<p>ANALITICA se compromete a promover un espacio positivo y libre de descrimen.</p>
+<p>La Universidad de Puerto Rico prohíbe el descrimen por razón de sexo y género en todas sus modalidades, incluyendo el hostigamiento sexual. Según la Política Institucional contra el hostigamiento sexual, en la Universidad de Puerto Rico, Cert. Núm. 130 (2014-2015) de la Junta de Gobierno, si un(a) estudiante está siendo o fue afectado por conductas relacionadas a hostigamiento sexual, puede acudir ante la Oficina del Procurador Estudiantil, el Decanato de Estudiantes o el Coordinador de Cumplimiento con Título IX para una orientación o presentar una querella.</p>
 </div>
-<div id="protocolo-de-los-talleres" class="section level3">
-<h3>Protocolo de los talleres</h3>
-<p>Recuerda que que se usara computadoras portatiles en cada sesión.</p>
-</div>
-</div>
+<div id="protocolo-de-la-clase" class="section level3">
+<h3>Protocolo de la Clase</h3>
+<p>Los teléfonos celulares serán apagado durante la clase. Si necesita una calculadora traerla al salón. El teléfono no debería esta visible durante la clase al menos que pide permiso al instructor. Recuerda que que se usara computadoras portátiles en cada sesión.</p>
 </div>
 
 
