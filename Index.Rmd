@@ -19,7 +19,7 @@ knitr::opts_chunk$set(echo = TRUE, cache = TRUE)
 
 **Instructor:** Raymond L. Tremblay  
  
-**Website**: 
+**Website**: [Website](https://raymondltremblay.github.io/Lab_Ecol_General/)
 
 
 **Email**: raymondtremblay_at_upr.edu

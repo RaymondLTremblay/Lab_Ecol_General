@@ -1,0 +1,53 @@
+---
+title: "Preparación al laboratorio"
+output:
+  html_document:
+    css: Lab_Ecol_Gen.css
+    fig_caption: yes
+    highlight: pygments
+#  theme: simplex   To have the TOC in Red
+    toc: yes
+    toc_float: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+Fecha de la ultima revisión
+```{r echo=FALSE}
+
+Sys.Date()
+```
+
+## Objective: Preprarar su computadora para poder hacer analisis con R
+
+### Instalar los siguientes programados, vea el documentos incluido.
+
+Necesitará una computadora (laptop; las tablets no funciona).
+**Esto UDs lo tiene que hacerlo antes al primer laboratorio**
+
+### Instalar los siguientes programados
+
+ - R
+ - RStudio
+ - RMarkdown
+
+Vea el siguiente documento para ayudar a la instalación de los programados y una introducción básica
+
+- [Instalar R, Rstudio y Rmarkdown](Documentos/Instalar_R_RStudio.pdf)
+
+Vea tambien los siguiente Youtube video para ayudar a la instalación (Hay mucho más video en Youtube, si no le gusta estos buscan)
+
+- [Video 1](https://www.youtube.com/watch?v=D9Bp11iZssc)
+
+- [Video 2](https://www.youtube.com/watch?v=GI8lmLArDLU)
+
+- [Video 3, RMarkdown](https://www.youtube.com/watch?v=tKUufzpoHDE)
+
+
+
+
+
+
