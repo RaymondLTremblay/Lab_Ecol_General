@@ -8,6 +8,18 @@ navbar:
     - 
       menu: 
         - 
+          href: Escribir_Articulos.html
+          text: "Articulos revisado por pares"
+      text: Modulos
+    - 
+      menu: 
+        - 
+          href: R_RStudio.html
+          text: "Ejercicio R y RStudio"
+      text: Ejercicios
+    - 
+      menu: 
+        - 
           href: Organized_Data.html
           text: Karn_Penrose
       text: "Los Datos"

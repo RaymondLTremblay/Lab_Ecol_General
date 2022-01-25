@@ -1,0 +1,87 @@
+---
+title: "Ejercicio R, RStudio, RMarkdown"
+output:
+  html_document:
+    css: Lab_Ecol_Gen.css
+    fig_caption: yes
+    highlight: pygments
+#  theme: simplex   To have the TOC in Red
+    toc: yes
+    toc_float: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+***
+
+
+Ejercicio de BONO:
+
+
+Los siguientes ejercicio son de bono, pero recomiendo que lo haga, ya que se espera que UDs tenga estas destrazas para hacer los trabajos que se estaran asignado en el laboratorio.
+
+Se cometerá la evidencia en MSTeam
+
+Cada Actividad tendra una puntuación para considerar como bono.
+
+Actividades
+
+Ir al website de DATACAMP.com [DataCamp](https://datacamp.com)
+
+- Registrarse en la pagina
+
+Hay un componente gratis y es lo que ud estarán haciendo
+
+***
+
+## Ejercicios Parte #1
+
+### Intro to basics
+
+1. How it works
+
+2. Arithmetics with R
+
+3. Variable Assignment
+
+4. Variable Assignment(2)
+
+5. Variable Assignment(3)
+
+6. Apple and oranges
+
+7. Basic data types in R
+
+8. Whats that type of data
+
+### Someter evidencia de completo en MSTeam
+
+***
+
+## Ejercicios Parte #2
+
+### Vectors
+
+Haga todos los modulos y somete la evidencia en MSTeam
+
+***
+
+## Ejercicios Parte #3
+
+### Factors
+
+Haga todos los modulos y somete la evidencia en MSTeam
+
+
+***
+
+## Ejercicios Parte #4
+
+### Data frames
+
+Haga todos los modulos y somete la evidencia en MSTeam
+
+
+

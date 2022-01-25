@@ -1,0 +1,110 @@
+---
+title: "Escribir una articulo cientifico"
+author: "RLT"
+date: "1/25/2022"
+output:
+  html_document:
+    css: Lab_Ecol_Gen.css
+    fig_caption: yes
+    highlight: pygments
+#  theme: simplex   To have the TOC in Red
+    toc: yes
+    toc_float: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+
+# La parte 
+## IMRAD
+
+  - Introducción
+  - Metodología
+  - Resultados
+  - Discusión
+  
+  Nota que en adición a esto se incluye un
+  
+  - Lista de autores
+  - Dirección de los autores (Afiliación académica)
+  - Resumen (Abstract)
+  - Referencias
+  - Contribución de cada autor
+  - Acknowledgement 
+  
+  
+1. El primer punto a reconocer es el objetivo de cada sección.
+
+  - Introducción
+  
+      El objetivo es dar una apreciación general de como su investigación/articulo se engloba dentro de lo que se conoce sobre el tema, y llevar el lector a reconocer por que su trabajo es único.  Como dice *Ecarnot et al.* 2015 el lector debería tener ese momento de estar enchulado con sus idea y decir *Por que yo no pensé en esto antes?*.  
+      
+  - Metodología
+  
+     La metodología tiene como objetivo dar los detalles de como se hizo la recolección de información y los análisis. Es sumamente importante que la información para que uno pudiese **replicar** el estudio.   O rehacer exactamente lo que los autores hicieron y aplicarlo a otro sistema.   
+  Un error común es no dar suficiente información sobre los metodos estadísticos, hay que ser explicito en los programados utilizados y las funciones y de suma importancia aclarar que cumplió o no los "supuestos " de las pruebas estadísticas.   No hay prueba estadística que no haya "supuestos", entonces como evaluaron estos supuestos. Muchas veces es suficiente decir en esta sección comentarios como *Los datos cumplieron con supuestos de normalidad y igualdad de varianza*.   En muchas ocasiones no es necesario incluir más información, pero es necesario indicar si evaluaron los supuestos. 
+  
+  
+  
+  
+  
+  - Resultados
+  
+     Los resultados son los datos, tablas, gráficos producidos con la información de sus estudios. En esta sección NO SE INTERPRETA los datos. Se informa sobra los resultados de los análisis.     
+  
+  - Discucción
+  
+    En la discusión se discute los puntos más relevante de los resultados **NO se repite la información en la sección de resultados**.  La discusión debería 
+     
+     - Enfatizar los resultados sobre saliente (positivo y negativo)
+     - El apoyo o no a la hipotesis
+     - Relacionar los resulatos a la literatura
+        - como los resultados se asemeja a la información conocida y porque.
+        
+  Es importante que todo este apoyado con la literatura (referencias) al menos que Uds este avanzando una idea nueva/innovadora.       
+        
+
+***
+
+
+2. El orden de como se escribe el articulo NO sigue **IMRAD**.
+
+El orden en que se construye un documento en su computadora debería seguir el siguiente 
+
+  - Escribir claramente su hipótesis (Esto sera el ultimo parágrafo de la introducción)
+  - Resultados (gráficos y tablas)
+  - Metodología 
+  - Discusión
+  - Introducción 
+  - Resumen
+  
+  Al mismo tiempo siempre se añade las referencias continuamente a medida que uno escribe.
+  
+  Otros puntos
+  
+   - Considera múltiples títulos: Trata de tener un titulo interesante y que describe bien el trabajo. 
+   
+  
+# Presentación 
+
+*Ve la siguiente presentación*
+
+[Presentación](Presentation/Estructurar_revision de_literatura.pdf)
+
+
+
+
+
+## Referencias
+
+Artículos para guiar en escribir su articulo científico: Estos documentos le pueden ayudar a ampliar la información mencionada arriba
+
+
+- [Ecarnot](PDF/Ecarnot_EGM_HowToWrite.pdf)
+- [Mari_Mut](PDF/Mari_Mut.pdf)
+
+
+

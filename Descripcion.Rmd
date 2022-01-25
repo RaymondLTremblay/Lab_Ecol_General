@@ -21,6 +21,8 @@ Fecha de la ultima revisión
 Sys.Date()
 ```
 
+***
+
 ## Objective: Preprarar su computadora para poder hacer analisis con R
 
 ### Instalar los siguientes programados, vea el documentos incluido.
@@ -28,11 +30,15 @@ Sys.Date()
 Necesitará una computadora (laptop; las tablets no funciona).
 **Esto UDs lo tiene que hacerlo antes al primer laboratorio**
 
+
+
 ### Instalar los siguientes programados
 
  - R
  - RStudio
  - RMarkdown
+ 
+ ***
 
 Vea el siguiente documento para ayudar a la instalación de los programados y una introducción básica
 
@@ -45,6 +51,8 @@ Vea tambien los siguiente Youtube video para ayudar a la instalación (Hay mucho
 - [Video 2](https://www.youtube.com/watch?v=GI8lmLArDLU)
 
 - [Video 3, RMarkdown](https://www.youtube.com/watch?v=tKUufzpoHDE)
+
+- [Video 4, RStudio](https://youtu.be/pXd54-vucu0)
 
 
 
