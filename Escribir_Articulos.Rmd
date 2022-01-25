@@ -18,7 +18,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 
 
-# La parte 
+# Las partes principales de un articulo 
 ## IMRAD
 
   - Introducción
@@ -64,7 +64,9 @@ knitr::opts_chunk$set(echo = TRUE)
      - Relacionar los resulatos a la literatura
         - como los resultados se asemeja a la información conocida y porque.
         
-  Es importante que todo este apoyado con la literatura (referencias) al menos que Uds este avanzando una idea nueva/innovadora.       
+  Es importante que todo este apoyado con la literatura (referencias) al menos que Uds este avanzando una idea nueva/innovadora.   
+  
+  
         
 
 ***
@@ -86,8 +88,44 @@ El orden en que se construye un documento en su computadora debería seguir el s
   Otros puntos
   
    - Considera múltiples títulos: Trata de tener un titulo interesante y que describe bien el trabajo. 
-   
   
+ *** 
+  
+## Actividad de como preparar un informe profesional.
+
+
+1. Encuentra el enlace del articulo de **Ecarnot et al. 2015** y descaga el articulo.
+
+Vera que el articulo esta preparado para nuevos investigadores (e.i. Ustedes o con poca experiencia).  El objetivo del articulo es ayudar a organizarse para preparar un informe profesional.  
+
+En el ejercicio de hoy en clase estaremos leyendo el articulo y discutiendo de las sugerencias de los autores.
+
+Secciones de este articulo
+
+- Background
+- Getting started: things to do before you write a word
+- What are the main sections of a scientific article?
+  - The introduction section (Grupo 1)
+  - The method section (Grupo 2)
+  - The result section (Grupo 3)
+  - The discussion section (Grupo 4)
+  - The Abstract (Grupo 5)
+  - The Title (Grupo 6)
+  - The References (Grupo 6)
+
+
+ 
+***
+  
+## Actividad 1
+
+- Todos van a leer la sección "Background"
+- Los subgrupos tendrán una sección a leer y informar al grupo 
+  - Tiempo 20 minutos para leer y preparar lo que van a informar al todos los estudiantes del salón
+  - Cada grupo tendrá de 5 - 8 minutos para informar a la clase.
+ 
+ ***
+ 
 # Presentación 
 
 *Ve la siguiente presentación*
@@ -95,16 +133,26 @@ El orden en que se construye un documento en su computadora debería seguir el s
 [Presentación](Presentation/Estructurar_revision de_literatura.pdf)
 
 
+## Actividad 2
 
+- Presentación de "Estructurar un paper y terminarlo" 
+- En la pestaña "Recursos" del curso busca el enlace de **Presentación**.
+***
 
 
 ## Referencias
 
-Artículos para guiar en escribir su articulo científico: Estos documentos le pueden ayudar a ampliar la información mencionada arriba
+Artículos para guiar en escribir su articulo científico: Estos documentos le ayudarán a ampliar la información mencionada arriba
 
 
 - [Ecarnot](PDF/Ecarnot_EGM_HowToWrite.pdf)
 - [Mari_Mut](PDF/Mari_Mut.pdf)
+
+
+***
+
+  
+
 
 
 
