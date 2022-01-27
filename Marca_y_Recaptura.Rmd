@@ -161,8 +161,8 @@ gt(tribble(~Municipio, ~Nombre, ~Celular,
 
 
 gt(tribble(~Municipio, ~Nombre, ~Celular,
-        "Humacao", "-", "-",
-        "Humacao", "-", "Android"))
+        "Las Piedras", "-", "-",
+        "Las Piedras", "-", "Android"))
 
 
 gt(tribble(~Municipio, ~Nombre, ~Celular,
