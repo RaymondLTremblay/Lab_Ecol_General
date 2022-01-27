@@ -175,7 +175,60 @@ gt(tribble(~Municipio, ~Nombre, ~Celular,
 
 
 ```
-		
-		
 
+
+***		
+
+Lincoln_Petersen Estimator
 		
+Para hacer los calculos usando R vea el siguiente enlace
+
+[Enlace de Clark Rushing](https://rushinglab.github.io/WILD3810/articles/lab1.html)
+
+
+
+***
+
+## Paquete de R para hacer los calculos de Petersen
+
+[recapr](https://cran.r-project.org/web/packages/recapr/recapr.pdf)
+
+
+
+## Ejemplo de usar el paquete **recapr**
+
+A. Instalar el paquete **recapr**
+
+B. Abrir un documento R o RMarkdown
+
+C. Activar el paquete **recapr**
+
+```{r}
+library(recapr)
+```
+
+
+- n1 = El numero de individuos observado la primera vez que se hzo el muestreo
+- n2 = El numero total de individuos observado el segundo muestreo
+- m2 = El numero de individuos recapturados en el segundo muestreo (se habian visto en el primer muestreo)
+
+$$NPetersen(n1, n2, m2)$$
+### Aqui un ejemplo 
+
+ - n1 = 50
+ - n2 = 45
+ - m2 = 15
+ 
+ Cual es el estimado de individuos en la población?
+
+
+```{r}
+NPetersen(150, 45, 15)
+```
+
+### El intervalo de confienza de Lincoln Petersen
+
+```{r}
+ciPetersen(150, 45, 15)
+```
+

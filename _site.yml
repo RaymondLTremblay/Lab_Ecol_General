@@ -10,6 +10,10 @@ navbar:
         - 
           href: Escribir_Articulos.html
           text: "Articulos revisado por pares"
+          
+        -
+          href: Marca_y_Recaptura.html
+          text: "Marca y Recaptura"   
       text: Modulos
     - 
       menu: 
