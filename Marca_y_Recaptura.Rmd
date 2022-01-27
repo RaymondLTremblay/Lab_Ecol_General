@@ -1,0 +1,181 @@
+---
+title: "Marca_y_recaptura"
+aauthor: "RLT"
+date: "1/25/2022"
+output:
+  html_document:
+    css: Lab_Ecol_Gen.css
+    fig_caption: yes
+    highlight: pygments
+#  theme: simplex   To have the TOC in Red
+    toc: yes
+    toc_float: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Marca y Recaptura
+
+Este ejercicio es un metodo de estimar poblaciones, o sea el tamaño de una población cuando 
+
+See the following website for more information,
+
+John Graunt, https://en.wikipedia.org/wiki/John_Graunt. 
+
+is one the first demographer but his career was as a haberdasher
+(seller of sewing materials, such as buttons, zippers, ribbons, etc).
+
+
+The first known ecological example is from C. G. J. Petersen 1896 to estimate the
+population size of fish. *
+Petersen, C. G. J. (1896). “The Yearly Immigration of Young Plaice Into the Limfjord
+From the German
+Sea”, Report of the Danish Biological Station (1895), 6, 5–84.
+
+
+***
+
+
+## Objetivo
+
+
+Determinar cuantos individuos hay en la población
+
+
+
+Hay MUCHOS métodos disponible, pero nosotros vamos a utilizar ese método y uno de los primeros a ser desarrollado.
+
+## Petersen's Method
+
+Presentación de power point sobre la metodología de Petersen 
+
+[Vea el siguiente enlace](Presentation/Mark-recapture_2022.pdf)
+
+
+# El tamaño poblacional de gatos en los cascos urbanos de Puerto Rico
+
+
+Tarea de Mark_Recapture con Gatos
+
+El objetivo de este trabajo es aplicar las ideas de muestro de marca y recaptura y entender su aplicación y sus limites (los supuestos) para estimar el tamaño poblacional de una especie.
+
+El trabajo consiste en 
+
+1.	Entender como se calcula utilizando el método de Peterson
+2.	Calcular el intervalo de confianza
+3.	Entender los supuestos (cuando es apropiado o no utilizar este método).
+
+### Evidencia de de cada gato, identificación de cada uno con photos.
+
+Las fotos se tomarán en un celular Android (app: *GPS map Camera*) o iPHone (app: *GPS Map Camera: Geotag Photos*).  Este aplicación hace que cada foto tendrá una coordinadas en la foto.  
+
+
+
+1.	Se delimitará una ruta de 3km en el casco urbano de un municipio de Puerto Rico.
+2.	Se caminará la ruta un domingo por la mañana entre las 9am y 12pm la ruta, tomando la foto de cada gato que se observa en la ruta.  Se tratará de tomar más de una foto de cada gato para su identificación. (6 de febrero o el 13 de febrero)
+3.	Un mes más tarde se caminará la misma ruta a la misma hora, tomando foto de todos los gatos observado. (6 de marzo o el 13 de marzo).
+4.	SUBIR las fotos de todos los gatos y selfie en el archivo de google de su grupo 
+5.	Ud ahora calculará el tamaño poblacional de gato en su ruta.
+6.	Tener un mapa de la ruta de la calles que caminaron.
+7. Preparar su informe científico
+
+
+
+```{r include=FALSE}
+library(tidyverse)
+library(gt)
+```
+
+
+		
+***	
+
+## Marca y Recaptura: Cuantos Gatos hay en los cascos urbanos de Puerto Rico
+
+El informe se hace por grupo (Los mismos que participaron en el muestreo). 
+
+Recuerda usar la información aprendida en como estructurar su paper en al primer laboratorio. 
+
+Organizar su paper, en el estilo de BIOTROPICA. BUSCA un paper de esta revista 
+
+
+Valor de la actividad: 100 puntos
+
+Debería ser enfocado en el proceso de os siguientes conceptos:
+
+ - de marca y recaptura 
+ - de especies invasivas y 
+ - como los gatos impacta el ambiente ecológico.
+
+### Introducción: 
+  Temas que podría cubrir en su introducción, no es que tiene que cubrir todos, es que tiene que tener un tema en su presentación que tiene una lógica. 
+
+	- PQ es importante poder estimar el tamaño poblacional de especies
+	- Como se estima el tamaño poblacional de especies (un recuento histórico)
+	- Que son especies invasivas (definición, conceptos ecológicos, recuentos históricos)
+	- PQ estudiar los organizamos invasivos/gatos, que impacto tiene los gatos sobre la ecología local en diferentes países.
+	
+	TODO el anterior tiene que relacionarlo a pq es importante estimar el tamaño poblacional de la especies que esta estudiando.  
+
+
+
+### Metodología  
+- Como seleccionaron la ruta, tener un mapa de la ruta (figura x).
+- PQ seleccionaron este método de análisis y su intervalo de confianza. Los supuestos, (no se olvida las referencias). 
+- Como se aseguraron de que un gato x es el mismo gato en el próximo tiempo.
+
+### Resultados
+
+	- Describir los resultados
+
+### Discusión
+
+ - Explicar sus resultados con referencias a la literatura y su introducción. 
+
+
+
+
+### Referencias
+
+- Seguir el método APA o de Vancouver
+
+
+
+***
+
+## Los grupos de Investigaciones
+
+### En grupo de 3-4 estudiantes 
+
+```{r}
+gt(tribble(~Municipio, ~Nombre, ~Celular,
+        "Caguas", "-", "-",
+        "Caguas", "-", "Android"))
+
+
+gt(tribble(~Municipio, ~Nombre, ~Celular,
+        "Fajardo", "-", "-",
+        "Fajardo", "-", "Android"))
+
+
+gt(tribble(~Municipio, ~Nombre, ~Celular,
+        "Humacao", "-", "-",
+        "Humacao", "-", "Android"))
+
+
+gt(tribble(~Municipio, ~Nombre, ~Celular,
+        "San Juan", "-", "-",
+        "San Juan", "-", "Android"))
+
+gt(tribble(~Municipio, ~Nombre, ~Celular,
+        "Juncos", "-", "-",
+        "Juncos", "-", "Android"))
+
+
+```
+		
+		
+
+		
