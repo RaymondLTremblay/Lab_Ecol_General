@@ -67,7 +67,7 @@ El trabajo consiste en
 2.	Calcular el intervalo de confianza
 3.	Entender los supuestos (cuando es apropiado o no utilizar este método).
 
-### Evidencia de de cada gato, identificación de cada uno con photos.
+### Evidencia de cada gato, identificación de cada uno con photos.
 
 Las fotos se tomarán en un celular Android (app: *GPS map Camera*) o iPHone (app: *GPS Map Camera: Geotag Photos*).  Este aplicación hace que cada foto tendrá una coordinadas en la foto.  
 
