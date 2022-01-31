@@ -232,7 +232,7 @@ NPetersen(150, 45, 15)
 ciPetersen(150, 45, 15)
 ```
 
-```{r}
+```{r include=FALSE}
 #install.packages("cranlogs")
 library(cranlogs)
 library(ggplot2)
@@ -247,7 +247,7 @@ geom_line(colour = "red",size=1)
 gr0 + xlab("Time") + ylab("Nr. of downloads") + 
 labs(title = paste0("ggversa daily downloads ", Sys.Date()-1)) 
 ```
-```{r}
+```{r include=FALSE}
 #Cumulative
 cumulative <- cumsum(mls[,2])
 mls2 <- cbind(mls,cumulative)
