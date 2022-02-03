@@ -149,29 +149,48 @@ Debería ser enfocado en el proceso de os siguientes conceptos:
 
 ### En grupo de 3-4 estudiantes 
 
-```{r}
+```{r echo=FALSE}
 gt(tribble(~Municipio, ~Nombre, ~Celular,
-        "Caguas", "-", "-",
-        "Caguas", "-", "Android"))
-
-
-gt(tribble(~Municipio, ~Nombre, ~Celular,
-        "Fajardo", "-", "-",
-        "Fajardo", "-", "Android"))
-
+        "Caguas", "Amanda B. Tirado Soto", "-",
+        "Caguas", "Yanexis González González", "-",
+        "Caguas", "Génesis Gonzalez Gonzalez", "-"))
+```
+***
+```{r echo=FALSE}
 
 gt(tribble(~Municipio, ~Nombre, ~Celular,
-        "Las Piedras", "-", "-",
-        "Las Piedras", "-", "Android"))
-
+        "Fajardo", "Genesis M. Moge Colón", "-",
+        "Fajardo", "Frances N. Alley Figueroa", "-",
+        "Fajardo", "Alejandra Figueroa Tirado", "-",
+        "Fajardo", "Alanis Fernandez Alvarez", "-"))
+```
+***
+```{r echo=FALSE}
 
 gt(tribble(~Municipio, ~Nombre, ~Celular,
-        "San Juan", "-", "-",
-        "San Juan", "-", "Android"))
+        "Las Piedras", "Alejandra Román Garcia", "-",
+        "Las Piedras", "Natasha Sanchez", "-",
+        "Las Piedras", "Jeira K. Paredes Rosa", "-",
+        "Las Piedras", "Yara a. Matinez Figueroa", "-"))
+```
+
+***
+
+```{r echo=FALSE}
 
 gt(tribble(~Municipio, ~Nombre, ~Celular,
-        "Juncos", "-", "-",
-        "Juncos", "-", "Android"))
+        "San Juan", "Carlos A Alejandro Quintero", "-",
+        "San Juan", "Yariel Martorel Quiñones", "-",
+        "San Juan", "Luis A. López", "-",
+        "San Juan", "Edgardo A Diez Maldonado", "-"))
+```
+***
+```{r echo=FALSE}
+
+gt(tribble(~Municipio, ~Nombre, ~Celular,
+        "Juncos", "Gidilka Dipini-Ortiz", "-",
+        "Juncos", "Valeria Gonzalez Colon", "-",
+        "Juncos", "Alan Ocasio Fragoso", "-"))
 
 
 ```

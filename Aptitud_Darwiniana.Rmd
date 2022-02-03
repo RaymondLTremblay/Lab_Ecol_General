@@ -1,0 +1,133 @@
+---
+title: "Aptitud_Darwiniana"
+date: "1/25/2022"
+output:
+  html_document:
+    css: Lab_Ecol_Gen.css
+    fig_caption: yes
+    highlight: pygments
+#  theme: simplex   To have the TOC in Red
+    toc: yes
+    toc_float: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Aptitud Darwiniana. (Darwinian Fitness)
+
+
+En esta sección estaremos evaluando diferentes alternativas para considerar el potencial evolutivo de diferentes especies.
+
+Aquí encontrarán preguntas para ayudar a enfocar el aprendizaje de los conceptos
+
+1. ¿Qué es la evolución?
+2. ¿Qué es la selección natural?
+3. ¿Qué es la deriva genética?
+4. ¿Cual son alternativas para evaluar el potencial evolutivo de plantas y animales en el campo? 
+
+***
+
+## Métodos matemático para medir la adcuación darwiniana:
+    
+[vea este enlace para medirla Adecuación](https://en.wikipedia.org/wiki/Fitness_(biology))
+
+***
+
+La aptitud darwiniana (a menudo denotada con el *w* en los modelos de genética de poblaciones) es la representación cuantitativa de la selección natural y sexual dentro de la biología evolutiva. Puede definirse ya sea con respecto a un **genotipo** o un **fenotipo** en un ambiente dado. En cualquier caso, describe el éxito reproductivo individual y es igual a la contribución promedio al acervo genético de la próxima generación que realizan los individuos del genotipo o fenotipo especificado. La aptitud de un genotipo se manifiesta a través de su fenotipo. La aptitud de un fenotipo dado también puede ser diferente en diferentes entornos selectivos.
+
+
+Con la reproducción asexual, es suficiente asignar aptitudes a los genotipos. Con la reproducción sexual, los genotipos se revuelven cada generación. En este caso, los valores de aptitud se pueden asignar a los alelos promediando los posibles antecedentes genéticos. La selección natural tiende a hacer que los alelos con mayor aptitud sean más comunes con el tiempo, lo que da como resultado la evolución darwiniana.
+
+
+
+El término "aptitud darwiniana" se puede utilizar para aclarar la distinción con la aptitud física. La aptitud no incluye una medida de supervivencia o duración de la vida, pero el resultado de dejar progenie a la proxima generación. La conocida frase de Herbert Spencer "supervivencia del más apto" debe interpretarse como: "Supervivencia de la forma (fenotípica o genotípica) que dejará la mayor cantidad de copias de sí misma en generaciones sucesivas".
+
+
+## Medir la aptitud *relativa* de los individuos:
+
+Los Datos
+
+1. Por lo menos una variable continua (la variable en x, independiende)
+2. Un indice de adecuación *fitness* (número de frutos, tiempo de vida, tamaño de las crias, supervivencia, etc)
+3. Calcular el promedio de *fitness*  de todo los individuos
+4. Dividir el #3 por el promedio (esto sera su *Aptitud Darwiniana relativa*)
+
+Aquí esta los datos
+
+```{r}
+library(readxl)
+library(gt)
+Example_Aptitud_Darwiniana <- read_excel("Example_Aptitud_Darwiniana.xlsx")
+
+gt(head(Example_Aptitud_Darwiniana))  #Usar head() para ver los datos
+
+
+
+```
+
+
+Los scripts para calcular la ultima columna si no la ha calculado anteriormente
+
+
+
+```{r}
+# calcular el promedio del Esfuerzo_Reproductivo
+
+promedio=mean(Example_Aptitud_Darwiniana$Esfuerzo_Reproductivo, na.rm = TRUE)
+promedio   # en promedio cada individuo tiene x numero de Esfurzo reproductive
+
+# AHORA crear una nueva columna con W_Aptitud
+
+Example_Aptitud_Darwiniana$W_Aptitud=Example_Aptitud_Darwiniana$Esfuerzo_Reproductivo/promedio
+
+# vea los datos 
+
+head(Example_Aptitud_Darwiniana)
+
+```
+
+***
+
+## Regresión lineal simple
+
+
+
+```{r}
+library(ggplot2)
+
+ggplot(Example_Aptitud_Darwiniana, aes(Variable_Continua, W_Aptitud))+
+  geom_point() +  # poner los puntos
+  geom_smooth(method=lm) # poner una regresion lineal
+
+```
+### Prueba de si la selección es significativa
+
+```{r}
+model1=lm(W_Aptitud~Variable_Continua, data=Example_Aptitud_Darwiniana)
+summary(model1)
+```
+
+
+***
+
+
+
+## Regresión cuadratura
+  Nota aqui que en geom_smooth se añade el polinomio que uno quiere en este caso *cuadratico*  formula=y~poly(x,2) 
+  
+  
+```{r}
+ggplot(Example_Aptitud_Darwiniana,aes(x=Variable_Continua)) + 
+      geom_point(aes(y = W_Aptitud), shape = 16) +
+      stat_smooth(aes(y = W_Aptitud),method = "lm", formula = y ~ x + I(x^2), size = 1)
+```
+           
+
+
+
+```{r}
+model2=lm(W_Aptitud~Variable_Continua+I(Variable_Continua^2), data=Example_Aptitud_Darwiniana)
+summary(model2)
+```

@@ -1,0 +1,23 @@
+---
+title: "DBH_hipotesis"
+author: "RLT"
+date: "1/30/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(readr)
+Lab_Ecol_Data_2019_Data_DBH <- read_csv("Lab_Ecol_Data_2019 - Data_DBH.csv")
+
+
+dbh=Lab_Ecol_Data_2019_Data_DBH
+```
+
+```{r}
+head(dbh)
+```
+

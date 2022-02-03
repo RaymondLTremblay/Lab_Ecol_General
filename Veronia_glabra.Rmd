@@ -1,0 +1,72 @@
+---
+title: "Veronia"
+author: "RLT"
+date: "3/6/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Subir los datos
+
+```{r}
+library(readr)
+Lab_Ecol_Data_2019_Veronia_glabra <- read_csv("Lab_Ecol_Data_2019 - Veronia_glabra.csv")
+
+head(Lab_Ecol_Data_2019_Veronia_glabra)
+```
+
+
+```{r}
+# calcular el promedio del Esfuerzo_Reproductivo
+
+promedio=mean(Lab_Ecol_Data_2019_Veronia_glabra$Num_Inflorescencia, na.rm = TRUE)
+promedio   # en promedio cada individuo tiene x numero de Esfurzo reproductive
+
+# AHORA crear una nueva columna con W_Aptitud
+
+Lab_Ecol_Data_2019_Veronia_glabra$W_Aptitud=Lab_Ecol_Data_2019_Veronia_glabra$Num_Inflorescencia/promedio
+
+# vea los datos 
+
+head(Lab_Ecol_Data_2019_Veronia_glabra)
+
+```
+
+```{r}
+library(ggplot2)
+
+ggplot(Lab_Ecol_Data_2019_Veronia_glabra, aes(Altura, W_Aptitud))+
+  geom_point() +  # poner los puntos
+  geom_smooth(method=lm) # poner una regresion lineal
+
+```
+
+
+
+```{r}
+library(ggplot2)
+
+ggplot(Lab_Ecol_Data_2019_Veronia_glabra, aes(Ancho_Hoja, W_Aptitud))+
+  geom_point() +  # poner los puntos
+  geom_smooth(method=lm) # poner una regresion lineal
+
+```
+
+Polynomial
+
+
+```{r}
+library(ggplot2)
+
+ggplot(Lab_Ecol_Data_2019_Veronia_glabra, aes(Altura, W_Aptitud))+
+  geom_point() +  # poner los puntos
+  geom_smooth(method=lm)+
+  geom_smooth(method=lm, formula=y~poly(x,2))+
+  geom_smooth(method=lm, formula=y~poly(x,3))# poner una regresion lineal
+
+```
+
+

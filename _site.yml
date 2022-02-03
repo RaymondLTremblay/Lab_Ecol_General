@@ -13,7 +13,11 @@ navbar:
           
         -
           href: Marca_y_Recaptura.html
-          text: "Marca y Recaptura"   
+          text: "Marca y Recaptura"
+          
+        -
+          href: Aptitud_Darwiniana.html
+          text: "Aptitud Darwiniana"
       text: Modulos
     - 
       menu: 
