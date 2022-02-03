@@ -161,23 +161,18 @@ La selección estabilizadora es que hay ventaja evolutiva para los individuos qu
 
 
 ```{r}
-set.seed(5840)  # this makes the example exactly reproducible
-N      <- 150
-x      <- rnorm(N, 20, 5)
-beta   <- 0.4
-errors <- rweibull(N, shape=1.5, scale=1)
-# errors <- -1*errors   # this makes them left skewed
-errors <- errors - factorial(1/1.5)  # this centers the error distribution on 0
-y      <- 1 + x*beta + x*beta^2 + errors
+d<-seq(from=0, to=30, by=0.1)
+y<-500-0.5*(d-10)^2
 
-df3= tibble(x,y)
+variación <- rnorm(length(d), mean=10, sd=5)
+var.y <- y + variación
 
-ggplot(df3, aes(x, y))+
-  geom_smooth(method = lm)+
-  geom_point()+
-  labs(x="La cantidad de hojas", y="La cantidad de semillas")+
-  ggtitle("Selección direccional positiva")
-
+df4=tibble(y, var.y, d)
+df4
+ggplot(df4, aes(d, var.y)) +
+  geom_point(color ="blue", size=2) +
+  stat_smooth(method = "lm", formula = y ~ poly(x,2), 
+              color ="red", se =TRUE, size = 1)
 ```
 
 
@@ -185,6 +180,20 @@ ggplot(df3, aes(x, y))+
 
 La selección disruptiva es que son los individuos más pequeños y más grande que tienen ventaja y no los del centro de la distribución.
 
+```{r}
+d<-seq(from=0, to=30, by=0.1)
+y<-500+0.5*(d-10)^2
+
+variación <- rnorm(length(d), mean=10, sd=10)
+var.y <- y + variación
+
+df4=tibble(y, var.y, d)
+df4
+ggplot(df4, aes(d, var.y)) +
+  geom_point(color ="blue", size=2) +
+  stat_smooth(method = "lm", formula = y ~ poly(x,2), 
+              color ="red", se =TRUE, size = 1)
+```
 
 
 
