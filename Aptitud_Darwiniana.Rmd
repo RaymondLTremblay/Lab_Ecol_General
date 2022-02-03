@@ -23,15 +23,53 @@ En esta sección estaremos evaluando diferentes alternativas para considerar el 
 Aquí encontrarán preguntas para ayudar a enfocar el aprendizaje de los conceptos
 
 1. ¿Qué es la evolución?
+
+ - La evolución es el termino en biología para expresar que los organismos biológicos cambian de genética y morfología en el tiempo.  (La palabra **evolución** no es un sinónimo a selección natural)
+
 2. ¿Qué es la selección natural?
+
+  - La selección natural es uno de dos procesos que llevan a la evolución.  Para que puede ocurre la selleción natural se necesita tres condiciones.
+  
+    - variación morfológica entre individuos 
+    - que la morfología tenga una asociación a la genética (para que sea hereditaria la morfología)
+    - variación en adecuación entre individuos asociado a unos morfotipos (que los individuos dejan diferentes progenies viables)
+
 3. ¿Qué es la deriva genética?
+
+ - la deriva genética también es un proceso que puede llevar a la evolución (cambio a través del tiempo). Al contrario de la selección natural, el cambio no es un resultado de adecuación diferencial pero de procesos al azar.
+     - variación morfológica entre individuos 
+     - que la morfología tenga una asociación a la genética (para que sea hereditaria la morfología)
+ 
+
 4. ¿Cual son alternativas para evaluar el potencial evolutivo de plantas y animales en el campo? 
+
+ - El método de mejor valor para medir la selección natural requiere que uno sigue los padres, los, y sus hijos.  En otra palabra contabilizar la que los individuos de los padres sean también efectivo a dejar progenies. 
+ - Considera un individuo que produce 1000 semillas y ninguna de estas semillas logra ellos reproducirse, por consecuencia los padres su esfuerzo darwiniana es cero, vs. un individuo produce 10 semillas y 10 de esas semillas produce semillas también, ese padre tuvo un impacto grande en dejar sus genes a la próxima generación. 
+ 
+ 
+ 
+ 
+    
 
 ***
 
 ## Métodos matemático para medir la adcuación darwiniana:
     
 [vea este enlace para medirla Adecuación](https://en.wikipedia.org/wiki/Fitness_(biology))
+
+### Adecuación Absoluta
+
+La aptitud absoluta (W) de un fenotipo o genotipo se define como el cambio proporcional en la abundancia de ese fenotipo o genotipo durante una generación atribuible a la selección. Por ejemplo, si $n(t)$ es la abundancia de un genotipo en la generación $t$ en una población **infinitamente grande** (para que no haya deriva genética). 
+
+$$ n(t + 1) = Wn(t)$$
+Una aptitud absoluta mayor que 1 indica crecimiento en la abundancia de ese fenotipo o genotipo; una aptitud absoluta menor que 1 indica disminución. Es el cambio en la abundancia de un fenotipo o genotipo.
+
+
+### Adecuación relativa
+
+La adecuación relativa $w$ determina el cambio en frecuencia de fenotipo o genotipo. Si la población total en la generación $t$ y la el fenoyipo/genotipo tiene una frecuencia de $$p(t)=\frac{n_t}{N_t},$$ 
+
+ entonces la adecuación de un individuo al comarar con los otros fenotipos/genotipos o individuos es $$w_i=\frac{W_i}{\overline{w}}$$
 
 ***
 
@@ -44,6 +82,115 @@ Con la reproducción asexual, es suficiente asignar aptitudes a los genotipos. C
 
 El término "aptitud darwiniana" se puede utilizar para aclarar la distinción con la aptitud física. La aptitud no incluye una medida de supervivencia o duración de la vida, pero el resultado de dejar progenie a la proxima generación. La conocida frase de Herbert Spencer "supervivencia del más apto" debe interpretarse como: "Supervivencia de la forma (fenotípica o genotípica) que dejará la mayor cantidad de copias de sí misma en generaciones sucesivas".
 
+
+***
+
+## Tres modelos de selección natural
+
+Hay tres modelos básicos de selección natural.
+
+- Selección direcional
+
+La selección direcional se refiere que hay una ventaja para los individuos que sean más pequeño o más grande.
+
+
+
+```{r}
+library(car)
+library(MASS)
+library(lmtest)
+library(tseries)
+library(ggfortify)
+
+set.seed(1234)
+
+##Linear Regression
+#Generate the independent variable and the error
+x1=rnorm(100,50,9)
+x2=rnorm(100,200,64)
+error=rnorm(100,0,16)
+#Generate the dependent variable (b0=150, b1=-4, b2=2.5)
+y1=150-(4*x1)+(2.5*x2)+error
+#create the model
+m1=lm(y1~x1+x2)
+summary(m1)
+autoplot(m1)
+
+df=data.frame(y1, x1, x2)
+df
+
+library(tidyverse)
+
+ggplot(df, aes(x1, y1))+
+  geom_smooth(method = lm)+
+  geom_point()
+```
+
+
+```{r}
+set.seed(5840)  # this makes the example exactly reproducible
+N      <- 150
+x      <- rnorm(N, 20, 5)
+beta   <- 0.4
+errors <- rweibull(N, shape=1.5, scale=1)
+# errors <- -1*errors   # this makes them left skewed
+errors <- errors - factorial(1/1.5)  # this centers the error distribution on 0
+y      <- 1 + x*beta + errors
+
+beta2   <- 0.6
+y2     <- 1-x*beta2 - errors
+
+df2=data.frame(x, y)
+df2
+
+ggplot(df2, aes(x, y2))+
+  geom_smooth(method = lm)+
+  geom_point()+
+  labs(x="La cantidad de hojas", y="La cantidad de semillas")+
+  ggtitle("Selección direccional positiva")
+
+```
+
+
+- Selección estabilizadora
+
+La selección estabilizadora es que hay ventaja evolutiva para los individuos que estén en el centro y no los valores más pequeños y más grande.  
+
+
+
+
+
+```{r}
+set.seed(5840)  # this makes the example exactly reproducible
+N      <- 150
+x      <- rnorm(N, 20, 5)
+beta   <- 0.4
+errors <- rweibull(N, shape=1.5, scale=1)
+# errors <- -1*errors   # this makes them left skewed
+errors <- errors - factorial(1/1.5)  # this centers the error distribution on 0
+y      <- 1 + x*beta + x*beta^2 + errors
+
+df3= tibble(x,y)
+
+ggplot(df3, aes(x, y))+
+  geom_smooth(method = lm)+
+  geom_point()+
+  labs(x="La cantidad de hojas", y="La cantidad de semillas")+
+  ggtitle("Selección direccional positiva")
+
+```
+
+
+- Selección disruptiva.
+
+La selección disruptiva es que son los individuos más pequeños y más grande que tienen ventaja y no los del centro de la distribución.
+
+
+
+
+  
+
+***
 
 ## Medir la aptitud *relativa* de los individuos:
 
@@ -131,3 +278,4 @@ ggplot(Example_Aptitud_Darwiniana,aes(x=Variable_Continua)) +
 model2=lm(W_Aptitud~Variable_Continua+I(Variable_Continua^2), data=Example_Aptitud_Darwiniana)
 summary(model2)
 ```
+
