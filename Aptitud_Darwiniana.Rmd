@@ -62,25 +62,23 @@ Aquí encontrarán preguntas para ayudar a enfocar el aprendizaje de los concept
 La aptitud absoluta (W) de un fenotipo o genotipo se define como el cambio proporcional en la abundancia de ese fenotipo o genotipo durante una generación atribuible a la selección. Por ejemplo, si $n(t)$ es la abundancia de un genotipo en la generación $t$ en una población **infinitamente grande** (para que no haya deriva genética). 
 
 $$ n(t + 1) = Wn(t)$$
-Una aptitud absoluta mayor que 1 indica crecimiento en la abundancia de ese fenotipo o genotipo; una aptitud absoluta menor que 1 indica disminución. Es el cambio en la abundancia de un fenotipo o genotipo.
+Una aptitud absoluta mayor de 1 indica crecimiento en la abundancia de ese fenotipo o genotipo; una aptitud absoluta menor que 1 indica disminución. Es el cambio en la **abundancia** de un fenotipo o genotipo.
 
 
 ### Adecuación relativa
 
-La adecuación relativa $w$ determina el cambio en frecuencia de fenotipo o genotipo. Si la población total en la generación $t$ y la el fenoyipo/genotipo tiene una frecuencia de $$p(t)=\frac{n_t}{N_t},$$ 
+La adecuación relativa $w$ determina el cambio en frecuencia de fenotipo o genotipo. Si la población total en la generación $t$ y la el fenotipo/genotipo tiene una frecuencia de $$p(t)=\frac{n_t}{N_t},$$ 
 
- entonces la adecuación de un individuo al comarar con los otros fenotipos/genotipos o individuos es $$w_i=\frac{W_i}{\overline{w}}$$
+ entonces la adecuación de un individuo al comarar con los otros fenotipos/genotipos o individuos es $$w_i=\frac{W_i}{\overline{w}}$$ Nota que 1 es la adecuación promedio de la población, y los valores menor de 1, son menos apto a dejar progenies versus los que tiene un valor mayor de 1 son más apto a dejar progenies. 
 
 ***
+# Aptitud Darwniana
 
 La aptitud darwiniana (a menudo denotada con el *w* en los modelos de genética de poblaciones) es la representación cuantitativa de la selección natural y sexual dentro de la biología evolutiva. Puede definirse ya sea con respecto a un **genotipo** o un **fenotipo** en un ambiente dado. En cualquier caso, describe el éxito reproductivo individual y es igual a la contribución promedio al acervo genético de la próxima generación que realizan los individuos del genotipo o fenotipo especificado. La aptitud de un genotipo se manifiesta a través de su fenotipo. La aptitud de un fenotipo dado también puede ser diferente en diferentes entornos selectivos.
 
+La selección natural tiende a hacer que los alelos/fenotipos con mayor aptitud sean más comunes con el tiempo, lo que da como resultado la evolución darwiniana.
 
-Con la reproducción asexual, es suficiente asignar aptitudes a los genotipos. Con la reproducción sexual, los genotipos se revuelven cada generación. En este caso, los valores de aptitud se pueden asignar a los alelos promediando los posibles antecedentes genéticos. La selección natural tiende a hacer que los alelos con mayor aptitud sean más comunes con el tiempo, lo que da como resultado la evolución darwiniana.
-
-
-
-El término "aptitud darwiniana" se puede utilizar para aclarar la distinción con la aptitud física. La aptitud no incluye una medida de supervivencia o duración de la vida, pero el resultado de dejar progenie a la proxima generación. La conocida frase de Herbert Spencer "supervivencia del más apto" debe interpretarse como: "Supervivencia de la forma (fenotípica o genotípica) que dejará la mayor cantidad de copias de sí misma en generaciones sucesivas".
+El término "aptitud darwiniana" se puede utilizar para aclarar la distinción con la aptitud física. La aptitud no incluye una medida de supervivencia o duración de la vida, pero el resultado de dejar progenie a la próxima generación. La conocida frase de Herbert Spencer "supervivencia del más apto" debe interpretarse como: "Supervivencia de la forma (fenotípica o genotípica) que dejará la mayor cantidad de copias de sí misma en generaciones sucesivas".
 
 
 ***
@@ -89,13 +87,13 @@ El término "aptitud darwiniana" se puede utilizar para aclarar la distinción c
 
 Hay tres modelos básicos de selección natural.
 
-- Selección direcional
+### Selección direcional
 
 La selección direcional se refiere que hay una ventaja para los individuos que sean más pequeño o más grande.
 
 
 
-```{r}
+```{r echo=FALSE, message=FALSE, warning=FALSE}
 library(car)
 library(MASS)
 library(lmtest)
@@ -112,47 +110,47 @@ error=rnorm(100,0,16)
 #Generate the dependent variable (b0=150, b1=-4, b2=2.5)
 y1=150-(4*x1)+(2.5*x2)+error
 #create the model
-m1=lm(y1~x1+x2)
-summary(m1)
-autoplot(m1)
+#m1=lm(y1~x1+x2)
+#summary(m1)
+#autoplot(m1)
 
 df=data.frame(y1, x1, x2)
-df
+#df
 
 library(tidyverse)
 
-ggplot(df, aes(x1, y1))+
+ggplot(df, aes(x2, y1))+
   geom_smooth(method = lm)+
   geom_point()
 ```
 
 
-```{r}
+```{r echo=FALSE, message=FALSE, warning=FALSE}
 set.seed(5840)  # this makes the example exactly reproducible
 N      <- 150
-x      <- rnorm(N, 20, 5)
+k      <- rnorm(N, 20, 5)
 beta   <- 0.4
 errors <- rweibull(N, shape=1.5, scale=1)
 # errors <- -1*errors   # this makes them left skewed
 errors <- errors - factorial(1/1.5)  # this centers the error distribution on 0
-y      <- 1 + x*beta + errors
+h      <- 1 + k*beta + errors
 
 beta2   <- 0.6
-y2     <- 1-x*beta2 - errors
+h2     <- 1-k*beta2 - errors
 
-df2=data.frame(x, y)
-df2
+df2=data.frame(k, h)
+#df2
 
-ggplot(df2, aes(x, y2))+
+ggplot(df2, aes(h, k))+
   geom_smooth(method = lm)+
   geom_point()+
   labs(x="La cantidad de hojas", y="La cantidad de semillas")+
-  ggtitle("Selección direccional positiva")
+  ggtitle("Selección direccional negativa")
 
 ```
 
 
-- Selección estabilizadora
+### Selección estabilizadora
 
 La selección estabilizadora es que hay ventaja evolutiva para los individuos que estén en el centro y no los valores más pequeños y más grande.  
 
@@ -160,36 +158,36 @@ La selección estabilizadora es que hay ventaja evolutiva para los individuos qu
 
 
 
-```{r}
+```{r echo=FALSE, message=FALSE, warning=FALSE}
 d<-seq(from=0, to=30, by=0.1)
-y<-500-0.5*(d-10)^2
+w<-500-0.5*(d-10)^2
 
 variación <- rnorm(length(d), mean=10, sd=5)
-var.y <- y + variación
+var.w <- w + variación
 
-df4=tibble(y, var.y, d)
-df4
-ggplot(df4, aes(d, var.y)) +
+df4=tibble(w, var.w, d)
+#df4
+ggplot(df4, aes(d, var.w)) +
   geom_point(color ="blue", size=2) +
   stat_smooth(method = "lm", formula = y ~ poly(x,2), 
               color ="red", se =TRUE, size = 1)
 ```
 
 
-- Selección disruptiva.
+### Selección disruptiva.
 
 La selección disruptiva es que son los individuos más pequeños y más grande que tienen ventaja y no los del centro de la distribución.
 
-```{r}
+```{r echo=FALSE, message=FALSE, warning=FALSE}
 d<-seq(from=0, to=30, by=0.1)
 y<-500+0.5*(d-10)^2
 
 variación <- rnorm(length(d), mean=10, sd=10)
 var.y <- y + variación
 
-df4=tibble(y, var.y, d)
-df4
-ggplot(df4, aes(d, var.y)) +
+df5=tibble(y, var.y, d)
+#df4
+ggplot(df5, aes(d, var.y)) +
   geom_point(color ="blue", size=2) +
   stat_smooth(method = "lm", formula = y ~ poly(x,2), 
               color ="red", se =TRUE, size = 1)
@@ -208,7 +206,7 @@ Los Datos
 1. Por lo menos una variable continua (la variable en x, independiende)
 2. Un indice de adecuación *fitness* (número de frutos, tiempo de vida, tamaño de las crias, supervivencia, etc)
 3. Calcular el promedio de *fitness*  de todo los individuos
-4. Dividir el #3 por el promedio (esto sera su *Aptitud Darwiniana relativa*)
+4. Dividir el indice de adecuación $W_i$ individual por el promedio $\overline{w}$ (esto sera su *Aptitud Darwiniana relativa*) de cada individuo. 
 
 Aquí esta los datos
 
@@ -223,7 +221,28 @@ gt(head(Example_Aptitud_Darwiniana))  #Usar head() para ver los datos
 
 ```
 
+Poner los datos en una tabla en R
 
+```{r}
+library(tidyverse)
+datos=tribble(
+  ~ variable_continua, ~ Esfuerzo_Reproductivo,
+  1.1, 10,
+  2.0, 8,
+  3.3, 5,
+  1.6, 12,
+  2.3, 4,
+  1.9, 11
+)
+
+datos
+
+```
+
+
+
+
+Abajo los script para calcular los 
 Los scripts para calcular la ultima columna si no la ha calculado anteriormente
 
 
@@ -248,6 +267,7 @@ head(Example_Aptitud_Darwiniana)
 
 ## Regresión lineal simple
 
+### Evaluar la relación de forma virtual
 
 
 ```{r}
@@ -258,7 +278,15 @@ ggplot(Example_Aptitud_Darwiniana, aes(Variable_Continua, W_Aptitud))+
   geom_smooth(method=lm) # poner una regresion lineal
 
 ```
-### Prueba de si la selección es significativa
+### Probar de si hay selección para la variable continua
+
+Vea la siguiente linea 
+
+Coefficients:
+                  Estimate Std. Error t value Pr(>|t|) 
+*Variable_Continua  -0.3864     0.1800  -2.147  0.09832*.
+
+Si el valor de p (Pr(>|t|)) es < 0.05 hay selección por la variable, en este caso NO hay selección pq el valor es mayor de 0.05.  
 
 ```{r}
 model1=lm(W_Aptitud~Variable_Continua, data=Example_Aptitud_Darwiniana)
@@ -276,11 +304,11 @@ summary(model1)
   
 ```{r}
 ggplot(Example_Aptitud_Darwiniana,aes(x=Variable_Continua)) + 
-      geom_point(aes(y = W_Aptitud), shape = 16) +
-      stat_smooth(aes(y = W_Aptitud),method = "lm", formula = y ~ x + I(x^2), size = 1)
+      geom_point(aes(y = W_Aptitud)) +
+      stat_smooth(aes(y = W_Aptitud),method = "lm", formula = y ~ x + I(x^2))
 ```
            
-
+### La prueba estadística para determinar si hay selección disruptiva o estabilizadora. 
 
 
 ```{r}

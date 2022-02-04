@@ -509,432 +509,42 @@ div.tocify {
 <div id="adecuación-absoluta" class="section level3">
 <h3>Adecuación Absoluta</h3>
 <p>La aptitud absoluta (W) de un fenotipo o genotipo se define como el cambio proporcional en la abundancia de ese fenotipo o genotipo durante una generación atribuible a la selección. Por ejemplo, si <span class="math inline">\(n(t)\)</span> es la abundancia de un genotipo en la generación <span class="math inline">\(t\)</span> en una población <strong>infinitamente grande</strong> (para que no haya deriva genética).</p>
-<p><span class="math display">\[ n(t + 1) = Wn(t)\]</span> Una aptitud absoluta mayor que 1 indica crecimiento en la abundancia de ese fenotipo o genotipo; una aptitud absoluta menor que 1 indica disminución. Es el cambio en la abundancia de un fenotipo o genotipo.</p>
+<p><span class="math display">\[ n(t + 1) = Wn(t)\]</span> Una aptitud absoluta mayor de 1 indica crecimiento en la abundancia de ese fenotipo o genotipo; una aptitud absoluta menor que 1 indica disminución. Es el cambio en la <strong>abundancia</strong> de un fenotipo o genotipo.</p>
 </div>
 <div id="adecuación-relativa" class="section level3">
 <h3>Adecuación relativa</h3>
-<p>La adecuación relativa <span class="math inline">\(w\)</span> determina el cambio en frecuencia de fenotipo o genotipo. Si la población total en la generación <span class="math inline">\(t\)</span> y la el fenoyipo/genotipo tiene una frecuencia de <span class="math display">\[p(t)=\frac{n_t}{N_t},\]</span></p>
-<p>entonces la adecuación de un individuo al comarar con los otros fenotipos/genotipos o individuos es <span class="math display">\[w_i=\frac{W_i}{\overline{w}}\]</span></p>
+<p>La adecuación relativa <span class="math inline">\(w\)</span> determina el cambio en frecuencia de fenotipo o genotipo. Si la población total en la generación <span class="math inline">\(t\)</span> y la el fenotipo/genotipo tiene una frecuencia de <span class="math display">\[p(t)=\frac{n_t}{N_t},\]</span></p>
+<p>entonces la adecuación de un individuo al comarar con los otros fenotipos/genotipos o individuos es <span class="math display">\[w_i=\frac{W_i}{\overline{w}}\]</span> Nota que 1 es la adecuación promedio de la población, y los valores menor de 1, son menos apto a dejar progenies versus los que tiene un valor mayor de 1 son más apto a dejar progenies.</p>
 <hr />
+</div>
+</div>
+</div>
+<div id="aptitud-darwniana" class="section level1">
+<h1>Aptitud Darwniana</h1>
 <p>La aptitud darwiniana (a menudo denotada con el <em>w</em> en los modelos de genética de poblaciones) es la representación cuantitativa de la selección natural y sexual dentro de la biología evolutiva. Puede definirse ya sea con respecto a un <strong>genotipo</strong> o un <strong>fenotipo</strong> en un ambiente dado. En cualquier caso, describe el éxito reproductivo individual y es igual a la contribución promedio al acervo genético de la próxima generación que realizan los individuos del genotipo o fenotipo especificado. La aptitud de un genotipo se manifiesta a través de su fenotipo. La aptitud de un fenotipo dado también puede ser diferente en diferentes entornos selectivos.</p>
-<p>Con la reproducción asexual, es suficiente asignar aptitudes a los genotipos. Con la reproducción sexual, los genotipos se revuelven cada generación. En este caso, los valores de aptitud se pueden asignar a los alelos promediando los posibles antecedentes genéticos. La selección natural tiende a hacer que los alelos con mayor aptitud sean más comunes con el tiempo, lo que da como resultado la evolución darwiniana.</p>
-<p>El término “aptitud darwiniana” se puede utilizar para aclarar la distinción con la aptitud física. La aptitud no incluye una medida de supervivencia o duración de la vida, pero el resultado de dejar progenie a la proxima generación. La conocida frase de Herbert Spencer “supervivencia del más apto” debe interpretarse como: “Supervivencia de la forma (fenotípica o genotípica) que dejará la mayor cantidad de copias de sí misma en generaciones sucesivas”.</p>
+<p>La selección natural tiende a hacer que los alelos/fenotipos con mayor aptitud sean más comunes con el tiempo, lo que da como resultado la evolución darwiniana.</p>
+<p>El término “aptitud darwiniana” se puede utilizar para aclarar la distinción con la aptitud física. La aptitud no incluye una medida de supervivencia o duración de la vida, pero el resultado de dejar progenie a la próxima generación. La conocida frase de Herbert Spencer “supervivencia del más apto” debe interpretarse como: “Supervivencia de la forma (fenotípica o genotípica) que dejará la mayor cantidad de copias de sí misma en generaciones sucesivas”.</p>
 <hr />
-</div>
-</div>
 <div id="tres-modelos-de-selección-natural" class="section level2">
 <h2>Tres modelos de selección natural</h2>
 <p>Hay tres modelos básicos de selección natural.</p>
-<ul>
-<li>Selección direcional</li>
-</ul>
+<div id="selección-direcional" class="section level3">
+<h3>Selección direcional</h3>
 <p>La selección direcional se refiere que hay una ventaja para los individuos que sean más pequeño o más grande.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(car)</span></code></pre></div>
-<pre><code>## Loading required package: carData</code></pre>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(MASS)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lmtest)</span></code></pre></div>
-<pre><code>## Loading required package: zoo</code></pre>
-<pre><code>## 
-## Attaching package: &#39;zoo&#39;</code></pre>
-<pre><code>## The following objects are masked from &#39;package:base&#39;:
-## 
-##     as.Date, as.Date.numeric</code></pre>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tseries)</span></code></pre></div>
-<pre><code>## Registered S3 method overwritten by &#39;quantmod&#39;:
-##   method            from
-##   as.zoo.data.frame zoo</code></pre>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggfortify)</span></code></pre></div>
-<pre><code>## Loading required package: ggplot2</code></pre>
-<pre><code>## Warning in register(): Can&#39;t find generic `scale_type` in package ggplot2 to
-## register S3 method.</code></pre>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1234</span>)</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="do">##Linear Regression</span></span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="co">#Generate the independent variable and the error</span></span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>x1<span class="ot">=</span><span class="fu">rnorm</span>(<span class="dv">100</span>,<span class="dv">50</span>,<span class="dv">9</span>)</span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>x2<span class="ot">=</span><span class="fu">rnorm</span>(<span class="dv">100</span>,<span class="dv">200</span>,<span class="dv">64</span>)</span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>error<span class="ot">=</span><span class="fu">rnorm</span>(<span class="dv">100</span>,<span class="dv">0</span>,<span class="dv">16</span>)</span>
-<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="co">#Generate the dependent variable (b0=150, b1=-4, b2=2.5)</span></span>
-<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>y1<span class="ot">=</span><span class="dv">150</span><span class="sc">-</span>(<span class="dv">4</span><span class="sc">*</span>x1)<span class="sc">+</span>(<span class="fl">2.5</span><span class="sc">*</span>x2)<span class="sc">+</span>error</span>
-<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a><span class="co">#create the model</span></span>
-<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>m1<span class="ot">=</span><span class="fu">lm</span>(y1<span class="sc">~</span>x1<span class="sc">+</span>x2)</span>
-<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m1)</span></code></pre></div>
-<pre><code>## 
-## Call:
-## lm(formula = y1 ~ x1 + x2)
-## 
-## Residuals:
-##     Min      1Q  Median      3Q     Max 
-## -51.093 -10.774   1.696   9.317  44.241 
-## 
-## Coefficients:
-##              Estimate Std. Error t value Pr(&gt;|t|)    
-## (Intercept) 141.04453    9.80621   14.38   &lt;2e-16 ***
-## x1           -3.85686    0.17125  -22.52   &lt;2e-16 ***
-## x2            2.52208    0.02343  107.63   &lt;2e-16 ***
-## ---
-## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
-## 
-## Residual standard error: 15.4 on 97 degrees of freedom
-## Multiple R-squared:  0.9921, Adjusted R-squared:  0.992 
-## F-statistic:  6111 on 2 and 97 DF,  p-value: &lt; 2.2e-16</code></pre>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">autoplot</span>(m1)</span></code></pre></div>
 <p><img src="Aptitud_Darwiniana_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>df<span class="ot">=</span><span class="fu">data.frame</span>(y1, x1, x2)</span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>df</span></code></pre></div>
-<pre><code>##             y1       x1        x2
-## 1   567.541762 39.13641 226.52951
-## 2   375.205892 52.49686 169.61802
-## 3   424.487299 59.75997 204.22358
-## 4   465.260408 28.88872 167.84142
-## 5   307.378634 53.86212 147.13609
-## 6   470.667670 54.55450 210.68731
-## 7   356.767716 44.82734 142.63906
-## 8   514.386214 45.08031 210.76386
-## 9   527.637817 44.91993 222.71797
-## 10  455.873360 41.98966 196.66527
-## 11  442.518323 45.70527 187.46018
-## 12  375.686988 41.01452 158.45954
-## 13  324.278273 43.01371 128.97490
-## 14  557.850060 50.58013 254.35355
-## 15  412.384189 58.63545 201.43120
-## 16  593.704911 49.00743 253.19300
-## 17  266.882501 45.40091 120.36558
-## 18  500.148843 41.79924 210.81769
-## 19  582.969252 42.46545 243.08264
-## 20  368.898291 71.74252 198.31831
-## 21  428.872829 51.20679 187.75090
-## 22  353.123031 45.58383 149.95797
-## 23  831.541378 46.03507 331.72237
-## 24  572.310974 54.13630 248.03209
-## 25  771.450613 43.75652 316.74933
-## 26  504.388598 36.96616 205.12382
-## 27  374.989548 55.17280 159.58980
-## 28  255.564155 40.78710 103.14956
-## 29  337.819880 49.86376 159.28961
-## 30  522.886268 41.57646 214.48330
-## 31  567.317451 59.92068 264.87618
-## 32  503.166105 45.71966 216.17601
-## 33  273.092058 43.61504 124.99531
-## 34  576.909108 45.48868 242.79772
-## 35  249.737779 35.33816  94.39354
-## 36  416.257260 39.49143 176.58546
-## 37  426.172061 30.37964 179.76843
-## 38  182.478393 37.93106  75.31225
-## 39  608.276068 47.35136 258.88368
-## 40  376.621237 45.80692 160.13622
-## 41  345.318433 63.04547 178.62165
-## 42  718.309183 40.38222 289.28947
-## 43  565.096678 42.30172 240.74716
-## 44  454.132161 47.47439 193.06037
-## 45  579.500507 41.05094 232.88082
-## 46  552.776422 41.28337 225.55340
-## 47  777.636878 40.03414 306.42281
-## 48  545.685932 38.73213 217.65718
-## 49  554.091260 45.28555 232.40145
-## 50  527.783617 45.52835 222.24333
-## 51  461.649991 33.74572 175.85679
-## 52  503.535830 44.76132 206.24765
-## 53  759.354216 40.01999 304.87966
-## 54  357.055014 40.86534 143.96208
-## 55  457.142766 48.53921 207.79264
-## 56  641.742936 55.06750 287.17636
-## 57  376.770711 64.83036 184.98425
-## 58  289.717014 43.03982 132.58350
-## 59  257.150971 64.45319 144.33385
-## 60  435.740828 39.57972 175.03187
-## 61  306.399657 55.90930 145.76960
-## 62  310.951991 72.94092 183.31908
-## 63  387.482228 49.68716 173.47714
-## 64  416.606600 43.97330 188.28475
-## 65  520.820284 49.93156 226.05159
-## 66  475.301220 65.99376 239.97652
-## 67  755.684452 39.75253 307.40517
-## 68  370.762992 62.31044 195.60361
-## 69  356.960247 61.96608 179.46625
-## 70  683.913166 53.02826 294.14437
-## 71  717.570739 50.06204 309.07708
-## 72  502.516098 45.90078 202.76762
-## 73  420.698640 46.70128 178.70993
-## 74  150.282138 55.83458  83.37693
-## 75  634.062681 68.63244 290.32079
-## 76  311.091336 48.61941 146.39472
-## 77  333.201095 37.48369 128.07918
-## 78  978.836776 43.48776 394.80102
-## 79  478.207253 52.32436 215.04136
-## 80  461.197588 47.14647 197.87145
-## 81    3.056164 48.39989  25.13795
-## 82  447.675973 48.47005 193.61340
-## 83  644.352420 37.64928 262.46603
-## 84  535.494290 48.43592 226.48761
-## 85  552.380292 57.65209 258.38862
-## 86  747.393598 56.27848 326.95886
-## 87  603.713095 54.94998 274.82294
-## 88  379.168218 46.37541 167.44083
-## 89  544.720460 48.27566 245.06753
-## 90  463.311344 39.24925 187.30136
-## 91  381.589485 49.52157 165.56347
-## 92  -13.176480 52.29676  17.23145
-## 93  233.982132 65.35368 149.46260
-## 94  482.067325 59.01362 231.22014
-## 95  841.222899 45.53975 338.75408
-## 96  546.268214 53.19995 232.04446
-## 97  571.278934 39.78853 239.69345
-## 98  257.972904 57.90383 138.18219
-## 99  446.657757 58.75625 210.40990
-## 100  46.228277 69.09005  66.99280</code></pre>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
-<pre><code>## ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.1 ──</code></pre>
-<pre><code>## ✓ tibble  3.1.6     ✓ dplyr   1.0.7
-## ✓ tidyr   1.1.4     ✓ stringr 1.4.0
-## ✓ readr   2.1.1     ✓ forcats 0.5.1
-## ✓ purrr   0.3.4</code></pre>
-<pre><code>## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-## x dplyr::filter() masks stats::filter()
-## x dplyr::lag()    masks stats::lag()
-## x dplyr::recode() masks car::recode()
-## x dplyr::select() masks MASS::select()
-## x purrr::some()   masks car::some()</code></pre>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(x1, y1))<span class="sc">+</span></span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> lm)<span class="sc">+</span></span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
-<pre><code>## `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
-<p><img src="Aptitud_Darwiniana_files/figure-html/unnamed-chunk-1-2.png" width="672" /></p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">5840</span>)  <span class="co"># this makes the example exactly reproducible</span></span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>N      <span class="ot">&lt;-</span> <span class="dv">150</span></span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>x      <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(N, <span class="dv">20</span>, <span class="dv">5</span>)</span>
-<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>beta   <span class="ot">&lt;-</span> <span class="fl">0.4</span></span>
-<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>errors <span class="ot">&lt;-</span> <span class="fu">rweibull</span>(N, <span class="at">shape=</span><span class="fl">1.5</span>, <span class="at">scale=</span><span class="dv">1</span>)</span>
-<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a><span class="co"># errors &lt;- -1*errors   # this makes them left skewed</span></span>
-<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>errors <span class="ot">&lt;-</span> errors <span class="sc">-</span> <span class="fu">factorial</span>(<span class="dv">1</span><span class="sc">/</span><span class="fl">1.5</span>)  <span class="co"># this centers the error distribution on 0</span></span>
-<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>y      <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">+</span> x<span class="sc">*</span>beta <span class="sc">+</span> errors</span>
-<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>beta2   <span class="ot">&lt;-</span> <span class="fl">0.6</span></span>
-<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a>y2     <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">-</span>x<span class="sc">*</span>beta2 <span class="sc">-</span> errors</span>
-<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a>df2<span class="ot">=</span><span class="fu">data.frame</span>(x, y)</span>
-<span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a>df2</span></code></pre></div>
-<pre><code>##             x         y
-## 1   21.866978  9.591435
-## 2   27.094235 13.323471
-## 3   31.981610 13.780202
-## 4   16.189315  7.628968
-## 5   22.079043 10.028636
-## 6   16.292818  7.114640
-## 7   16.655192  7.057897
-## 8   22.795600  9.517514
-## 9   23.223563 10.971182
-## 10  17.726311  7.270971
-## 11  17.796875  7.332958
-## 12  24.967607 11.231952
-## 13  30.439854 13.112156
-## 14  17.678885  7.672976
-## 15  14.692302  7.575166
-## 16  21.499981  8.959173
-## 17  18.214898  7.764306
-## 18  18.208094  9.527614
-## 19  26.899104 11.205258
-## 20  19.830202  8.865212
-## 21  16.588278  7.129879
-## 22  24.063395  9.853789
-## 23  23.772993 11.009951
-## 24  15.930416  6.754298
-## 25  18.384290  8.115677
-## 26  22.022721  9.861504
-## 27  13.866863  5.842808
-## 28  21.237129  8.930897
-## 29  23.622973 10.563388
-## 30  18.439531  9.192831
-## 31  25.224749 11.236570
-## 32  29.742788 12.992647
-## 33  18.940799  8.241872
-## 34  13.900544  6.074421
-## 35  17.983253  8.522967
-## 36  23.945276 10.007790
-## 37  23.973029 11.091753
-## 38  18.729432  8.599183
-## 39  17.028648  8.231176
-## 40  17.358281  7.277745
-## 41  24.059666 10.189434
-## 42  18.952807  8.377760
-## 43  33.172466 14.938216
-## 44  16.260137  6.852213
-## 45  20.396596  9.426760
-## 46  18.382213  8.384504
-## 47  27.251193 11.673069
-## 48  22.445938 10.718480
-## 49  21.958728 10.557035
-## 50  18.634305  8.199372
-## 51  23.232379  9.961942
-## 52  22.371138  9.589149
-## 53  25.419501 11.372107
-## 54  24.735142 10.513754
-## 55  21.759826  9.106168
-## 56   6.264113  4.069788
-## 57  21.384233  9.155639
-## 58  20.448701  9.122904
-## 59  22.874725 10.237320
-## 60  19.103062  8.248149
-## 61  26.145770 12.331008
-## 62  15.747628  6.563184
-## 63  31.296569 14.005416
-## 64  23.343261 10.252044
-## 65  22.340745 10.225614
-## 66  14.419058  6.678690
-## 67  20.110571 10.553669
-## 68  13.097140  5.957947
-## 69  14.694852  7.222555
-## 70  15.702982  7.600456
-## 71  21.599109 10.061438
-## 72  25.153084 11.336331
-## 73  20.449334  9.417791
-## 74  22.595374  9.777466
-## 75  17.528613  7.702926
-## 76  21.373989  8.760797
-## 77  18.700505  8.111845
-## 78  22.894845 10.560292
-## 79  22.196930  9.944152
-## 80  30.301288 12.955555
-## 81  26.324444 10.870947
-## 82  23.638568 10.301191
-## 83  10.588805  5.248796
-## 84  16.083107  7.890559
-## 85  27.835567 12.797618
-## 86  20.305861  8.432361
-## 87  26.772529 11.168645
-## 88  19.675625  9.405956
-## 89  12.873409  6.084035
-## 90  22.798909 11.041899
-## 91  21.668803 10.310890
-## 92  18.695044  8.117481
-## 93  18.635134  8.550302
-## 94  21.479629  9.004643
-## 95  16.282543  8.850746
-## 96  25.333330 10.469465
-## 97  15.990083  7.364655
-## 98  21.422321 10.084396
-## 99  26.953413 11.047781
-## 100 16.937718  7.647082
-## 101 22.225562  9.097735
-## 102 19.070870  8.344450
-## 103 16.644553  7.312176
-## 104 13.357603  7.234762
-## 105 15.554106  6.604490
-## 106 25.727845 11.250723
-## 107  8.246929  3.869023
-## 108 19.033748  9.994073
-## 109 20.060210  9.191769
-## 110 22.970728 10.401342
-## 111 22.831697  9.711884
-## 112 24.308548 11.415572
-## 113 16.093297  8.475430
-## 114 25.535755 10.841589
-## 115 13.697168  5.814198
-## 116 12.765631  5.692989
-## 117 18.944732  8.853704
-## 118  9.227930  4.217923
-## 119 21.366752  9.515390
-## 120 20.626158  8.470811
-## 121 20.258978  8.882043
-## 122 18.208514  9.065163
-## 123 23.828595 11.316074
-## 124 18.727598  8.178430
-## 125 17.463846  9.200999
-## 126 11.623220  5.248936
-## 127 10.225438  4.830989
-## 128 21.627937  9.361412
-## 129 24.021623  9.852439
-## 130 19.131495  7.961237
-## 131 17.844897  7.879584
-## 132 20.196625  8.649087
-## 133 19.832480 10.006186
-## 134 22.015225 10.145470
-## 135 18.448352  8.076130
-## 136 14.093224  6.923625
-## 137 15.185838  8.014607
-## 138 19.654641  8.510791
-## 139 23.039086 10.088697
-## 140 26.083249 12.394538
-## 141 14.515413  6.765836
-## 142 23.299892 10.132260
-## 143 17.083100  8.186108
-## 144 13.685939  5.822987
-## 145 16.058873  7.599441
-## 146 18.755699  8.654566
-## 147 21.388413  9.272690
-## 148 24.817775 10.704747
-## 149 20.354113 11.036277
-## 150 18.469402  9.998424</code></pre>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df2, <span class="fu">aes</span>(x, y2))<span class="sc">+</span></span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> lm)<span class="sc">+</span></span>
-<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()<span class="sc">+</span></span>
-<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">&quot;La cantidad de hojas&quot;</span>, <span class="at">y=</span><span class="st">&quot;La cantidad de semillas&quot;</span>)<span class="sc">+</span></span>
-<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;Selección direccional positiva&quot;</span>)</span></code></pre></div>
-<pre><code>## `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
 <p><img src="Aptitud_Darwiniana_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
-<ul>
-<li>Selección estabilizadora</li>
-</ul>
+</div>
+<div id="selección-estabilizadora" class="section level3">
+<h3>Selección estabilizadora</h3>
 <p>La selección estabilizadora es que hay ventaja evolutiva para los individuos que estén en el centro y no los valores más pequeños y más grande.</p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>d<span class="ot">&lt;-</span><span class="fu">seq</span>(<span class="at">from=</span><span class="dv">0</span>, <span class="at">to=</span><span class="dv">30</span>, <span class="at">by=</span><span class="fl">0.1</span>)</span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>y<span class="ot">&lt;-</span><span class="dv">500</span><span class="fl">-0.5</span><span class="sc">*</span>(d<span class="dv">-10</span>)<span class="sc">^</span><span class="dv">2</span></span>
-<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>variación <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="fu">length</span>(d), <span class="at">mean=</span><span class="dv">10</span>, <span class="at">sd=</span><span class="dv">5</span>)</span>
-<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>var.y <span class="ot">&lt;-</span> y <span class="sc">+</span> variación</span>
-<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>df4<span class="ot">=</span><span class="fu">tibble</span>(y, var.y, d)</span>
-<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>df4</span></code></pre></div>
-<pre><code>## # A tibble: 301 × 3
-##        y var.y     d
-##    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
-##  1  450   465.   0  
-##  2  451.  455.   0.1
-##  3  452.  462.   0.2
-##  4  453.  465.   0.3
-##  5  454.  464.   0.4
-##  6  455.  459.   0.5
-##  7  456.  459.   0.6
-##  8  457.  463.   0.7
-##  9  458.  456.   0.8
-## 10  459.  471.   0.9
-## # … with 291 more rows</code></pre>
-<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df4, <span class="fu">aes</span>(d, var.y)) <span class="sc">+</span></span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">color =</span><span class="st">&quot;blue&quot;</span>, <span class="at">size=</span><span class="dv">2</span>) <span class="sc">+</span></span>
-<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_smooth</span>(<span class="at">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="at">formula =</span> y <span class="sc">~</span> <span class="fu">poly</span>(x,<span class="dv">2</span>), </span>
-<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>              <span class="at">color =</span><span class="st">&quot;red&quot;</span>, <span class="at">se =</span><span class="cn">TRUE</span>, <span class="at">size =</span> <span class="dv">1</span>)</span></code></pre></div>
 <p><img src="Aptitud_Darwiniana_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
-<ul>
-<li>Selección disruptiva.</li>
-</ul>
+</div>
+<div id="selección-disruptiva." class="section level3">
+<h3>Selección disruptiva.</h3>
 <p>La selección disruptiva es que son los individuos más pequeños y más grande que tienen ventaja y no los del centro de la distribución.</p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>d<span class="ot">&lt;-</span><span class="fu">seq</span>(<span class="at">from=</span><span class="dv">0</span>, <span class="at">to=</span><span class="dv">30</span>, <span class="at">by=</span><span class="fl">0.1</span>)</span>
-<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>y<span class="ot">&lt;-</span><span class="dv">500</span><span class="fl">+0.5</span><span class="sc">*</span>(d<span class="dv">-10</span>)<span class="sc">^</span><span class="dv">2</span></span>
-<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>variación <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="fu">length</span>(d), <span class="at">mean=</span><span class="dv">10</span>, <span class="at">sd=</span><span class="dv">10</span>)</span>
-<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>var.y <span class="ot">&lt;-</span> y <span class="sc">+</span> variación</span>
-<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a>df4<span class="ot">=</span><span class="fu">tibble</span>(y, var.y, d)</span>
-<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a>df4</span></code></pre></div>
-<pre><code>## # A tibble: 301 × 3
-##        y var.y     d
-##    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
-##  1  550   584.   0  
-##  2  549.  545.   0.1
-##  3  548.  552.   0.2
-##  4  547.  553.   0.3
-##  5  546.  554.   0.4
-##  6  545.  557.   0.5
-##  7  544.  583.   0.6
-##  8  543.  543.   0.7
-##  9  542.  532.   0.8
-## 10  541.  538.   0.9
-## # … with 291 more rows</code></pre>
-<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df4, <span class="fu">aes</span>(d, var.y)) <span class="sc">+</span></span>
-<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">color =</span><span class="st">&quot;blue&quot;</span>, <span class="at">size=</span><span class="dv">2</span>) <span class="sc">+</span></span>
-<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_smooth</span>(<span class="at">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="at">formula =</span> y <span class="sc">~</span> <span class="fu">poly</span>(x,<span class="dv">2</span>), </span>
-<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>              <span class="at">color =</span><span class="st">&quot;red&quot;</span>, <span class="at">se =</span><span class="cn">TRUE</span>, <span class="at">size =</span> <span class="dv">1</span>)</span></code></pre></div>
 <p><img src="Aptitud_Darwiniana_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
 <hr />
+</div>
 </div>
 <div id="medir-la-aptitud-relativa-de-los-individuos" class="section level2">
 <h2>Medir la aptitud <em>relativa</em> de los individuos:</h2>
@@ -943,14 +553,14 @@ div.tocify {
 <li>Por lo menos una variable continua (la variable en x, independiende)</li>
 <li>Un indice de adecuación <em>fitness</em> (número de frutos, tiempo de vida, tamaño de las crias, supervivencia, etc)</li>
 <li>Calcular el promedio de <em>fitness</em> de todo los individuos</li>
-<li>Dividir el #3 por el promedio (esto sera su <em>Aptitud Darwiniana relativa</em>)</li>
+<li>Dividir el indice de adecuación <span class="math inline">\(W_i\)</span> individual por el promedio <span class="math inline">\(\overline{w}\)</span> (esto sera su <em>Aptitud Darwiniana relativa</em>) de cada individuo.</li>
 </ol>
 <p>Aquí esta los datos</p>
-<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
-<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gt)</span>
-<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>Example_Aptitud_Darwiniana <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">&quot;Example_Aptitud_Darwiniana.xlsx&quot;</span>)</span>
-<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a><span class="fu">gt</span>(<span class="fu">head</span>(Example_Aptitud_Darwiniana))  <span class="co">#Usar head() para ver los datos</span></span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gt)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>Example_Aptitud_Darwiniana <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">&quot;Example_Aptitud_Darwiniana.xlsx&quot;</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">gt</span>(<span class="fu">head</span>(Example_Aptitud_Darwiniana))  <span class="co">#Usar head() para ver los datos</span></span></code></pre></div>
 <div id="lwddjceiht" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
@@ -1322,19 +932,41 @@ div.tocify {
   
 </table>
 </div>
-<p>Los scripts para calcular la ultima columna si no la ha calculado anteriormente</p>
-<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># calcular el promedio del Esfuerzo_Reproductivo</span></span>
-<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>promedio<span class="ot">=</span><span class="fu">mean</span>(Example_Aptitud_Darwiniana<span class="sc">$</span>Esfuerzo_Reproductivo, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>promedio   <span class="co"># en promedio cada individuo tiene x numero de Esfurzo reproductive</span></span></code></pre></div>
+<p>Poner los datos en una tabla en R</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>datos<span class="ot">=</span><span class="fu">tribble</span>(</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span> variable_continua, <span class="sc">~</span> Esfuerzo_Reproductivo,</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="fl">1.1</span>, <span class="dv">10</span>,</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="fl">2.0</span>, <span class="dv">8</span>,</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="fl">3.3</span>, <span class="dv">5</span>,</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="fl">1.6</span>, <span class="dv">12</span>,</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="fl">2.3</span>, <span class="dv">4</span>,</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  <span class="fl">1.9</span>, <span class="dv">11</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>datos</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 2
+##   variable_continua Esfuerzo_Reproductivo
+##               &lt;dbl&gt;                 &lt;dbl&gt;
+## 1               1.1                    10
+## 2               2                       8
+## 3               3.3                     5
+## 4               1.6                    12
+## 5               2.3                     4
+## 6               1.9                    11</code></pre>
+<p>Abajo los script para calcular los Los scripts para calcular la ultima columna si no la ha calculado anteriormente</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># calcular el promedio del Esfuerzo_Reproductivo</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>promedio<span class="ot">=</span><span class="fu">mean</span>(Example_Aptitud_Darwiniana<span class="sc">$</span>Esfuerzo_Reproductivo, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>promedio   <span class="co"># en promedio cada individuo tiene x numero de Esfurzo reproductive</span></span></code></pre></div>
 <pre><code>## [1] 8.333333</code></pre>
-<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co"># AHORA crear una nueva columna con W_Aptitud</span></span>
-<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>Example_Aptitud_Darwiniana<span class="sc">$</span>W_Aptitud<span class="ot">=</span>Example_Aptitud_Darwiniana<span class="sc">$</span>Esfuerzo_Reproductivo<span class="sc">/</span>promedio</span>
-<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a><span class="co"># vea los datos </span></span>
-<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(Example_Aptitud_Darwiniana)</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># AHORA crear una nueva columna con W_Aptitud</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>Example_Aptitud_Darwiniana<span class="sc">$</span>W_Aptitud<span class="ot">=</span>Example_Aptitud_Darwiniana<span class="sc">$</span>Esfuerzo_Reproductivo<span class="sc">/</span>promedio</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co"># vea los datos </span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(Example_Aptitud_Darwiniana)</span></code></pre></div>
 <pre><code>## # A tibble: 6 × 4
 ##   Variable_Continua Esfuerzo_Reproductivo W_Aptitud_Darwiniana W_Aptitud
 ##               &lt;dbl&gt;                 &lt;dbl&gt;                &lt;dbl&gt;     &lt;dbl&gt;
@@ -1348,15 +980,20 @@ div.tocify {
 </div>
 <div id="regresión-lineal-simple" class="section level2">
 <h2>Regresión lineal simple</h2>
-<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(Example_Aptitud_Darwiniana, <span class="fu">aes</span>(Variable_Continua, W_Aptitud))<span class="sc">+</span></span>
-<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span>  <span class="co"># poner los puntos</span></span>
-<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method=</span>lm) <span class="co"># poner una regresion lineal</span></span></code></pre></div>
+<div id="evaluar-la-relación-de-forma-virtual" class="section level3">
+<h3>Evaluar la relación de forma virtual</h3>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(Example_Aptitud_Darwiniana, <span class="fu">aes</span>(Variable_Continua, W_Aptitud))<span class="sc">+</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span>  <span class="co"># poner los puntos</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method=</span>lm) <span class="co"># poner una regresion lineal</span></span></code></pre></div>
 <pre><code>## `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
-<p><img src="Aptitud_Darwiniana_files/figure-html/unnamed-chunk-7-1.png" width="672" /> ### Prueba de si la selección es significativa</p>
-<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>model1<span class="ot">=</span><span class="fu">lm</span>(W_Aptitud<span class="sc">~</span>Variable_Continua, <span class="at">data=</span>Example_Aptitud_Darwiniana)</span>
-<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model1)</span></code></pre></div>
+<p><img src="Aptitud_Darwiniana_files/figure-html/unnamed-chunk-8-1.png" width="672" /> ### Probar de si hay selección para la variable continua</p>
+<p>Vea la siguiente linea</p>
+<p>Coefficients: Estimate Std. Error t value Pr(&gt;|t|) <em>Variable_Continua -0.3864 0.1800 -2.147 0.09832</em>.</p>
+<p>Si el valor de p (Pr(&gt;|t|)) es &lt; 0.05 hay selección por la variable, en este caso NO hay selección pq el valor es mayor de 0.05.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>model1<span class="ot">=</span><span class="fu">lm</span>(W_Aptitud<span class="sc">~</span>Variable_Continua, <span class="at">data=</span>Example_Aptitud_Darwiniana)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model1)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = W_Aptitud ~ Variable_Continua, data = Example_Aptitud_Darwiniana)
@@ -1377,15 +1014,18 @@ div.tocify {
 ## F-statistic: 4.609 on 1 and 4 DF,  p-value: 0.09832</code></pre>
 <hr />
 </div>
+</div>
 <div id="regresión-cuadratura" class="section level2">
 <h2>Regresión cuadratura</h2>
 <p>Nota aqui que en geom_smooth se añade el polinomio que uno quiere en este caso <em>cuadratico</em> formula=y~poly(x,2)</p>
-<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(Example_Aptitud_Darwiniana,<span class="fu">aes</span>(<span class="at">x=</span>Variable_Continua)) <span class="sc">+</span> </span>
-<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>      <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">y =</span> W_Aptitud), <span class="at">shape =</span> <span class="dv">16</span>) <span class="sc">+</span></span>
-<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>      <span class="fu">stat_smooth</span>(<span class="fu">aes</span>(<span class="at">y =</span> W_Aptitud),<span class="at">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="at">formula =</span> y <span class="sc">~</span> x <span class="sc">+</span> <span class="fu">I</span>(x<span class="sc">^</span><span class="dv">2</span>), <span class="at">size =</span> <span class="dv">1</span>)</span></code></pre></div>
-<p><img src="Aptitud_Darwiniana_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
-<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>model2<span class="ot">=</span><span class="fu">lm</span>(W_Aptitud<span class="sc">~</span>Variable_Continua<span class="sc">+</span><span class="fu">I</span>(Variable_Continua<span class="sc">^</span><span class="dv">2</span>), <span class="at">data=</span>Example_Aptitud_Darwiniana)</span>
-<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model2)</span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(Example_Aptitud_Darwiniana,<span class="fu">aes</span>(<span class="at">x=</span>Variable_Continua)) <span class="sc">+</span> </span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>      <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">y =</span> W_Aptitud)) <span class="sc">+</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>      <span class="fu">stat_smooth</span>(<span class="fu">aes</span>(<span class="at">y =</span> W_Aptitud),<span class="at">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="at">formula =</span> y <span class="sc">~</span> x <span class="sc">+</span> <span class="fu">I</span>(x<span class="sc">^</span><span class="dv">2</span>))</span></code></pre></div>
+<p><img src="Aptitud_Darwiniana_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
+<div id="la-prueba-estadística-para-determinar-si-hay-selección-disruptiva-o-estabilizadora." class="section level3">
+<h3>La prueba estadística para determinar si hay selección disruptiva o estabilizadora.</h3>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>model2<span class="ot">=</span><span class="fu">lm</span>(W_Aptitud<span class="sc">~</span>Variable_Continua<span class="sc">+</span><span class="fu">I</span>(Variable_Continua<span class="sc">^</span><span class="dv">2</span>), <span class="at">data=</span>Example_Aptitud_Darwiniana)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model2)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = W_Aptitud ~ Variable_Continua + I(Variable_Continua^2), 
@@ -1404,6 +1044,7 @@ div.tocify {
 ## Residual standard error: 0.3446 on 3 degrees of freedom
 ## Multiple R-squared:  0.5361, Adjusted R-squared:  0.2268 
 ## F-statistic: 1.733 on 2 and 3 DF,  p-value: 0.316</code></pre>
+</div>
 </div>
 </div>
 
