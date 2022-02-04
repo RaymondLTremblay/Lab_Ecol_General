@@ -128,20 +128,20 @@ ggplot(df, aes(x2, y1))+
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 set.seed(5840)  # this makes the example exactly reproducible
 N      <- 150
-k      <- rnorm(N, 20, 5)
+x      <- rnorm(N, 20, 5)
 beta   <- 0.4
 errors <- rweibull(N, shape=1.5, scale=1)
 # errors <- -1*errors   # this makes them left skewed
 errors <- errors - factorial(1/1.5)  # this centers the error distribution on 0
-h      <- 1 + k*beta + errors
+h      <- 1 + x*beta + errors
 
 beta2   <- 0.6
-h2     <- 1-k*beta2 - errors
+h2     <- 100-x*beta2 - errors
 
-df2=data.frame(k, h)
+df2=data.frame(x, h, h2)
 #df2
 
-ggplot(df2, aes(h, k))+
+ggplot(df2, aes(x, h2))+
   geom_smooth(method = lm)+
   geom_point()+
   labs(x="La cantidad de hojas", y="La cantidad de semillas")+
