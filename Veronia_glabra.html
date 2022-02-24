@@ -309,11 +309,11 @@ $(document).ready(function () {
 <p>Subir los datos</p>
 <pre class="r"><code>library(readr)
 Lab_Ecol_Data_2019_Veronia_glabra &lt;- read_csv(&quot;Lab_Ecol_Data_2019 - Veronia_glabra.csv&quot;)</code></pre>
-<pre><code>## Rows: 101 Columns: 4</code></pre>
-<pre><code>## ── Column specification ────────────────────────────────────────────────────────
+<pre><code>## Rows: 101 Columns: 4
+## ── Column specification ────────────────────────────────────────────────────────
 ## Delimiter: &quot;,&quot;
-## dbl (4): Num_Ind, Altura, Num_Inflorescencia, Ancho_Hoja</code></pre>
-<pre><code>## 
+## dbl (4): Num_Ind, Altura, Num_Inflorescencia, Ancho_Hoja
+## 
 ## ℹ Use `spec()` to retrieve the full column specification for this data.
 ## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
 <pre class="r"><code>head(Lab_Ecol_Data_2019_Veronia_glabra)</code></pre>
@@ -375,10 +375,8 @@ ggplot(Lab_Ecol_Data_2019_Veronia_glabra, aes(Altura, W_Aptitud))+
   geom_smooth(method=lm, formula=y~poly(x,3))# poner una regresion lineal</code></pre>
 <pre><code>## `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
 <pre><code>## Warning: Removed 11 rows containing non-finite values (stat_smooth).
-
-## Warning: Removed 11 rows containing non-finite values (stat_smooth).
-
-## Warning: Removed 11 rows containing non-finite values (stat_smooth).</code></pre>
+## Removed 11 rows containing non-finite values (stat_smooth).
+## Removed 11 rows containing non-finite values (stat_smooth).</code></pre>
 <pre><code>## Warning: Removed 11 rows containing missing values (geom_point).</code></pre>
 <p><img src="Veronia_glabra_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
 
