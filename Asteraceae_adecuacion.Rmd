@@ -24,7 +24,10 @@ library(tidyverse)
 Data_L_hoja=tribble(
   ~Ind, ~Num_Infl, ~L_hoja_cm,
   1, 44, 7.3,
-  2, 93, 6.5
+  2, 93, 6.5,
+  3, 15, 3.5,
+  4, 10, 2.6,
+  5, 9, 1.8
   
   
 )
