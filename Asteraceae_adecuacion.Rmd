@@ -2,20 +2,31 @@
 title: "Asteraceae"
 author: "Raymond L. Tremblay"
 date: "2/24/2022"
-output: html_document
+output:
+  html_document:
+    css: Lab_Ecol_Gen.css
+    fig_caption: yes
+    highlight: pygments
+#  theme: simplex   To have the TOC in Red
+    toc: yes
+    toc_float: yes
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+***
 
-
+# Activar el paquete principal para las funciones. 
 
 ```{r}
 library(tidyverse)
 ```
 
+***
+
+# Añadir los datos en un tibble
 
 
 
@@ -34,4 +45,74 @@ Data_L_hoja=tribble(
 
 Data_L_hoja
 ```
+
+***
+
+# Calcular la adecuación relativa 
+
+$$w_i=\frac{W_i}{\overline{w}}$$ 
+
+La adecuación relativa es calculado como la adecuación aboluta de un individuo dividido por el promedio de todo los individuos
+
+
+```{r}
+w_i=Data_L_hoja$Num_Infl/mean(Data_L_hoja$Num_Infl)
+w_i
+```
+
+***
+
+Ahora poner esta información a la hoja de datos
+
+
+```{r}
+Data_L_hoja=Data_L_hoja %>% 
+  mutate(w_i=Data_L_hoja$Num_Infl/mean(Data_L_hoja$Num_Infl))
+```
+
+
+***
+
+Producir un gráfico de la relación entre la adecuación relativa y la variable morfologica
+
+
+```{r}
+ggplot(Data_L_hoja, aes(L_hoja_cm, w_i ))+
+  geom_point()+
+  geom_smooth(method=lm)
+```
+
+***
+
+## Probando el Modelo:
+
+- para determinar si la pendiente es significativa.
+
+El modelo que estamos probando es el siguiente
+
+$$y=beta*x+alpha$$
+
+o 
+
+$$y=m*x+b$$ 
+
+Donde la **m** y la **beta** es la pendiente
+
+
+```{r}
+#Data_L_hoja
+
+model1=lm(w_i~L_hoja_cm, data=Data_L_hoja)
+
+summary(model1)
+```
+
+
+
+
+
+
+
+
+
 

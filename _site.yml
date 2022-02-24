@@ -18,6 +18,10 @@ navbar:
         -
           href: Aptitud_Darwiniana.html
           text: "Aptitud Darwiniana"
+          
+        -
+          href: Asteraceae_adecuacion.html
+          text: "Adecuación Darwiniana en Asteraceae"    
       text: Modulos
     - 
       menu: 
