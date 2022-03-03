@@ -14,7 +14,7 @@
 
 <title>Asteraceae</title>
 
-<script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.12/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
@@ -43,6 +43,7 @@
   div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
   ul.task-list{list-style: none;}
     </style>
+
 
 
 <style type="text/css">
@@ -168,6 +169,9 @@ button.code-folding-btn:focus {
 }
 summary {
   display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
 }
 pre code {
   padding: 0;
@@ -393,7 +397,7 @@ div.tocify {
 <div class="navbar navbar-default  navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -406,7 +410,7 @@ div.tocify {
   <a href="Descripcion.html">Home</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Modulos
      
     <span class="caret"></span>
@@ -427,7 +431,7 @@ div.tocify {
   </ul>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Ejercicios
      
     <span class="caret"></span>
@@ -439,7 +443,7 @@ div.tocify {
   </ul>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Los Datos
      
     <span class="caret"></span>
@@ -511,23 +515,36 @@ div.tocify {
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>Data_L_hoja<span class="ot">=</span>Data_L_hoja <span class="sc">%&gt;%</span> </span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">w_i=</span>Data_L_hoja<span class="sc">$</span>Num_Infl<span class="sc">/</span><span class="fu">mean</span>(Data_L_hoja<span class="sc">$</span>Num_Infl))</span></code></pre></div>
 <hr />
-<p>Producir un gráfico de la relación entre la adecuación relativa y la variable morfologica</p>
+<p>Producir un gráfico de la relación entre la adecuación relativa y la variable morfologica, usando puntos para cada planta y construir un modelo lineal con <strong>lm</strong>.</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(Data_L_hoja, <span class="fu">aes</span>(L_hoja_cm, w_i ))<span class="sc">+</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()<span class="sc">+</span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method=</span>lm)</span></code></pre></div>
 <pre><code>## `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
 <p><img src="Asteraceae_adecuacion_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
 <hr />
-<div id="probando-el-modelo" class="section level2">
-<h2>Probando el Modelo:</h2>
+<div id="probando-el-modelo-lineal-si-es-significativo" class="section level2">
+<h2>Probando el Modelo lineal si es significativo:</h2>
 <ul>
-<li>para determinar si la pendiente es significativa.</li>
+<li>para determinar si la pendiente es significativa se usa la función <strong>lm(y~x, data=los_datos)</strong>.</li>
 </ul>
 <p>El modelo que estamos probando es el siguiente</p>
 <p><span class="math display">\[y=beta*x+alpha\]</span></p>
 <p>o</p>
 <p><span class="math display">\[y=m*x+b\]</span></p>
-<p>Donde la <strong>m</strong> y la <strong>beta</strong> es la pendiente</p>
+<p>Donde la <strong>m</strong> y la <strong>beta</strong> es la pendiente y el <strong>alpha</strong> y la <strong>b</strong> es el intercepto.</p>
+<div id="resultado-de-la-prueba" class="section level3">
+<h3>Resultado de la prueba:</h3>
+<p>Coefficients: Estimate Std. Error t value Pr(&gt;|t|) (Intercept) -0.4955 0.7279 -0.681 0.545 L_hoja_cm 0.3446 0.1500 2.298 0.105</p>
+<div id="el-intercepto" class="section level4">
+<h4>El intercepto</h4>
+<p>La primera linea es determrinar si el intercepto es significativamente diferente de cero. En nuestro caso esta parte irrelevante para nosotros. La hipotesis es que b=0, <span class="math inline">\(H_0: b=0\)</span></p>
+<p>Coefficients: Estimate Std. Error t value Pr(&gt;|t|) (Intercept) -0.4955 0.7279 -0.681 0.545</p>
+</div>
+<div id="la-pendiente" class="section level4">
+<h4>La pendiente</h4>
+<p>La hipotersis nula es que la pendiente <strong>m</strong> es cero, <span class="math inline">\(H_0: m=0\)</span></p>
+<p>Coefficients: Estimate Std. Error t value Pr(&gt;|t|) L_hoja_cm 0.3446 0.1500 2.298 0.105</p>
+<p>Si el valor de <strong>P</strong> es menor de 0.05 <span class="math inline">\(p&lt;0.05\)</span>, la hipotesis nula se rechaza es se detemrina que hay un patrón significativo.</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Data_L_hoja</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>model1<span class="ot">=</span><span class="fu">lm</span>(w_i<span class="sc">~</span>L_hoja_cm, <span class="at">data=</span>Data_L_hoja)</span>
@@ -549,6 +566,8 @@ div.tocify {
 ## Residual standard error: 0.7288 on 3 degrees of freedom
 ## Multiple R-squared:  0.6376, Adjusted R-squared:  0.5168 
 ## F-statistic: 5.279 on 1 and 3 DF,  p-value: 0.1052</code></pre>
+</div>
+</div>
 </div>
 </div>
 

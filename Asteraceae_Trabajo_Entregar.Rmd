@@ -1,0 +1,69 @@
+---
+title: "Asteraceae_Trabajo_Entregar"
+author: "Raymond L. Tremblay"
+date: "3/3/2022"
+output:
+  html_document:
+    css: Lab_Ecol_Gen.css
+    fig_caption: yes
+    highlight: pygments
+#  theme: simplex   To have the TOC in Red
+    toc: yes
+    toc_float: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+***
+
+## Trabajo de campo
+
+Cada grupo de estudiante de (3-4 estudiante) recojio datos sobre una planta en un pastizal En Humacao. Esta planta una especies de la familiua Asteraceae, el genero _____, especies _____.   
+
+Los datos recopilado fueron 
+
+ - un indice de **esfuerzo reproductivo**, el número de inflorescencia 
+
+ - una variable morfológica que *pudiese* ser seleccionado y tener una ventaja evolutiva.
+    - El número de tallos
+    - El número de hojas
+    - El ancho de la hoja más ancha
+    - El El largo del tallo más largo
+ 
+***
+
+## El tema del Trabajo.
+
+Su trabajo escrito en formato de artículo cientifico se enfocará en la **selección fenotípica**.  El en trabajo que se hizo nosotros no podemos decir que es **seleción natural**, por que no tenemos evidencia de que la **variación morfologica** es un resultado de la genética.  
+
+Ud hará una busqueda de literatura grande (evaluará por lo menos 30 articulos), y citará por lo menos 15 articulos en su trabajo escrito.
+
+***
+
+## Preguntas que pueden evaluar
+
+ - ¿Hay evidencia en otras especies de plantas que la variable morfológica que UD evaluo tiene ventaja como sus analisis han demostrado?
+ - ¿Cuan diferentes son el coeficiente **m** en otras especies que evaluarón la misma variable, son positivos, negativos, cuadraticos?
+ - ¿Cual es el coefficente de **m** en otras especies, es más grande, más pequeño, igual como lo que uds observarón? 
+ - etc
+ 
+ 
+***
+
+## El formato del Escrito
+
+El Estilo del trabajo seguira el formato de la revista **Biotropica**
+
+Para un ejemplo vea el siguiente enlace. [Biotropica](PDF/Biotropica - 2021 - Power - Even small forest patches increase bee visits to flowers in an oil palm plantation landscape.pdf) 
+
+
+
+
+ 
+ 
+ 
+ 
+ 
+
