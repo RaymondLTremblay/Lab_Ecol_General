@@ -28,6 +28,10 @@ navbar:
         - 
           href: R_RStudio.html
           text: "Ejercicio R y RStudio"
+        - 
+          href: Asteraceae_Trabajo_Entregar.html
+          text: "Selección Fenotípica en Asteraceae"         
+          
       text: Ejercicios
     - 
       menu: 
