@@ -39,6 +39,14 @@ navbar:
           text: "Selección Fenotípica en Asteraceae"         
           
       text: Ejercicios
+      
+    - 
+      menu: 
+        - 
+         href: Rubrica.html
+         text: Rubrica de evaluación
+         
+      text: Rubrica   
     - 
       menu: 
         - 

@@ -1,0 +1,512 @@
+ggtitle("Selección direccional positiva")
+set.seed(5840)  # this makes the example exactly reproducible
+N      <- 150
+k      <- rnorm(N, 20, 5)
+beta   <- 0.4
+errors <- rweibull(N, shape=1.5, scale=1)
+# errors <- -1*errors   # this makes them left skewed
+errors <- errors - factorial(1/1.5)  # this centers the error distribution on 0
+y      <- 1 + k*beta + errors
+beta2   <- 0.6
+y2     <- 1-k*beta2 - errors
+df2=data.frame(k, y)
+df2
+ggplot(df2, aes(k, y2))+
+geom_smooth(method = lm)+
+geom_point()+
+labs(x="La cantidad de hojas", y="La cantidad de semillas")+
+ggtitle("Selección direccional positiva")
+set.seed(5840)  # this makes the example exactly reproducible
+N      <- 150
+k      <- rnorm(N, 20, 5)
+beta   <- 0.4
+errors <- rweibull(N, shape=1.5, scale=1)
+# errors <- -1*errors   # this makes them left skewed
+errors <- errors - factorial(1/1.5)  # this centers the error distribution on 0
+h      <- 1 + k*beta + errors
+beta2   <- 0.6
+h2     <- 1-k*beta2 - errors
+df2=data.frame(k, h)
+df2
+ggplot(df2, aes(h, y2))+
+geom_smooth(method = lm)+
+geom_point()+
+labs(x="La cantidad de hojas", y="La cantidad de semillas")+
+ggtitle("Selección direccional positiva")
+set.seed(5840)  # this makes the example exactly reproducible
+N      <- 150
+k      <- rnorm(N, 20, 5)
+beta   <- 0.4
+errors <- rweibull(N, shape=1.5, scale=1)
+# errors <- -1*errors   # this makes them left skewed
+errors <- errors - factorial(1/1.5)  # this centers the error distribution on 0
+h      <- 1 + k*beta + errors
+beta2   <- 0.6
+h2     <- 1-k*beta2 - errors
+df2=data.frame(k, h)
+df2
+ggplot(df2, aes(h, y2))+
+geom_smooth(method = lm)+
+geom_point()+
+labs(x="La cantidad de hojas", y="La cantidad de semillas")+
+ggtitle("Selección direccional negativa")
+d<-seq(from=0, to=30, by=0.1)
+w<-500-0.5*(d-10)^2
+variación <- rnorm(length(d), mean=10, sd=5)
+var.w <- w + variación
+df4=tibble(w, var.w, d)
+df4
+ggplot(df4, aes(d, var.w)) +
+geom_point(color ="blue", size=2) +
+stat_smooth(method = "lm", formula = y ~ poly(x,2),
+color ="red", se =TRUE, size = 1)
+d<-seq(from=0, to=30, by=0.1)
+e<-500+0.5*(d-10)^2
+variación <- rnorm(length(d), mean=10, sd=10)
+var.e <- e + variación
+df5=tibble(e, var.e, d)
+df5
+ggplot(df5, aes(d, var.e)) +
+geom_point(color ="blue", size=2) +
+stat_smooth(method = "lm", formula = y ~ poly(x,2),
+color ="red", se =TRUE, size = 1)
+d<-seq(from=10, to=40, by=0.1)
+e<-500+0.5*(d-10)^2
+variación <- rnorm(length(d), mean=10, sd=10)
+var.e <- e + variación
+df5=tibble(e, var.e, d)
+df5
+ggplot(df5, aes(d, var.e)) +
+geom_point(color ="blue", size=2) +
+stat_smooth(method = "lm", formula = y ~ poly(x,2),
+color ="red", se =TRUE, size = 1)
+d<-seq(from=0, to=40, by=0.1)
+e<-500+0.5*(d-10)^2
+variación <- rnorm(length(d), mean=10, sd=10)
+var.e <- e + variación
+df5=tibble(e, var.e, d)
+df5
+ggplot(df, aes(d, var.e)) +
+geom_point(color ="blue", size=2) +
+stat_smooth(method = "lm", formula = y ~ poly(x,2),
+color ="red", se =TRUE, size = 1)
+d<-seq(from=0, to=30, by=0.1)
+e<-500+0.5*(d-10)^2
+variación <- rnorm(length(d), mean=10, sd=10)
+var.e <- e + variación
+df5=tibble(e, var.e, d)
+df5
+ggplot(df, aes(d, var.e)) +
+geom_point(color ="blue", size=2) +
+stat_smooth(method = "lm", formula = y ~ poly(x,2),
+color ="red", se =TRUE, size = 1)
+d<-seq(from=0, to=30, by=0.1)
+e<-500+0.5*(d-10)^2
+variación <- rnorm(length(d), mean=10, sd=10)
+var.e <- e + variación
+df5=tibble(e, var.e, d)
+df5
+d<-seq(from=0, to=30, by=0.1)
+e<-500+0.5*(d-10)^2
+variación <- rnorm(length(d), mean=10, sd=10)
+var.e <- e + variación
+df5=tibble(e, var.e, d)
+df5
+ggplot(df4, aes(d, var.e)) +
+geom_point(color ="blue", size=2) +
+stat_smooth(method = "lm", formula = y ~ poly(d,2),
+color ="red", se =TRUE, size = 1)
+~
+ggplot(df4, aes(d, var.e)) +
+geom_point(color ="blue", size=2) +
+stat_smooth(method = "lm", formula = y ~ poly(d,2),
+color ="red", se =TRUE, size = 1)
+ggplot(df4, aes(d, var.e)) +
+geom_point(color ="blue", size=2) +
+stat_smooth(method = "lm", formula = y ~ poly(x,2),
+color ="red", se =TRUE, size = 1)
+d<-seq(from=0, to=30, by=0.1)
+y<-500+0.5*(d-10)^2
+variación <- rnorm(length(d), mean=10, sd=10)
+var.y <- y + variación
+df4=tibble(y, var.y, d)
+df4
+ggplot(df4, aes(d, var.y)) +
+geom_point(color ="blue", size=2) +
+stat_smooth(method = "lm", formula = y ~ poly(x,2),
+color ="red", se =TRUE, size = 1)
+library(readxl)
+library(gt)
+Example_Aptitud_Darwiniana <- read_excel("Example_Aptitud_Darwiniana.xlsx")
+gt(head(Example_Aptitud_Darwiniana))  #Usar head() para ver los datos
+library(tidyverse)
+datos=tribble(
+~ variable_continua, ~ Esfuerzo_Reproductivo,
+1.1, 10,
+2.0, 8,
+3.3, 5,
+1.6, 12,
+2.3, 4,
+1.9, 11
+)
+datos
+library(ggplot2)
+ggplot(Example_Aptitud_Darwiniana, aes(Variable_Continua, W_Aptitud))+
+geom_point() +  # poner los puntos
+geom_smooth(method=lm) # poner una regresion lineal
+# calcular el promedio del Esfuerzo_Reproductivo
+promedio=mean(Example_Aptitud_Darwiniana$Esfuerzo_Reproductivo, na.rm = TRUE)
+promedio   # en promedio cada individuo tiene x numero de Esfurzo reproductive
+# AHORA crear una nueva columna con W_Aptitud
+Example_Aptitud_Darwiniana$W_Aptitud=Example_Aptitud_Darwiniana$Esfuerzo_Reproductivo/promedio
+# vea los datos
+head(Example_Aptitud_Darwiniana)
+library(ggplot2)
+ggplot(Example_Aptitud_Darwiniana, aes(Variable_Continua, W_Aptitud))+
+geom_point() +  # poner los puntos
+geom_smooth(method=lm) # poner una regresion lineal
+model1=lm(W_Aptitud~Variable_Continua, data=Example_Aptitud_Darwiniana)
+summary(model1)
+ggplot(Example_Aptitud_Darwiniana,aes(x=Variable_Continua)) +
+geom_point(aes(y = W_Aptitud), shape = 16) +
+stat_smooth(aes(y = W_Aptitud),method = "lm", formula = y ~ x + I(x^2), size = 1)
+model2=lm(W_Aptitud~Variable_Continua+I(Variable_Continua^2), data=Example_Aptitud_Darwiniana)
+summary(model2)
+model1=lm(W_Aptitud~Variable_Continua, data=Example_Aptitud_Darwiniana)
+summary(model1)
+set.seed(5840)  # this makes the example exactly reproducible
+N      <- 150
+k      <- rnorm(N, 20, 5)
+beta   <- 0.4
+errors <- rweibull(N, shape=1.5, scale=1)
+# errors <- -1*errors   # this makes them left skewed
+errors <- errors - factorial(1/1.5)  # this centers the error distribution on 0
+h      <- 1 + k*beta + errors
+beta2   <- 0.6
+h2     <- 1-k*beta2 - errors
+df2=data.frame(k, h)
+#df2
+ggplot(df2, aes(h, k))+
+geom_smooth(method = lm)+
+geom_point()+
+labs(x="La cantidad de hojas", y="La cantidad de semillas")+
+ggtitle("Selección direccional negativa")
+set.seed(5840)  # this makes the example exactly reproducible
+N      <- 150
+k      <- rnorm(N, 20, 5)
+beta   <- 0.4
+errors <- rweibull(N, shape=1.5, scale=1)
+# errors <- -1*errors   # this makes them left skewed
+errors <- errors - factorial(1/1.5)  # this centers the error distribution on 0
+h      <- 1 + k*beta + errors
+beta2   <- 0.6
+h2     <- 1-k*beta2 - errors
+df2=data.frame(k, y)
+set.seed(5840)  # this makes the example exactly reproducible
+N      <- 150
+y      <- rnorm(N, 20, 5)
+beta   <- 0.4
+errors <- rweibull(N, shape=1.5, scale=1)
+# errors <- -1*errors   # this makes them left skewed
+errors <- errors - factorial(1/1.5)  # this centers the error distribution on 0
+h      <- 1 + k*beta + errors
+beta2   <- 0.6
+h2     <- 1-k*beta2 - errors
+df2=data.frame(k, y)
+#df2
+ggplot(df2, aes(h, y))+
+geom_smooth(method = lm)+
+geom_point()+
+labs(x="La cantidad de hojas", y="La cantidad de semillas")+
+ggtitle("Selección direccional negativa")
+set.seed(5840)  # this makes the example exactly reproducible
+N      <- 150
+y      <- rnorm(N, 20, 5)
+beta   <- 0.4
+errors <- rweibull(N, shape=1.5, scale=1)
+# errors <- -1*errors   # this makes them left skewed
+errors <- errors - factorial(1/1.5)  # this centers the error distribution on 0
+h      <- 1 + k*beta + errors
+beta2   <- 0.6
+h2     <- 1-k*beta2 - errors
+df2=data.frame(k, h2)
+#df2
+ggplot(df2, aes(h, h2))+
+geom_smooth(method = lm)+
+geom_point()+
+labs(x="La cantidad de hojas", y="La cantidad de semillas")+
+ggtitle("Selección direccional negativa")
+df2=data.frame(y, h2)
+ggplot(df2, aes(h, h2))+
+geom_smooth(method = lm)+
+geom_point()+
+labs(x="La cantidad de hojas", y="La cantidad de semillas")+
+ggtitle("Selección direccional negativa")
+set.seed(5840)  # this makes the example exactly reproducible
+N      <- 150
+y      <- rnorm(N, 20, 5)
+beta   <- 0.4
+errors <- rweibull(N, shape=1.5, scale=1)
+# errors <- -1*errors   # this makes them left skewed
+errors <- errors - factorial(1/1.5)  # this centers the error distribution on 0
+h      <- 1 + k*beta + errors
+beta2   <- 0.6
+h2     <- 1-k*beta2 - errors
+df2=data.frame(y, h2)
+#df2
+ggplot(df2, aes(h, h2))+
+geom_smooth(method = lm)+
+geom_point()+
+labs(x="La cantidad de hojas", y="La cantidad de semillas")+
+ggtitle("Selección direccional negativa")
+set.seed(5840)  # this makes the example exactly reproducible
+N      <- 150
+x      <- rnorm(N, 20, 5)
+beta   <- 0.4
+errors <- rweibull(N, shape=1.5, scale=1)
+# errors <- -1*errors   # this makes them left skewed
+errors <- errors - factorial(1/1.5)  # this centers the error distribution on 0
+h      <- 1 + k*beta + errors
+beta2   <- 0.6
+h2     <- 1-k*beta2 - errors
+df2=data.frame(x, h2)
+#df2
+ggplot(df2, aes(x, h2))+
+geom_smooth(method = lm)+
+geom_point()+
+labs(x="La cantidad de hojas", y="La cantidad de semillas")+
+ggtitle("Selección direccional negativa")
+set.seed(5840)  # this makes the example exactly reproducible
+N      <- 150
+x      <- rnorm(N, 20, 5)
+beta   <- 0.4
+errors <- rweibull(N, shape=1.5, scale=1)
+# errors <- -1*errors   # this makes them left skewed
+errors <- errors - factorial(1/1.5)  # this centers the error distribution on 0
+h      <- 1 + k*beta + errors
+beta2   <- 0.6
+h2     <- 1-k*beta2 - errors
+df2=data.frame(x, h)
+#df2
+ggplot(df2, aes(x, h))+
+geom_smooth(method = lm)+
+geom_point()+
+labs(x="La cantidad de hojas", y="La cantidad de semillas")+
+ggtitle("Selección direccional negativa")
+set.seed(5840)  # this makes the example exactly reproducible
+N      <- 150
+x      <- rnorm(N, 20, 5)
+beta   <- 0.4
+errors <- rweibull(N, shape=1.5, scale=1)
+# errors <- -1*errors   # this makes them left skewed
+errors <- errors - factorial(1/1.5)  # this centers the error distribution on 0
+h      <- 1 + k*beta + errors
+beta2   <- 0.6
+h2     <- 1-k*beta2 - errors
+df2=data.frame(x, h, h2)
+#df2
+ggplot(df2, aes(x, h2))+
+geom_smooth(method = lm)+
+geom_point()+
+labs(x="La cantidad de hojas", y="La cantidad de semillas")+
+ggtitle("Selección direccional negativa")
+set.seed(5840)  # this makes the example exactly reproducible
+N      <- 150
+x      <- rnorm(N, 20, 5)
+beta   <- 0.4
+errors <- rweibull(N, shape=1.5, scale=1)
+# errors <- -1*errors   # this makes them left skewed
+errors <- errors - factorial(1/1.5)  # this centers the error distribution on 0
+h      <- 1 + k*beta + errors
+beta2   <- 0.6
+h2     <- 100-k*beta2 - errors
+df2=data.frame(x, h, h2)
+#df2
+ggplot(df2, aes(x, h2))+
+geom_smooth(method = lm)+
+geom_point()+
+labs(x="La cantidad de hojas", y="La cantidad de semillas")+
+ggtitle("Selección direccional negativa")
+knitr::opts_chunk$set(echo = TRUE)
+library(car)
+library(MASS)
+library(lmtest)
+library(tseries)
+library(ggfortify)
+set.seed(1234)
+##Linear Regression
+#Generate the independent variable and the error
+x1=rnorm(100,50,9)
+x2=rnorm(100,200,64)
+error=rnorm(100,0,16)
+#Generate the dependent variable (b0=150, b1=-4, b2=2.5)
+y1=150-(4*x1)+(2.5*x2)+error
+#create the model
+#m1=lm(y1~x1+x2)
+#summary(m1)
+#autoplot(m1)
+df=data.frame(y1, x1, x2)
+#df
+library(tidyverse)
+ggplot(df, aes(x2, y1))+
+geom_smooth(method = lm)+
+geom_point()
+set.seed(5840)  # this makes the example exactly reproducible
+N      <- 150
+x      <- rnorm(N, 20, 5)
+beta   <- 0.4
+errors <- rweibull(N, shape=1.5, scale=1)
+# errors <- -1*errors   # this makes them left skewed
+errors <- errors - factorial(1/1.5)  # this centers the error distribution on 0
+h      <- 1 + x*beta + errors
+beta2   <- 0.6
+h2     <- 100-x*beta2 - errors
+df2=data.frame(x, h, h2)
+#df2
+ggplot(df2, aes(x, h2))+
+geom_smooth(method = lm)+
+geom_point()+
+labs(x="La cantidad de hojas", y="La cantidad de semillas")+
+ggtitle("Selección direccional negativa")
+d<-seq(from=0, to=30, by=0.1)
+w<-500-0.5*(d-10)^2
+variación <- rnorm(length(d), mean=10, sd=5)
+var.w <- w + variación
+df4=tibble(w, var.w, d)
+#df4
+ggplot(df4, aes(d, var.w)) +
+geom_point(color ="blue", size=2) +
+stat_smooth(method = "lm", formula = y ~ poly(x,2),
+color ="red", se =TRUE, size = 1)
+d<-seq(from=0, to=30, by=0.1)
+y<-500+0.5*(d-10)^2
+variación <- rnorm(length(d), mean=10, sd=10)
+var.y <- y + variación
+df5=tibble(y, var.y, d)
+#df4
+ggplot(df5, aes(d, var.y)) +
+geom_point(color ="blue", size=2) +
+stat_smooth(method = "lm", formula = y ~ poly(x,2),
+color ="red", se =TRUE, size = 1)
+library(readxl)
+library(gt)
+Example_Aptitud_Darwiniana <- read_excel("Example_Aptitud_Darwiniana.xlsx")
+gt(head(Example_Aptitud_Darwiniana))  #Usar head() para ver los datos
+library(tidyverse)
+datos=tribble(
+~ variable_continua, ~ Esfuerzo_Reproductivo,
+1.1, 10,
+2.0, 8,
+3.3, 5,
+1.6, 12,
+2.3, 4,
+1.9, 11
+)
+datos
+# calcular el promedio del Esfuerzo_Reproductivo
+promedio=mean(Example_Aptitud_Darwiniana$Esfuerzo_Reproductivo, na.rm = TRUE)
+promedio   # en promedio cada individuo tiene x numero de Esfurzo reproductive
+# AHORA crear una nueva columna con W_Aptitud
+Example_Aptitud_Darwiniana$W_Aptitud=Example_Aptitud_Darwiniana$Esfuerzo_Reproductivo/promedio
+# vea los datos
+head(Example_Aptitud_Darwiniana)
+library(ggplot2)
+ggplot(Example_Aptitud_Darwiniana, aes(Variable_Continua, W_Aptitud))+
+geom_point() +  # poner los puntos
+geom_smooth(method=lm) # poner una regresion lineal
+model1=lm(W_Aptitud~Variable_Continua, data=Example_Aptitud_Darwiniana)
+summary(model1)
+ggplot(Example_Aptitud_Darwiniana,aes(x=Variable_Continua)) +
+geom_point(aes(y = W_Aptitud)) +
+stat_smooth(aes(y = W_Aptitud),method = "lm", formula = y ~ x + I(x^2))
+model2=lm(W_Aptitud~Variable_Continua+I(Variable_Continua^2), data=Example_Aptitud_Darwiniana)
+summary(model2)
+knitr::opts_chunk$set(echo = TRUE)
+Data_L_hoja=tribble(
+~Ind, ~Num_Infl, ~L_hoja_cm,
+1, 44, 7.3,
+2, 93, 6.5,
+3, 15, 3.5,
+4, 10, 2.6,
+5, 9, 1.8
+)
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+Data_L_hoja=tribble(
+~Ind, ~Num_Infl, ~L_hoja_cm,
+1, 44, 7.3,
+2, 93, 6.5,
+3, 15, 3.5,
+4, 10, 2.6,
+5, 9, 1.8
+)
+Data_L_hoja
+w_i=Data_L_hoja$Num_Infl/mean(Data_L_hoja$Num_Infl)
+w_i
+Data_L_hoja %>%
+mutate(w_i=Data_L_hoja$Num_Infl/mean(Data_L_hoja$Num_Infl))
+ggplot(Data_L_hoja, aes(L_hoja_cm, w_i ))+
+geom_point()
+ggplot(Data_L_hoja, aes(L_hoja_cm, w_i ))+
+geom_point()+
+geom_smoot(method=lm)
+ggplot(Data_L_hoja, aes(L_hoja_cm, w_i ))+
+geom_point()+
+geom_smooth(method=lm)
+model1=lm(w_i~L_hoja_cm, datos=Data_L_hoja)
+model1=lm(w_i~L_hoja_cm, datos=Data_L_hoja)
+Data_L_hoja=Data_L_hoja %>%
+mutate(w_i=Data_L_hoja$Num_Infl/mean(Data_L_hoja$Num_Infl))
+ggplot(Data_L_hoja, aes(L_hoja_cm, w_i ))+
+geom_point()+
+geom_smooth(method=lm)
+model1=lm(w_i~L_hoja_cm, datos=Data_L_hoja)
+Data_L_hoja
+model1=lm(w_i~L_hoja_cm, data=Data_L_hoja)
+summary(model1)
+knitr::opts_chunk$set(echo = TRUE)
+Data_L_hoja=tribble(
+~Ind, ~Num_Infl, ~L_hoja_cm,
+1, 44, 7.3,
+2, 93, 6.5,
+3, 15, 3.5,
+4, 10, 2.6,
+5, 9, 1.8
+)
+library(tidyverse)
+Data_L_hoja=tribble(
+~Ind, ~Num_Infl, ~L_hoja_cm,
+1, 44, 7.3,
+2, 93, 6.5,
+3, 15, 3.5,
+4, 10, 2.6,
+5, 9, 1.8
+)
+Data_L_hoja
+w_i=Data_L_hoja$Num_Infl/mean(Data_L_hoja$Num_Infl)
+w_i
+Data_L_hoja=Data_L_hoja %>%
+mutate(w_i=Data_L_hoja$Num_Infl/mean(Data_L_hoja$Num_Infl))
+Data_L_hoja
+Data_L_hoja=Data_L_hoja %>%
+mutate(w_i=Data_L_hoja$Num_Infl/mean(Data_L_hoja$Num_Infl))
+Data_L_hoja
+ggplot(Data_L_hoja, aes(L_hoja_cm, w_i ))+
+geom_point()+
+geom_smooth(method=lm, color=red)
+ggplot(Data_L_hoja, aes(L_hoja_cm, w_i ))+
+geom_point()+
+geom_smooth(method=lm, aes(color=red))
+ggplot(Data_L_hoja, aes(L_hoja_cm, w_i ))+
+geom_point()+
+geom_smooth(method=lm, aes(color="red"))
+ggplot(Data_L_hoja, aes(L_hoja_cm, w_i ))+
+geom_point(color="yellow")+
+geom_smooth(method=lm, aes(color="red"))
+ggplot(Data_L_hoja, aes(L_hoja_cm, w_i ))+
+geom_point(color="orange")+
+geom_smooth(method=lm, aes(color="red"))
+ggplot(Data_L_hoja, aes(L_hoja_cm, w_i ))+
+geom_point(color="orange")+
+geom_smooth(method=lm, aes(color="red"))
+ggsave("mi_super.png")
