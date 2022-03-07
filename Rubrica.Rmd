@@ -1,0 +1,44 @@
+---
+title: "Rubrica"
+author: "Raymond L. Tremblay"
+date: "3/3/2022"
+output:
+  html_document:
+    css: Lab_Ecol_Gen.css
+    fig_caption: yes
+    highlight: pygments
+#  theme: simplex   To have the TOC in Red
+    toc: yes
+    toc_float: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+# Rúbrica de Evaluación 
+
+
+```{r message=FALSE, warning=FALSE}
+library(tidyverse)
+```
+
+
+
+```{r eval=FALSE, include=FALSE}
+Rubrica=tribble(
+  ~"Sección", ~"Inadecuado=0", ~"Adecuado=1", ~"Bueno=2", ~"Muy Bien=3", ~"Excelente=4",
+"Título", "El punto del experimento del experimento no se puede apreciar con el titulo", "Hay dos o más problemas comparable a lo siguiente: El titulo no es preciso, el experimento es dificil detemrinar por el titulo, la mayoria de la información no esta presente",
+"El titulo prodría ser más conciso, aun que tiene información relevante", "El titulo es consico, pero todavia no engloba todavia el concepto principal","El titulo es conciso y expresa bien el trabajo")
+Rubrica
+```
+
+
+|Sección| Inadecuado=0| Adecuado=1| Bueno=2| Muy Bien=3|Excelente=4|
+|---------|---------------|-------------|-----------|-------------|-------------|
+|Título|El punto del experimento del experimento no se puede apreciar con el titulo"| Hay dos o más problemas comparable a lo siguiente: El titulo no es preciso, el experimento es dificil detemrinar por el titulo, la mayoria de la información no esta presente|El titulo prodría ser más conciso, aun que tiene información relevante| El titulo es consico, pero todavia no engloba todavia el concepto principal| El titulo es conciso y expresa bien el trabajo|
+El resumen(abstract) es ausente o no provee infromación relevante| Muchas componentes son asusente, no son clarar o no sitatdo de forma consisa| Incluye parte de la información|Es consiso, claro pero falta alguna infromación|Consiso, claro y cubre todas la infromación y es de 200 palabras o menos|
+
+
+

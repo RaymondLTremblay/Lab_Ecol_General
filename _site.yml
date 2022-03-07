@@ -20,8 +20,14 @@ navbar:
           text: "Aptitud Darwiniana"
           
         -
+          href: Competencia_Intra-especifica.html
+          text: "Competencia Intra Específica" 
+           
+        -
           href: Asteraceae_adecuacion.html
-          text: "Adecuación Darwiniana en Asteraceae"    
+          text: "Adecuación Darwiniana en Asteraceae"         
+          
+          
       text: Modulos
     - 
       menu: 

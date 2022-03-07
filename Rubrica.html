@@ -12,7 +12,7 @@
 <meta name="author" content="Raymond L. Tremblay" />
 
 
-<title>Asteraceae</title>
+<title>Rubrica</title>
 
 <script src="site_libs/header-attrs-2.12/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -472,109 +472,54 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">Asteraceae</h1>
+<h1 class="title toc-ignore">Rubrica</h1>
 <h4 class="author">Raymond L. Tremblay</h4>
-<h4 class="date">2/24/2022</h4>
+<h4 class="date">3/3/2022</h4>
 
 </div>
 
 
-<hr />
-<div id="activar-el-paquete-principal-para-las-funciones." class="section level1">
-<h1>Activar el paquete principal para las funciones.</h1>
+<div id="rúbrica-de-evaluación" class="section level1">
+<h1>Rúbrica de Evaluación</h1>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
-<hr />
-</div>
-<div id="añadir-los-datos-en-un-tibble" class="section level1">
-<h1>Añadir los datos en un tibble</h1>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>Data_L_hoja<span class="ot">=</span><span class="fu">tribble</span>(</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span>Ind, <span class="sc">~</span>Num_Infl, <span class="sc">~</span>L_hoja_cm,</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1</span>, <span class="dv">44</span>, <span class="fl">7.3</span>,</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="dv">2</span>, <span class="dv">93</span>, <span class="fl">6.5</span>,</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="dv">3</span>, <span class="dv">15</span>, <span class="fl">3.5</span>,</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="dv">4</span>, <span class="dv">10</span>, <span class="fl">2.6</span>,</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="dv">5</span>, <span class="dv">9</span>, <span class="fl">1.8</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>Data_L_hoja</span></code></pre></div>
-<pre><code>## # A tibble: 5 × 3
-##     Ind Num_Infl L_hoja_cm
-##   &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;
-## 1     1       44       7.3
-## 2     2       93       6.5
-## 3     3       15       3.5
-## 4     4       10       2.6
-## 5     5        9       1.8</code></pre>
-<hr />
-</div>
-<div id="calcular-la-adecuación-relativa" class="section level1">
-<h1>Calcular la adecuación relativa</h1>
-<p><span class="math display">\[w_i=\frac{W_i}{\overline{w}}\]</span></p>
-<p>La adecuación relativa es calculado como la adecuación aboluta de un individuo dividido por el promedio de todo los individuos</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>w_i<span class="ot">=</span>Data_L_hoja<span class="sc">$</span>Num_Infl<span class="sc">/</span><span class="fu">mean</span>(Data_L_hoja<span class="sc">$</span>Num_Infl)</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>w_i</span></code></pre></div>
-<pre><code>## [1] 1.2865497 2.7192982 0.4385965 0.2923977 0.2631579</code></pre>
-<hr />
-<p>Ahora poner esta información a la hoja de datos</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>Data_L_hoja<span class="ot">=</span>Data_L_hoja <span class="sc">%&gt;%</span> </span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">w_i=</span>Data_L_hoja<span class="sc">$</span>Num_Infl<span class="sc">/</span><span class="fu">mean</span>(Data_L_hoja<span class="sc">$</span>Num_Infl))</span></code></pre></div>
-<hr />
-<p>Producir un gráfico de la relación entre la adecuación relativa y la variable morfologica, usando puntos para cada planta y construir un modelo lineal con <strong>lm</strong>.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(Data_L_hoja, <span class="fu">aes</span>(L_hoja_cm, w_i ))<span class="sc">+</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()<span class="sc">+</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method=</span>lm)</span></code></pre></div>
-<pre><code>## `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
-<p><img src="Asteraceae_adecuacion_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
-<hr />
-<div id="probando-el-modelo-lineal-si-es-significativo" class="section level2">
-<h2>Probando el Modelo lineal si es significativo:</h2>
-<ul>
-<li>para determinar si la pendiente es significativa se usa la función <strong>lm(y~x, data=los_datos)</strong>.</li>
-</ul>
-<p>El modelo que estamos probando es el siguiente</p>
-<p><span class="math display">\[y=beta*x+alpha\]</span></p>
-<p>o</p>
-<p><span class="math display">\[y=m*x+b\]</span></p>
-<p>Donde la <strong>m</strong> y la <strong>beta</strong> es la pendiente y el <strong>alpha</strong> y la <strong>b</strong> es el intercepto.</p>
-<div id="resultado-de-la-prueba" class="section level3">
-<h3>Resultado de la prueba:</h3>
-<p>Coefficients: Estimate Std. Error t value Pr(&gt;|t|) (Intercept) -0.4955 0.7279 -0.681 0.545 L_hoja_cm 0.3446 0.1500 2.298 0.105</p>
-<div id="el-intercepto" class="section level4">
-<h4>El intercepto</h4>
-<p>La primera linea es determrinar si el intercepto es significativamente diferente de cero. En nuestro caso esta parte irrelevante para nosotros. La hipotesis es que b=0, <span class="math inline">\(H_0: b=0\)</span></p>
-<p>Coefficients: Estimate Std. Error t value Pr(&gt;|t|) (Intercept) -0.4955 0.7279 -0.681 0.545</p>
-</div>
-<div id="la-pendiente" class="section level4">
-<h4>La pendiente</h4>
-<p>La hipotersis nula es que la pendiente <strong>m</strong> es cero, <span class="math inline">\(H_0: m=0\)</span></p>
-<p>Coefficients: Estimate Std. Error t value Pr(&gt;|t|) L_hoja_cm 0.3446 0.1500 2.298 0.105</p>
-<p>Si el valor de <strong>P</strong> es menor de 0.05 <span class="math inline">\(p&lt;0.05\)</span>, la hipotesis nula se rechaza es se detemrina que hay un patrón significativo.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Data_L_hoja</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>model1<span class="ot">=</span><span class="fu">lm</span>(w_i<span class="sc">~</span>L_hoja_cm, <span class="at">data=</span>Data_L_hoja)</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model1)</span></code></pre></div>
-<pre><code>## 
-## Call:
-## lm(formula = w_i ~ L_hoja_cm, data = Data_L_hoja)
-## 
-## Residuals:
-##       1       2       3       4       5 
-## -0.7334  0.9750 -0.2720 -0.1080  0.1384 
-## 
-## Coefficients:
-##             Estimate Std. Error t value Pr(&gt;|t|)
-## (Intercept)  -0.4955     0.7279  -0.681    0.545
-## L_hoja_cm     0.3446     0.1500   2.298    0.105
-## 
-## Residual standard error: 0.7288 on 3 degrees of freedom
-## Multiple R-squared:  0.6376, Adjusted R-squared:  0.5168 
-## F-statistic: 5.279 on 1 and 3 DF,  p-value: 0.1052</code></pre>
-</div>
-</div>
-</div>
+<table>
+<colgroup>
+<col width="12%" />
+<col width="20%" />
+<col width="17%" />
+<col width="14%" />
+<col width="17%" />
+<col width="17%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Sección</th>
+<th>Inadecuado=0</th>
+<th>Adecuado=1</th>
+<th>Bueno=2</th>
+<th>Muy Bien=3</th>
+<th>Excelente=4</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Título</td>
+<td>El punto del experimento del experimento no se puede apreciar con el titulo”</td>
+<td>Hay dos o más problemas comparable a lo siguiente: El titulo no es preciso, el experimento es dificil detemrinar por el titulo, la mayoria de la información no esta presente</td>
+<td>El titulo prodría ser más conciso, aun que tiene información relevante</td>
+<td>El titulo es consico, pero todavia no engloba todavia el concepto principal</td>
+<td>El titulo es conciso y expresa bien el trabajo</td>
+</tr>
+<tr class="even">
+<td>El resumen(abstract) es ausente o no provee infromación relevante</td>
+<td>Muchas componentes son asusente, no son clarar o no sitatdo de forma consisa</td>
+<td>Incluye parte de la información</td>
+<td>Es consiso, claro pero falta alguna infromación</td>
+<td>Consiso, claro y cubre todas la infromación y es de 200 palabras o menos</td>
+<td></td>
+</tr>
+</tbody>
+</table>
 </div>
 
 

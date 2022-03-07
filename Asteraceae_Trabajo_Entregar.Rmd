@@ -56,14 +56,28 @@ Ud hará una busqueda de literatura grande (evaluará por lo menos 30 articulos)
 
 El Estilo del trabajo seguira el formato de la revista **Biotropica**
 
-NOTA: que este articulo sigue la organización como hemos discutido en una clase anterior. 
 
-Para un ejemplo vea el siguiente enlace. [Biotropica](PDF/Biotropica - 2021 - Power - Even small forest patches increase bee visits to flowers in an oil palm plantation landscape.pdf) 
+Ejemplo vea el siguiente enlace. [Biotropica](PDF/Biotropica - 2021 - Power - Even small forest patches increase bee visits to flowers in an oil palm plantation landscape.pdf) 
+
+NOTA: que este articulo sigue la organización como hemos discutido en una clase anterior en el modulo [Escribir un Articulo](https://raymondltremblay.github.io/Lab_Ecol_General/Escribir_Articulos.html). 
 
 
 
+## Guia para escribir su trabajo
 
- 
+1. Resumen: 1/2 pagina
+2. Introducción: 2 paginas
+3. Metodología: 1/3 a 1/2 pagina
+4. Resultados: 1/3 a 1/2 pagina
+5. Discución: 2-3 paginas
+6. Referencias: TODAS (Esta sección no esta incluida en la 6-7 paginas mencionada ariba:  NOTA BIEN EL ESTILO de este articulo)
+7. Contribución de cada autor
+
+
+***
+
+
+Vea la plantilla de distribución de puntos por sección [aquí]()
  
  
  

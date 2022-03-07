@@ -63,16 +63,14 @@ Prácticas de laboratorio complementarias al curso de Ecología General. Exper
 Al finalizar este curso los estudiantes podrán:
 
 - Construir una bibliografia para una monografia.
-- Buscar información para los informes de los trabajos de investigación.
-- Utilizar claves taxonómicas para la identificación de especies.
-- Aplicar el método del transecto.
-- Construir diagramas climáticos y climógrafos.
+- Buscar información para los informes de los trabajos de investigación..
 - Aplicar el análisis de la vegetación a un bosque de sucesión secundaria.
 - Medir variables químicas y físicas del medio ambiente acuático dulce.
 - Aplicar el método de captura y recaptura.
 - Realizar análisis estadísticos básicos.
 - Construir curvas de crecimiento poblacional.
 - Discutir las diferencias entre biomas terrestres.
+
 
 ***
 
