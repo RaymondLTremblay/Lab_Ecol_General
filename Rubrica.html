@@ -34,6 +34,7 @@
 <link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
 <script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/navigation-1.1/codefolding.js"></script>
 
 <style type="text/css">
   code{white-space: pre-wrap;}
@@ -46,6 +47,110 @@
 
 
 
+<style type="text/css">
+  code {
+    white-space: pre;
+  }
+  .sourceCode {
+    overflow: visible;
+  }
+</style>
+<style type="text/css" data-origin="pandoc">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+
+.sourceCode .row {
+  width: 100%;
+}
+.sourceCode {
+  overflow-x: auto;
+}
+.code-folding-btn {
+  margin-right: -30px;
+}
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    for (var j = 0; j < rules.length; j++) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') continue;
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
 
 
 
@@ -212,6 +317,9 @@ $(document).ready(function () {
 </style>
 
 <!-- code folding -->
+<style type="text/css">
+.code-folding-btn { margin-bottom: 4px; }
+</style>
 
 
 
@@ -387,6 +495,14 @@ div.tocify {
 
 <div id="header">
 
+<div class="btn-group pull-right float-right">
+<button type="button" class="btn btn-default btn-xs btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Code</span> <span class="caret"></span></button>
+<ul class="dropdown-menu dropdown-menu-right" style="min-width: 50px;">
+<li><a id="rmd-show-all-code" href="#">Show All Code</a></li>
+<li><a id="rmd-hide-all-code" href="#">Hide All Code</a></li>
+</ul>
+</div>
+
 
 
 <h1 class="title toc-ignore">Rúbrica</h1>
@@ -397,72 +513,522 @@ div.tocify {
 
 
 <hr />
-<div id="rúbrica-de-evaluación" class="section level1">
-<h1>Rúbrica de Evaluación</h1>
-<p>El ejemplo de la rubrica en Ingles se encuentra <a href="https://dept.writing.wisc.edu/wac/using-rubrics-to-teach-and-evaluate-writing-in-biology/">aqui</a>. Esta rubrica fue modificado</p>
-<table>
-<colgroup>
-<col width="12%" />
-<col width="20%" />
-<col width="17%" />
-<col width="14%" />
-<col width="17%" />
-<col width="17%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Sección</th>
-<th>Inadecuado=0</th>
-<th>Adecuado=1</th>
-<th>Bueno=2</th>
-<th>Muy Bien=3</th>
-<th>Excelente=4</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Título</td>
-<td>El punto del experimento del experimento no se puede apreciar con el titulo”</td>
-<td>Hay dos o más problemas comparable a lo siguiente: El titulo no es preciso, el experimento es dificil detemrinar por el titulo, la mayoria de la información no esta presente</td>
-<td>El titulo prodría ser más conciso, aun que tiene información relevante</td>
-<td>El titulo es consico, pero todavia no engloba todavia el concepto principal</td>
-<td>El titulo es conciso y expresa bien el trabajo</td>
-</tr>
-<tr class="even">
-<td>Resumen</td>
-<td>El resumen (abstract) es ausente o no provee infromación relevante</td>
-<td>Muchas componentes son asusente, no son clarar o no sitatdo de forma consisa</td>
-<td>Incluye parte de la información</td>
-<td>Es consiso, claro pero falta alguna infromación</td>
-<td>Consiso, claro y cubre todas la infromación y es de 200 palabras o menos</td>
-</tr>
-<tr class="odd">
-<td>Introducción</td>
-<td>4-5 de los compoents estan ausence o poco desarrolado</td>
-<td>Cubre algunos componentes pero podria ser más claro y consiso, los aspectos principales pudiese ser más logico, claro, por ejemplo la información base no esta enfocado en la problematica y racional del tema</td>
-<td>Cubre más de los temas, pero todavia falta enfocar el trabajo</td>
-<td>el trabajo es consiso y cubre los temas principales del trabajo</td>
-<td>Claro, consiso, todos los temas estan bien presentado con sus referencias relevantes</td>
-</tr>
-<tr class="even">
-<td>Metodos y Materiales</td>
-<td>Poca información, no se podría repetir el trabajo</td>
-<td>El procedimiento esta presente pero el lector no podría replicar el trabajo</td>
-<td>El procidimiento es más claro pero todavia falta detalles</td>
-<td>Consiso y claro donde falta algunos puntos y detalles menores</td>
-<td>El trabajo es claro y se podria replicar</td>
-</tr>
-<tr class="odd">
-<td>Resultados</td>
-<td>Escases de información, donde los resultados son inclompletos (graficos, tables etc)</td>
-<td>La tablas y graficos y descripción ede ellas están ausente o no suficiente clara para entender los resultados</td>
-<td>Se presento los resultdos suficiente bien pero tiene unas lagunas en la información, como descripción incompleta de los resultados, promedios, varianzas, unidades de medida</td>
-<td>Ha presentado en el texto y graficos/tablas los resultados de forma consisa y clara, con detalles menores que en las tablas que son ausente</td>
-<td>La sección de resultados esta bien organizada y se entiende bien los resultados del texto y las figuras/tablas</td>
-</tr>
-</tbody>
+<div id="rúbrica-de-evaluación-para-trabajo-de-investigación-de-campo-y-de-literatura" class="section level1">
+<h1>Rúbrica de Evaluación para trabajo de investigación de campo y de literatura</h1>
+<ol style="list-style-type: decimal">
+<li>Escribir es un <strong>Proceso</strong> y aun personas con MUCHA experiencia pasa una gran parte de su tiempo re-escribiendo. Como evaluador de los trabajos, no es mi responsabilidad identificar CADA una de las areas de su trabajo que se puede mejorar, revisar sus trabajos es SU responsabilidad.<br />
+</li>
+</ol>
+<ul>
+<li>Si es un trabajo en grupo <strong>CADA UNO</strong> de los estudiantes <strong>TIENEN</strong> que haber comentado sobre cada una de la secciones. <strong>Todos</strong> tienen que estar en acuerdo de que se dice y como se dice. No aceptan excusas como lo siguiente “Esto era la responsabilidad de un tal”.</li>
+</ul>
+<ol start="2" style="list-style-type: decimal">
+<li>Los puntos principales del trabajo: SIEMPRE consideren estos puntos.</li>
+</ol>
+<ul>
+<li>La introducción es clara en por que el experimento, análisis, trabajos de revisión de literatura fue hecha, y la hipótesis que fue probaba?</li>
+<li>En la metodología se describe claramente incluyendo la hipótesis o predicción generales y como se va a evaluar la tema principal del trabajo, en adición del proceso de recolección de datos y evaluación de estos datos?</li>
+<li>Los resultados (tablas/gráficos y temas) demuestra claramente los puntos principales relevante a la hipótesis/tema de interés?</li>
+<li>En la discusión se presente los resultados en relación a la literatura, en otra palabra en relación a lo que se sabe/sabia sobre este tema en otros sistemas. Aquí es donde uno discute los temas de posibles otras hipótesis que podría surgir de las resultados.</li>
+</ul>
+<p>El ejemplo de la rubrica en Ingles se encuentra <a href="https://dept.writing.wisc.edu/wac/using-rubrics-to-teach-and-evaluate-writing-in-biology/">aqui</a>. Esta rubrica fue modificado para la necesidades de los cursos de “Ecología de Poblaciones”, “Ecología de Comunidades”, “Laboratorio de Botanica”.</p>
+<hr />
+<hr />
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gt)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>text <span class="sc">%&gt;%</span> </span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_header</span>(</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="fu">md</span>(<span class="st">&quot;**Rubrica para Evaluar Trabajos de laboratorio y de investigación**&quot;</span>)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span> </span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_style</span>(<span class="fu">list</span>(</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cell_text</span>(<span class="at">align =</span> <span class="st">&quot;center&quot;</span>)</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  ), <span class="at">locations =</span> <span class="fu">cells_title</span>()</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span> </span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_style</span>(</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">style =</span> <span class="fu">list</span>(</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>      <span class="fu">cell_text</span>(<span class="at">align=</span><span class="st">&quot;center&quot;</span>, <span class="at">style=</span><span class="st">&quot;italic&quot;</span>, <span class="at">color=</span><span class="st">&quot;#812F33&quot;</span>)</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">locations =</span> <span class="fu">cells_column_labels</span>()</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span> </span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data_color</span>( <span class="co"># Update cell colors...</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">columns =</span> <span class="fu">c</span>(Sección), <span class="co"># ...for supp column!</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">colors =</span> <span class="st">&quot;#72CD9C&quot;</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>  ) </span></code></pre></div>
+<div id="krvfviksph" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>html {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+}
+
+#krvfviksph .gt_table {
+  display: table;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#krvfviksph .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#krvfviksph .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#krvfviksph .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 0;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#krvfviksph .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#krvfviksph .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#krvfviksph .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#krvfviksph .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#krvfviksph .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#krvfviksph .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#krvfviksph .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#krvfviksph .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#krvfviksph .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#krvfviksph .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#krvfviksph .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#krvfviksph .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#krvfviksph .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#krvfviksph .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#krvfviksph .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#krvfviksph .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#krvfviksph .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#krvfviksph .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#krvfviksph .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#krvfviksph .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#krvfviksph .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#krvfviksph .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#krvfviksph .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#krvfviksph .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#krvfviksph .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-left: 4px;
+  padding-right: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#krvfviksph .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#krvfviksph .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#krvfviksph .gt_left {
+  text-align: left;
+}
+
+#krvfviksph .gt_center {
+  text-align: center;
+}
+
+#krvfviksph .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#krvfviksph .gt_font_normal {
+  font-weight: normal;
+}
+
+#krvfviksph .gt_font_bold {
+  font-weight: bold;
+}
+
+#krvfviksph .gt_font_italic {
+  font-style: italic;
+}
+
+#krvfviksph .gt_super {
+  font-size: 65%;
+}
+
+#krvfviksph .gt_footnote_marks {
+  font-style: italic;
+  font-weight: normal;
+  font-size: 75%;
+  vertical-align: 0.4em;
+}
+
+#krvfviksph .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#krvfviksph .gt_slash_mark {
+  font-size: 0.7em;
+  line-height: 0.7em;
+  vertical-align: 0.15em;
+}
+
+#krvfviksph .gt_fraction_numerator {
+  font-size: 0.6em;
+  line-height: 0.6em;
+  vertical-align: 0.45em;
+}
+
+#krvfviksph .gt_fraction_denominator {
+  font-size: 0.6em;
+  line-height: 0.6em;
+  vertical-align: -0.05em;
+}
+</style>
+<table class="gt_table">
+  <thead class="gt_header">
+    <tr>
+      <th colspan="6" class="gt_heading gt_title gt_font_normal gt_bottom_border" style="text-align: center;"><strong>Rubrica para Evaluar Trabajos de laboratorio y de investigación</strong></th>
+    </tr>
+    
+  </thead>
+  <thead class="gt_col_headings">
+    <tr>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" style="color: #812F33; text-align: center; font-style: italic;">Sección</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" style="color: #812F33; text-align: center; font-style: italic;">Inadecuado=0</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" style="color: #812F33; text-align: center; font-style: italic;">Adecuado=1</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" style="color: #812F33; text-align: center; font-style: italic;">Bueno=2</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" style="color: #812F33; text-align: center; font-style: italic;">Muy Bien=3</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" style="color: #812F33; text-align: center; font-style: italic;">Excelente=4</th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr><td class="gt_row gt_left" style="background-color: #72CD9C; color: #000000;">Título</td>
+<td class="gt_row gt_left">El punto del experimento del experimento no se puede apreciar con el titulo</td>
+<td class="gt_row gt_left">Hay dos o más problemas comparable a lo siguiente: El titulo no es preciso, el experimento es difícil determinar por el titulo, la mayoria de la información no esta presente</td>
+<td class="gt_row gt_left">El titulo prodría ser más conciso, aun que tiene información relevante</td>
+<td class="gt_row gt_left">El titulo es conciso, pero todavia no engloba todavía el concepto principal</td>
+<td class="gt_row gt_left">El titulo es conciso y expresa bien el trabajo</td></tr>
+    <tr><td class="gt_row gt_left" style="background-color: #72CD9C; color: #000000;">Resumen</td>
+<td class="gt_row gt_left">El resumen (abstract) es ausente o no provee información relevante</td>
+<td class="gt_row gt_left">Muchas componentes son ausente, no son clarar o no citado de forma clara</td>
+<td class="gt_row gt_left">Incluye parte de la información</td>
+<td class="gt_row gt_left">Es conciso, claro pero falta alguna información</td>
+<td class="gt_row gt_left">Conciso, claro y cubre todas la información y es de 200 palabras o menos</td></tr>
+    <tr><td class="gt_row gt_left" style="background-color: #72CD9C; color: #000000;">Introducción</td>
+<td class="gt_row gt_left">4-5 de los componentes están ausente o poco desarrollado</td>
+<td class="gt_row gt_left">Cubre algunos componentes pero podría ser más claro y consisto, los aspectos principales pudiese ser más lógico, claro, por ejemplo la información base no esta enfocado en la problemática y racional del tema</td>
+<td class="gt_row gt_left">Cubre más de los temas, pero todavía falta enfocar el trabajo</td>
+<td class="gt_row gt_left">El trabajo es conciso y cubre los temas principales del trabajo</td>
+<td class="gt_row gt_left">Claro, conciso, todos los temas están bien presentado con sus referencias relevantes</td></tr>
+    <tr><td class="gt_row gt_left" style="background-color: #72CD9C; color: #000000;">Metodos y Materiales</td>
+<td class="gt_row gt_left">Poca información, no se podría repetir el trabajo</td>
+<td class="gt_row gt_left">El procedimiento esta presente pero el lector no podría replicar el trabajo</td>
+<td class="gt_row gt_left">El procedimiento es más claro pero todavía falta detalles</td>
+<td class="gt_row gt_left">Conciso y claro donde falta algunos puntos y detalles menores</td>
+<td class="gt_row gt_left">El trabajo es claro y se podría replicar</td></tr>
+    <tr><td class="gt_row gt_left" style="background-color: #72CD9C; color: #000000;">Resultados</td>
+<td class="gt_row gt_left">Escases de información, donde los resultados son incompletos (gráficos, tablas etc)</td>
+<td class="gt_row gt_left">La tablas y gráficos y descripción de ellas están ausente o no suficiente clara para entender los resultados</td>
+<td class="gt_row gt_left">Se presento los resultados suficiente bien pero tiene unas lagunas en la información, como descripción incompleta de los resultados, promedios, varianzas, unidades de medida</td>
+<td class="gt_row gt_left">Ha presentado en el texto y gráficos/tablas los resultados de forma concisa y clara, con detalles menores que en las tablas que son ausente</td>
+<td class="gt_row gt_left">La sección de resultados esta bien organizada y se entiende bien los resultados del texto y las figuras/tablas</td></tr>
+    <tr><td class="gt_row gt_left" style="background-color: #72CD9C; color: #000000;">Discusión</td>
+<td class="gt_row gt_left">La discusión esta desenfocada, falta temas importantes y ilógica sin evaluación **Critica** de los resultados. No apoyado de la literatura revisada por pares</td>
+<td class="gt_row gt_left">Hay algunos de los temas anteriores incluido, pero la mayoría no están desarrollada con suficiente detalles</td>
+<td class="gt_row gt_left">La discusión incluye 2 o más de los temas anteriores con cierto detalles de discusión apoyado por la literatura</td>
+<td class="gt_row gt_left">La mayoría de los temas están discutido y apoyado por la literatura</td>
+<td class="gt_row gt_left">Todos los temas están presente con un desarrollo lógico y apoyado de la literatura y una discusión con elementos que sugiere pensamiento critico</td></tr>
+    <tr><td class="gt_row gt_left" style="background-color: #72CD9C; color: #000000;">Literatura citada</td>
+<td class="gt_row gt_left">Ausente o incluye referencias *no revisados por pares* en el cuerpo de su trabajo</td>
+<td class="gt_row gt_left">Presente pero no orden alfabético y/o no cumple con consistencia en su descripción o uso inadecuado</td>
+<td class="gt_row gt_left">En orden alfabético, pero no incluye la cantidad todas las referencias pedido, o no incluye referencias en todas las secciones (introducción, métodos, discusión)</td>
+<td class="gt_row gt_left">En orden alfabético, pero no incluye la cantidad todas las referencias pedido, o no incluye referencias en todas las secciones (introducción, métodos, discusión), falta alguna de la información</td>
+<td class="gt_row gt_left">Referencias en todas las secciones de su trabajo, y orden alfabético con SOLAMENTE artículos revisado por pares</td></tr>
+    <tr><td class="gt_row gt_left" style="background-color: #72CD9C; color: #000000;">Gramática y organización</td>
+<td class="gt_row gt_left">Desorganizado, con ideas interrumpida donde no hay flujo de ideas</td>
+<td class="gt_row gt_left">Problema con la organización de la secciones, dificultad con la claridad y errores gramaticales</td>
+<td class="gt_row gt_left">Organización un poco problemático con el flujo de ideas, por ejemplo, la explicación de los métodos en la sección de resultados, y errores gramaticales</td>
+<td class="gt_row gt_left">La organización esta bien, con pocos problemas de estructura de frase que no son claras o que las ideas no fluje o errores gramaticales</td>
+<td class="gt_row gt_left">Organización excelente, las ideas fluje, la selección del vocabulario es correcta con pocos errores gramaticales</td></tr>
+  </tbody>
+  
+  
 </table>
-<p>Discusión|</p>
+</div>
 </div>
 
 
@@ -500,6 +1066,11 @@ $(document).ready(function () {
 </script>
 
 <!-- code folding -->
+<script>
+$(document).ready(function () {
+  window.initializeCodeFolding("hide" === "show");
+});
+</script>
 
 <script>
 $(document).ready(function ()  {

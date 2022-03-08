@@ -10,6 +10,7 @@ output:
 #  theme: simplex   To have the TOC in Red
     toc: yes
     toc_float: yes
+    code_folding: hide
 ---
 
 ```{r setup, include=FALSE}
@@ -18,14 +19,23 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ***
 
-# Rúbrica de Evaluación 
+# Rúbrica de Evaluación para trabajo de investigación de campo y de literatura
 
 
 ```{r message=FALSE, warning=FALSE, include=FALSE}
 library(tidyverse)
 ```
 
+1. Escribir es un **Proceso** y aun personas con MUCHA experiencia pasa una gran parte de su tiempo re-escribiendo.  Como evaluador de los trabajos, no es mi responsabilidad identificar CADA una de las areas de su trabajo que se puede mejorar, revisar sus trabajos es SU responsabilidad.  
+  - Si es un trabajo en grupo **CADA UNO** de los estudiantes **TIENEN** que haber comentado sobre cada una de la secciones. **Todos** tienen que estar en acuerdo de que se dice y como se dice.  No aceptan excusas como lo siguiente "Esto era la responsabilidad de un tal".   
 
+2. Los puntos principales del trabajo: SIEMPRE consideren estos puntos.
+  - La introducción es clara en por que el experimento, análisis, trabajos de revisión de literatura fue hecha, y la hipótesis que fue probaba?
+  - En la metodología se describe claramente incluyendo la hipótesis o predicción generales y como se va a evaluar la tema principal del trabajo, en adición del proceso de recolección de datos y evaluación de estos datos?
+  - Los resultados (tablas/gráficos y temas) demuestra claramente los puntos principales relevante a la hipótesis/tema de interés?
+  - En la discusión se presente los resultados en relación a la literatura, en otra palabra en relación a lo que se sabe/sabia sobre este tema en otros sistemas. Aquí es donde uno discute los temas de posibles otras hipótesis que podría surgir de las resultados.
+  
+  
 
 ```{r eval=FALSE, include=FALSE}
 Rubrica=tribble(
@@ -35,21 +45,82 @@ Rubrica=tribble(
 Rubrica
 ```
 
-El ejemplo de la rubrica en Ingles se encuentra [aqui](https://dept.writing.wisc.edu/wac/using-rubrics-to-teach-and-evaluate-writing-in-biology/). Esta rubrica fue modificado
+El ejemplo de la rubrica en Ingles se encuentra [aqui](https://dept.writing.wisc.edu/wac/using-rubrics-to-teach-and-evaluate-writing-in-biology/). Esta rubrica fue modificado para la necesidades de los cursos de "Ecología de Poblaciones", "Ecología de Comunidades", "Laboratorio de Botanica".   
 
 
-
+***
+```{r eval=FALSE, include=FALSE}
 |Sección| Inadecuado=0| Adecuado=1| Bueno=2| Muy Bien=3|Excelente=4|
 |---------|---------------|-------------|-----------|-------------|-------------|
-|Título|El punto del experimento del experimento no se puede apreciar con el titulo"| Hay dos o más problemas comparable a lo siguiente: El titulo no es preciso, el experimento es dificil detemrinar por el titulo, la mayoria de la información no esta presente|El titulo prodría ser más conciso, aun que tiene información relevante| El titulo es consico, pero todavia no engloba todavia el concepto principal| El titulo es conciso y expresa bien el trabajo|
-Resumen| El resumen (abstract) es ausente o no provee infromación relevante| Muchas componentes son asusente, no son clarar o no sitatdo de forma consisa| Incluye parte de la información|Es consiso, claro pero falta alguna infromación|Consiso, claro y cubre todas la infromación y es de 200 palabras o menos|
-Introducción| 4-5 de los compoents estan ausence o poco desarrolado | Cubre algunos componentes pero podria ser más claro y consiso, los aspectos principales pudiese ser más logico, claro, por ejemplo la información base no esta enfocado en la problematica y racional del tema | Cubre más de los temas, pero todavia falta enfocar el trabajo | el trabajo es consiso y cubre los temas principales del trabajo | Claro, consiso, todos los temas estan bien presentado con sus referencias relevantes|
-Metodos y Materiales | Poca información, no se podría repetir el trabajo | El procedimiento esta presente pero el lector no podría replicar el trabajo | El procidimiento es más claro pero todavia falta detalles | Consiso y claro donde falta algunos puntos y detalles menores | El trabajo es claro y se podria replicar|
-Resultados| Escases de información, donde los resultados son inclompletos (graficos, tables etc) | La tablas y graficos y descripción ede ellas están ausente o no suficiente clara para entender los resultados | Se presento los resultdos suficiente bien pero tiene unas lagunas en la información, como descripción incompleta de los resultados, promedios, varianzas, unidades de medida | Ha presentado en el texto y graficos/tablas los resultados de forma consisa y clara, con detalles menores que en las tablas que son ausente | La sección de resultados esta bien organizada y se entiende bien los resultados del texto y las figuras/tablas|
+|**Título**|El punto del experimento del experimento no se puede apreciar con el titulo| Hay dos o más problemas comparable a lo siguiente: El titulo no es preciso, el experimento es difícil determinar por el titulo, la mayoria de la información no esta presente|El titulo prodría ser más conciso, aun que tiene información relevante| El titulo es conciso, pero todavia no engloba todavía el concepto principal| El titulo es conciso y expresa bien el trabajo|
+**Resumen**| El resumen (abstract) es ausente o no provee información relevante| Muchas componentes son ausente, no son clarar o no citado de forma clara | Incluye parte de la información| Es conciso, claro pero falta alguna información| Conciso, claro y cubre todas la información y es de 200 palabras o menos|
+**Introducción**| 4-5 de los componentes están ausente o poco desarrollado | Cubre algunos componentes pero podría ser más claro y consisto, los aspectos principales pudiese ser más lógico, claro, por ejemplo la información base no esta enfocado en la problemática y racional del tema | Cubre más de los temas, pero todavía falta enfocar el trabajo | El trabajo es conciso y cubre los temas principales del trabajo | Claro, conciso, todos los temas están bien presentado con sus referencias relevantes|
+**Metodos y Materiales** | Poca información, no se podría repetir el trabajo | El procedimiento esta presente pero el lector no podría replicar el trabajo | El procedimiento es más claro pero todavía falta detalles | Conciso y claro donde falta algunos puntos y detalles menores | El trabajo es claro y se podría replicar|
+**Resultados**| Escases de información, donde los resultados son incompletos (gráficos, tablas etc) | La tablas y gráficos y descripción de ellas están ausente o no suficiente clara para entender los resultados | Se presento los resultados suficiente bien pero tiene unas lagunas en la información, como descripción incompleta de los resultados, promedios, varianzas, unidades de medida | Ha presentado en el texto y gráficos/tablas los resultados de forma concisa y clara, con detalles menores que en las tablas que son ausente | La sección de resultados esta bien organizada y se entiende bien los resultados del texto y las figuras/tablas|
+**Discusión**| La discusión esta desenfocada, falta temas importantes y ilógica sin evaluación **Critica** de los resultados. No apoyado de la literatura revisada por pares | Hay algunos de los temas anteriores incluido, pero la mayoría no están desarrollada con suficiente detalles | La discusión incluye 2 o más de los temas anteriores con cierto detalles de discusión apoyado por la literatura | La mayoría de los temas están discutido y apoyado por la literatura | Todos los temas están presente con un desarrollo lógico y apoyado de la literatura y una discusión con elementos que sugiere pensamiento critico|
+**Literatura citada** | Ausente o incluye referencias *no revisados por pares* en el cuerpo de su trabajo | Presente pero no orden alfabético y/o no cumple con consistencia en su descripción o uso inadecuado | En orden alfabético, pero no incluye la cantidad todas las referencias pedido, o no incluye referencias en todas las secciones (introducción, métodos, discusión) | En orden alfabético, pero no incluye la cantidad todas las referencias pedido, o no incluye referencias en todas las secciones (introducción, métodos, discusión), falta alguna de la información | Referencias en todas las secciones de su trabajo, y orden alfabético con SOLAMENTE artículos revisado por pares |
+**Gramática y organización** | Desorganizado, con ideas interrumpida donde no hay flujo de ideas | Problema con la organización de la secciones, dificultad con la claridad y errores gramaticales | Organización un poco problemático con el flujo de ideas, por ejemplo, la explicación de los métodos en la sección de resultados, y errores gramaticales | La organización esta bien, con pocos problemas de estructura de frase que no son claras o que las ideas no fluje o errores gramaticales | Organización excelente, las ideas fluje, la selección del vocabulario es correcta con pocos errores gramaticales | 
+```
 
-Discusión|
+
+
+```{r eval=FALSE, include=FALSE}
+install.packages("devtools")
+devtools::install_github("alistaire47/read.so")
+```
 
 
 
+```{r include=FALSE}
 
+library(read.so)
+text=read_md('
+|Sección| Inadecuado=0| Adecuado=1| Bueno=2| Muy Bien=3|Excelente=4|
+|---------|---------------|-------------|-----------|-------------|-------------|
+|Título|El punto del experimento del experimento no se puede apreciar con el titulo| Hay dos o más problemas comparable a lo siguiente: El titulo no es preciso, el experimento es difícil determinar por el titulo, la mayoria de la información no esta presente|El titulo prodría ser más conciso, aun que tiene información relevante| El titulo es conciso, pero todavia no engloba todavía el concepto principal| El titulo es conciso y expresa bien el trabajo|
+Resumen| El resumen (abstract) es ausente o no provee información relevante| Muchas componentes son ausente, no son clarar o no citado de forma clara | Incluye parte de la información| Es conciso, claro pero falta alguna información| Conciso, claro y cubre todas la información y es de 200 palabras o menos|
+Introducción| 4-5 de los componentes están ausente o poco desarrollado | Cubre algunos componentes pero podría ser más claro y consisto, los aspectos principales pudiese ser más lógico, claro, por ejemplo la información base no esta enfocado en la problemática y racional del tema | Cubre más de los temas, pero todavía falta enfocar el trabajo | El trabajo es conciso y cubre los temas principales del trabajo | Claro, conciso, todos los temas están bien presentado con sus referencias relevantes|
+Metodos y Materiales | Poca información, no se podría repetir el trabajo | El procedimiento esta presente pero el lector no podría replicar el trabajo | El procedimiento es más claro pero todavía falta detalles | Conciso y claro donde falta algunos puntos y detalles menores | El trabajo es claro y se podría replicar|
+Resultados| Escases de información, donde los resultados son incompletos (gráficos, tablas etc) | La tablas y gráficos y descripción de ellas están ausente o no suficiente clara para entender los resultados | Se presento los resultados suficiente bien pero tiene unas lagunas en la información, como descripción incompleta de los resultados, promedios, varianzas, unidades de medida | Ha presentado en el texto y gráficos/tablas los resultados de forma concisa y clara, con detalles menores que en las tablas que son ausente | La sección de resultados esta bien organizada y se entiende bien los resultados del texto y las figuras/tablas|
+Discusión| La discusión esta desenfocada, falta temas importantes y ilógica sin evaluación **Critica** de los resultados. No apoyado de la literatura revisada por pares | Hay algunos de los temas anteriores incluido, pero la mayoría no están desarrollada con suficiente detalles | La discusión incluye 2 o más de los temas anteriores con cierto detalles de discusión apoyado por la literatura | La mayoría de los temas están discutido y apoyado por la literatura | Todos los temas están presente con un desarrollo lógico y apoyado de la literatura y una discusión con elementos que sugiere pensamiento critico|
+Literatura citada | Ausente o incluye referencias *no revisados por pares* en el cuerpo de su trabajo | Presente pero no orden alfabético y/o no cumple con consistencia en su descripción o uso inadecuado | En orden alfabético, pero no incluye la cantidad todas las referencias pedido, o no incluye referencias en todas las secciones (introducción, métodos, discusión) | En orden alfabético, pero no incluye la cantidad todas las referencias pedido, o no incluye referencias en todas las secciones (introducción, métodos, discusión), falta alguna de la información | Referencias en todas las secciones de su trabajo, y orden alfabético con SOLAMENTE artículos revisado por pares |
+Gramática y organización | Desorganizado, con ideas interrumpida donde no hay flujo de ideas | Problema con la organización de la secciones, dificultad con la claridad y errores gramaticales | Organización un poco problemático con el flujo de ideas, por ejemplo, la explicación de los métodos en la sección de resultados, y errores gramaticales | La organización esta bien, con pocos problemas de estructura de frase que no son claras o que las ideas no fluje o errores gramaticales | Organización excelente, las ideas fluje, la selección del vocabulario es correcta con pocos errores gramaticales | ')
+
+text
+```
+
+
+***
+
+
+```{r}
+library(gt)
+library(tidyverse)
+```
+
+
+
+```{r}
+text %>% 
+  gt() %>% 
+  tab_header(
+    title = md("**Rubrica para Evaluar Trabajos de laboratorio y de investigación**")
+  ) %>% 
+  tab_style(list(
+    cell_text(align = "center")
+  ), locations = cells_title()
+  ) %>% 
+  tab_style(
+    style = list(
+      cell_text(align="center", style="italic", color="#812F33")
+    ),
+    locations = cells_column_labels()
+  ) %>% 
+  data_color( # Update cell colors...
+    columns = c(Sección), # ...for supp column!
+    colors = "#72CD9C"
+  ) 
+  
+  
+```
 
