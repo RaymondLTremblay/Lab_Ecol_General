@@ -36,7 +36,10 @@ navbar:
           text: "Ejercicio R y RStudio"
         - 
           href: Asteraceae_Trabajo_Entregar.html
-          text: "Selección Fenotípica en Asteraceae"         
+          text: "Selección Fenotípica en Asteraceae" 
+          
+        - href: Intra_Spec_Comp_Ast.html
+          text: "Análisis de Competencia Intra-especifica" 
           
       text: Ejercicios
       
