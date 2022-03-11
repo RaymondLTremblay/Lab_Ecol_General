@@ -1,0 +1,112 @@
+---
+title: "Comp_Intra_Esp_Asteraceae"
+author: "RLT"
+date: "3/11/2022"
+output:
+  html_document:
+    css: Lab_Ecol_Gen.css
+    fig_caption: yes
+    highlight: pygments
+#  theme: simplex   To have the TOC in Red
+    toc: yes
+    toc_float: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+
+
+```{r include=FALSE}
+#install.packages("devtools")
+#devtools::install_github("alistaire47/read.so")
+#library(read.so)
+library(tidyverse)
+library(ggplot2)
+
+#install.packages("ggplot2", dependencies = TRUE)
+```
+
+
+Se encontrará los datos de todos los grupos en el siguiente enlace [DATOS](Intra_Specific_Comp_Ast.csv)
+
+
+```{r message=FALSE, warning=FALSE}
+library(readr)
+Intra_Specific_Comp_Ast <- read_csv("Intra_Specific_Comp_Ast.csv")
+```
+
+
+
+
+```{r message=FALSE, warning=FALSE}
+library(ggplot2)
+ggplot(Intra_Specific_Comp_Ast, aes(x=Num_Plantas, fill=Grupo))+
+  geom_histogram(position="dodge")+
+  scale_x_continuous(breaks = c(1:9))+
+  xlab("Números de plantas por cuandrante")
+  
+
+```
+
+
+
+
+
+```{r message=FALSE, warning=FALSE}
+library(ggplot2)
+ggplot(Intra_Specific_Comp_Ast, aes(Num_Plantas, Num_Inflorecencia, color=Grupo)) +
+  geom_point()+
+  geom_smooth(method ="glm", family="poisson")+
+  facet_wrap(~Grupo)
+
+```
+
+
+
+
+
+
+```{r}
+Model1=glm(Num_Inflorecencia~Num_Plantas+Grupo-1, data=Intra_Specific_Comp_Ast , family="poisson")
+summary(Model1) # Estos valores estan en la escala de log_10
+```
+
+***
+
+## Ahora a ver los coeficiente en la misma escala que se recogio los datos.
+
+```{r}
+exp(coef(Model1))
+```
+
+
+***
+
+Como se interpreta?
+
+- Num_Plantas, por cada planta extra en el cuadrante, hay una redución de solamente .6 inflorescencia (1-.94).  Por consecuencia en general no se vio mucha diferencia entre la producción de inflorescencia y la cantidad de plantas por cuandrante
+
+- Pero los diferentes muestreos (Grupos son distinctos).
+
+Nota que para el primer grupo con una planta se espera 27 inflorescencia y por cada otra planta en el cuandrante se reduce de .6 inflorescencia.  Por consecuancia en el primer grupo en un cuadrante de 5 plantas se observa en promedio 27.2 - .937 *5 =  22.5 inflorescencia
+
+El calculo de como calcular la cantidad inflorescencia esperadas en un cuandrate de de 5 plantas en el grupo 
+
+```{r}
+
+
+27.2 - 0.935*5
+```
+
+***
+
+## Cuanta inflorescencia se espera en un cuadrante de 10 plantas en el grupo 4?
+
+
+
+
+
+
