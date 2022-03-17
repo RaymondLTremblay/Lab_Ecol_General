@@ -34,19 +34,27 @@ Se encontrará los datos de todos los grupos en el siguiente enlace [DATOS](Intr
 
 
 ```{r message=FALSE, warning=FALSE}
-library(readr)
-Intra_Specific_Comp_Ast <- read_csv("Intra_Specific_Comp_Ast.csv")
+library(readxl)
+G5 <- read_excel("G5.xlsx", sheet = "Sheet2")
 ```
 
 
 
 
 ```{r message=FALSE, warning=FALSE}
+install.packages("ggplot2", dependencies = TRUE)
+
 library(ggplot2)
-ggplot(Intra_Specific_Comp_Ast, aes(x=Num_Plantas, fill=Grupo))+
+```
+
+```{r}
+names(G5)
+
+ggplot(G5,aes(x=Num_Plantas, fill=Grupo))+
   geom_histogram(position="dodge")+
   scale_x_continuous(breaks = c(1:9))+
-  xlab("Números de plantas por cuandrante")
+  xlab("Números de plantas por cuandrante")+
+  ylab("Frecuencia")
   
 
 ```
@@ -57,11 +65,12 @@ ggplot(Intra_Specific_Comp_Ast, aes(x=Num_Plantas, fill=Grupo))+
 
 ```{r message=FALSE, warning=FALSE}
 library(ggplot2)
-ggplot(Intra_Specific_Comp_Ast, aes(Num_Plantas, Num_Inflorecencia, color=Grupo)) +
+
+ggplot(G5, aes(Num_Plantas, Num_Inflorecencia, color=Grupo)) +
   geom_point()+
   geom_smooth(method ="glm", family="poisson")+
   facet_wrap(~Grupo)
-
+ggsave("Competencia_grupos.png")
 ```
 
 
@@ -70,7 +79,10 @@ ggplot(Intra_Specific_Comp_Ast, aes(Num_Plantas, Num_Inflorecencia, color=Grupo)
 
 
 ```{r}
-Model1=glm(Num_Inflorecencia~Num_Plantas+Grupo-1, data=Intra_Specific_Comp_Ast , family="poisson")
+Model1=glm(Num_Inflorecencia~Num_Plantas+Grupo-1, data=G5 , family="poisson")
+
+
+
 summary(Model1) # Estos valores estan en la escala de log_10
 ```
 
