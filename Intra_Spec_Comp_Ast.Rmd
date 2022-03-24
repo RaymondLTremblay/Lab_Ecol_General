@@ -42,7 +42,7 @@ G5 <- read_excel("G5.xlsx", sheet = "Sheet2")
 
 
 ```{r message=FALSE, warning=FALSE}
-install.packages("ggplot2", dependencies = TRUE)
+#install.packages("ggplot2", dependencies = TRUE)
 
 library(ggplot2)
 ```

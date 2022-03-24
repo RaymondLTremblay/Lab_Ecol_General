@@ -25,7 +25,11 @@ navbar:
            
         -
           href: Asteraceae_adecuacion.html
-          text: "Adecuación Darwiniana en Asteraceae"         
+          text: "Adecuación Darwiniana en Asteraceae"  
+        -
+          href: Variacion_Subindividual.html
+          text: "Variación Subindividual"          
+          
           
           
       text: Modulos

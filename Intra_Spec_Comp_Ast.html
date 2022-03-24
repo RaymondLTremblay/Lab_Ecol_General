@@ -14,7 +14,7 @@
 
 <title>Comp_Intra_Esp_Asteraceae</title>
 
-<script src="site_libs/header-attrs-2.13/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.12/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
@@ -431,6 +431,9 @@ div.tocify {
     <li>
       <a href="Asteraceae_adecuacion.html">Adecuación Darwiniana en Asteraceae</a>
     </li>
+    <li>
+      <a href="Variacion_Subindividual.html">Variación Subindividual</a>
+    </li>
   </ul>
 </li>
 <li class="dropdown">
@@ -495,54 +498,69 @@ div.tocify {
 
 
 <p>Se encontrará los datos de todos los grupos en el siguiente enlace <a href="Intra_Specific_Comp_Ast.csv">DATOS</a></p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>Intra_Specific_Comp_Ast <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;Intra_Specific_Comp_Ast.csv&quot;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(Intra_Specific_Comp_Ast, <span class="fu">aes</span>(<span class="at">x=</span>Num_Plantas, <span class="at">fill=</span>Grupo))<span class="sc">+</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">position=</span><span class="st">&quot;dodge&quot;</span>)<span class="sc">+</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">9</span>))<span class="sc">+</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Números de plantas por cuandrante&quot;</span>)</span></code></pre></div>
-<p><img src="Intra_Spec_Comp_Ast_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(Intra_Specific_Comp_Ast, <span class="fu">aes</span>(Num_Plantas, Num_Inflorecencia, <span class="at">color=</span>Grupo)) <span class="sc">+</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()<span class="sc">+</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span><span class="st">&quot;glm&quot;</span>, <span class="at">family=</span><span class="st">&quot;poisson&quot;</span>)<span class="sc">+</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>Grupo)</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>G5 <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">&quot;G5.xlsx&quot;</span>, <span class="at">sheet =</span> <span class="st">&quot;Sheet2&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages(&quot;ggplot2&quot;, dependencies = TRUE)</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(G5)</span></code></pre></div>
+<pre><code>## [1] &quot;Grupo&quot;             &quot;Cuadrante&quot;         &quot;Num_Plantas&quot;      
+## [4] &quot;Num_Inflorecencia&quot;</code></pre>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(G5,<span class="fu">aes</span>(<span class="at">x=</span>Num_Plantas, <span class="at">fill=</span>Grupo))<span class="sc">+</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">position=</span><span class="st">&quot;dodge&quot;</span>)<span class="sc">+</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">9</span>))<span class="sc">+</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Números de plantas por cuandrante&quot;</span>)<span class="sc">+</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Frecuencia&quot;</span>)</span></code></pre></div>
+<pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+<pre><code>## Warning: Removed 1 rows containing non-finite values (stat_bin).</code></pre>
 <p><img src="Intra_Spec_Comp_Ast_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>Model1<span class="ot">=</span><span class="fu">glm</span>(Num_Inflorecencia<span class="sc">~</span>Num_Plantas<span class="sc">+</span>Grupo<span class="dv">-1</span>, <span class="at">data=</span>Intra_Specific_Comp_Ast , <span class="at">family=</span><span class="st">&quot;poisson&quot;</span>)</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(Model1) <span class="co"># Estos valores estan en la escala de log_10</span></span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(G5, <span class="fu">aes</span>(Num_Plantas, Num_Inflorecencia, <span class="at">color=</span>Grupo)) <span class="sc">+</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()<span class="sc">+</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span><span class="st">&quot;glm&quot;</span>, <span class="at">family=</span><span class="st">&quot;poisson&quot;</span>)<span class="sc">+</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>Grupo)</span></code></pre></div>
+<p><img src="Intra_Spec_Comp_Ast_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">&quot;Competencia_grupos.png&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>Model1<span class="ot">=</span><span class="fu">glm</span>(Num_Inflorecencia<span class="sc">~</span>Num_Plantas<span class="sc">+</span>Grupo<span class="dv">-1</span>, <span class="at">data=</span>G5 , <span class="at">family=</span><span class="st">&quot;poisson&quot;</span>)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(Model1) <span class="co"># Estos valores estan en la escala de log_10</span></span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## glm(formula = Num_Inflorecencia ~ Num_Plantas + Grupo - 1, family = &quot;poisson&quot;, 
-##     data = Intra_Specific_Comp_Ast)
+##     data = G5)
 ## 
 ## Deviance Residuals: 
 ##     Min       1Q   Median       3Q      Max  
-## -7.0118  -2.2121  -0.3616   1.5109   7.3306  
+## -7.4301  -2.3348  -0.2512   1.4740   9.2451  
 ## 
 ## Coefficients:
 ##             Estimate Std. Error z value Pr(&gt;|z|)    
-## Num_Plantas -0.06407    0.01049  -6.108 1.01e-09 ***
-## GrupoG1      3.30220    0.05447  60.625  &lt; 2e-16 ***
-## GrupoG3      3.40816    0.03702  92.059  &lt; 2e-16 ***
-## GrupoG4      4.35394    0.04208 103.477  &lt; 2e-16 ***
-## GrupoG5      3.22761    0.03866  83.481  &lt; 2e-16 ***
+## Num_Plantas -0.09494    0.01033  -9.189   &lt;2e-16 ***
+## GrupoG1      3.43681    0.05270  65.221   &lt;2e-16 ***
+## GrupoG2      3.48797    0.03652  95.516   &lt;2e-16 ***
+## GrupoG3      3.47622    0.03667  94.806   &lt;2e-16 ***
+## GrupoG4      4.44172    0.04132 107.497   &lt;2e-16 ***
+## GrupoG5      3.30259    0.03834  86.128   &lt;2e-16 ***
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 ## 
 ## (Dispersion parameter for poisson family taken to be 1)
 ## 
-##     Null deviance: 24283  on 180  degrees of freedom
-## Residual deviance:  1208  on 175  degrees of freedom
-## AIC: 2103.9
+##     Null deviance: 29660  on 219  degrees of freedom
+## Residual deviance:  1570  on 213  degrees of freedom
+##   (1 observation deleted due to missingness)
+## AIC: 2660.7
 ## 
-## Number of Fisher Scoring iterations: 4</code></pre>
+## Number of Fisher Scoring iterations: 5</code></pre>
 <hr />
 <div id="ahora-a-ver-los-coeficiente-en-la-misma-escala-que-se-recogio-los-datos." class="section level2">
 <h2>Ahora a ver los coeficiente en la misma escala que se recogio los datos.</h2>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">exp</span>(<span class="fu">coef</span>(Model1))</span></code></pre></div>
-<pre><code>## Num_Plantas     GrupoG1     GrupoG3     GrupoG4     GrupoG5 
-##   0.9379406  27.1723629  30.2095117  77.7841172  25.2192233</code></pre>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">exp</span>(<span class="fu">coef</span>(Model1))</span></code></pre></div>
+<pre><code>## Num_Plantas     GrupoG1     GrupoG2     GrupoG3     GrupoG4     GrupoG5 
+##   0.9094267  31.0875879  32.7195285  32.3373112  84.9210927  27.1829296</code></pre>
 <hr />
 <p>Como se interpreta?</p>
 <ul>
@@ -551,7 +569,7 @@ div.tocify {
 </ul>
 <p>Nota que para el primer grupo con una planta se espera 27 inflorescencia y por cada otra planta en el cuandrante se reduce de .6 inflorescencia. Por consecuancia en el primer grupo en un cuadrante de 5 plantas se observa en promedio 27.2 - .937 *5 = 22.5 inflorescencia</p>
 <p>El calculo de como calcular la cantidad inflorescencia esperadas en un cuandrate de de 5 plantas en el grupo</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fl">27.2</span> <span class="sc">-</span> <span class="fl">0.935</span><span class="sc">*</span><span class="dv">5</span></span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fl">27.2</span> <span class="sc">-</span> <span class="fl">0.935</span><span class="sc">*</span><span class="dv">5</span></span></code></pre></div>
 <pre><code>## [1] 22.525</code></pre>
 <hr />
 </div>

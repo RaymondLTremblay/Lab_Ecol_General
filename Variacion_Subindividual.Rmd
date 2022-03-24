@@ -20,24 +20,20 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ¿Donde se encuentra la variación?
 
-1. El termino en estadistica se llama "dispersión"
+El termino en estadistica se llama "dispersión"
 
+
+### Presentación sobre Variación Subindividual
 
 La presentación siguiente tiene los conceptos principal del concepto de variación subindividual
+
+[Presentación PDF](PDF/Subindividual variation.pdf)
 
 # Literatura que leer
 
 [Variación en ERITHROCITOS EN ANOLIS](PDF/WIV-Erythrocite_peerj-12761.pdf)
 
 [Conceptos en Variación](PDF/Multiplicity in Unity Chapter 7.pdf)
-
-
-***
-
-Presentación sobre Variación Subindividual
-
-
-[Presentación PDF](PDF/Subindividual variation.pdf)
 
 
 
