@@ -1,0 +1,77 @@
+---
+title: "Variacion_subindividual"
+author: "Raymond L. Tremblay"
+date: "3/3/2022"
+output:
+  html_document:
+    css: Lab_Ecol_Gen.css
+    fig_caption: yes
+    highlight: pygments
+#  theme: simplex   To have the TOC in Red
+    toc: yes
+    toc_float: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+***
+
+¿Donde se encuentra la variación?
+
+1. El termino en estadistica se llama "dispersión"
+
+
+La presentación siguiente tiene los conceptos principal del concepto de variación subindividual
+
+# Literatura que leer
+
+[Variación en ERITHROCITOS EN ANOLIS](PDF/WIV-Erythrocite_peerj-12761.pdf)
+
+[Conceptos en Variación](PDF/Multiplicity in Unity Chapter 7.pdf)
+
+
+***
+
+Presentación sobre Variación Subindividual
+
+
+[Presentación PDF](PDF/Subindividual variation.pdf)
+
+
+
+***
+
+# Trabajo de laboratorio
+
+Evaluar la variación entre individuos y sub-individual de la cantidad de semillas por frutas en una especie de Eucalyptus 
+
+Cada estudiante (grupo de 2 solamente) contabilizara 150 frutos, y contará el número de semillas por fruta.
+
+### Los datos
+
+- se anade los datos a **una** hoja de calculo de todos los grupos.
+- se evaluará la variación entre individuos y dentro de los individuos.
+- Los calculos se harán un grupo
+
+###
+
+El informe sera guiado por preguntas especificas.
+
+
+
+ - Que es la variación subindividual
+ - Explica los resultados obtenidos
+ - Menciona 2 ejemplos de la literatura donde se ha estudiado la variación subindividual de la cantidad de semillas 
+ - En estos 2 ejemplos la variación es más grande entre los individuos o dentro de los individuos
+ - ¿Por que se usa el coeficiente de variación y no los datos crudos?
+ 
+ 
+ 
+ 
+ 
+
+ 
+
+
