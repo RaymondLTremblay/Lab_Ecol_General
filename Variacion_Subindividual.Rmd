@@ -53,21 +53,110 @@ Cada estudiante (grupo de 2 solamente) contabilizara 150 frutos, y contará el n
 
 ###
 
-El informe sera guiado por preguntas especificas.
+El informe sera guiado por preguntas especificas. (25 puntos)
 
 
-
- - Que es la variación subindividual
- - Explica los resultados obtenidos
- - Menciona 2 ejemplos de la literatura donde se ha estudiado la variación subindividual de la cantidad de semillas 
+ - Qué es la variación subindividual (comparar con escala de variación)
+ - Explica los resultados obtenidos abajo en sus propria palabra, ¿que es los que representa estos resultados?
+ - Menciona 2 ejemplos de la literatura donde se ha estudiado la variación subindividual de la cantidad de semillas y sus resultados (no se le olvida mencionar las referencias) 
  - En estos 2 ejemplos la variación es más grande entre los individuos o dentro de los individuos
- - ¿Por que se usa el coeficiente de variación y no los datos crudos?
+ - ¿Por qué se usa el coeficiente de variación y no los datos crudos como el promedio?
+ - Busca un paper científico sobre otro tema que habal de variación subindividual, y explica en su propria palabra lo que encontraron.  
  
  
  
+ 
+***
+
+ANALISIS de los datos
+
+```{r}
+library(readxl)
+Eucalyptis_2 <- read_excel("Eucalyptis_2.xlsx")
+head(Eucalyptis_2)
+```
+
  
  
 
+```{r}
+library(tidyverse)
+```
  
+## Re-organizar los datos en dos columnas
+
+```{r}
+ggplot(Eucalyptis_2, aes(Num_Semillas, fill=Arbol_Grupo))+
+  geom_histogram()+
+  facet_wrap(~Arbol_Grupo)
+
+ggsave("Eucalyptis_Histogram.png")
+```
+
+
+Cual es la variación en el número de semillas por árbol
+
+
+```{r}
+Eucalyptis_2 %>% 
+  select(Num_Semillas, Arbol_Grupo) %>% 
+  group_by(Arbol_Grupo) %>%
+  drop_na() %>% 
+  summarise(mean= mean(Num_Semillas),
+            varianza = var(Num_Semillas),
+            desviación_estandar = sd(Num_Semillas),
+            CV=desviación_estandar/mean)
+```
+
+
+Ahora evaluar si más variación dentro del árbol o entre arboles, usando un analis de varianza (ANOVA)
+
+```{r}
+model1=aov(Num_Semillas~Arbol_Grupo, data = Eucalyptis_2)
+summary(model1)
+```
+
+
+### Nota aqui los resultados de la tabla de ANOVA
+
+El componente de "Sum Sq" = SUm of squares (La suma de los cuadrados)
+
+La parte de **Arbol_Grupo** representa la variación entre arboles, los **residuales**, la variación dentro de los grupos.
+
+
+### La diferencia en el promedio entre arboles es distincta 
+
+ - por que el valor de **p** es menor de 0.05, nota que tiene "***"
+
+
+
+## Un gráfico de la variación entre arboles
+
+Hacemos una gráfico de la diferencias entre los arboles y su desviación estandard
+
+
+```{r}
+
+E3=Eucalyptis_2 %>% 
+  select(Num_Semillas, Arbol_Grupo) %>% 
+  group_by(Arbol_Grupo) %>%
+  drop_na() %>% 
+  summarise(mean= mean(Num_Semillas),
+            varianza = var(Num_Semillas),
+            desviación_estandar = sd(Num_Semillas),
+            CV=desviación_estandar/mean)
+
+E3
+ggplot(E3, aes(y=mean, x=Arbol_Grupo))+
+  geom_point()+
+  geom_errorbar(aes(ymin=mean-desviación_estandar, ymax=mean+desviación_estandar), width=.2,
+                position=position_dodge(0.05))+
+  ylab("Promedio y la desviación estandard \ndel número de semillas por fruto")+
+  xlab("Arboles muestrados")
+
+ggsave("mean_SD.png")
+```
+
+
 
 
