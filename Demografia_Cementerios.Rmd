@@ -164,12 +164,22 @@ gt(Resumir_datos2)
 
 Un problema con el estudio de las curvas de supervivencia es que se debe seguir una cohorte de nacimiento hasta la muerte del último individuo. ¿Cómo se alteraría la curva de supervivencia de 1940 con respecto a la de 1800?
 
-### Espuclaciones
+### Especulaciones
 
  - Especula sobre el futuro si:
    - El Covid-19 sigue aumentando y no se encuentra cura.
    - Los avances médicos continúan y se eliminan la mayoría de las enfermedades y la mortalidad infantil.
    - Se agravan los problemas ambientales y aumentan las enfermedades relacionadas con la contaminación.
+
+### Seleción de datos
+
+Para seleccionar sus datos y crear una hipótesis vea el documento  **Demography from Physical cemeteris** en este documento encontrarán enlaces a bases de datos de cementerios por todo el mundo.
+
+
+
+
+
+
 
 ***
 
