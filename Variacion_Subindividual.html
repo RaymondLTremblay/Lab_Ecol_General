@@ -434,6 +434,9 @@ div.tocify {
     <li>
       <a href="Variacion_Subindividual.html">Variación Subindividual</a>
     </li>
+    <li>
+      <a href="Demografia_Cementerios.html">Demografía de Cementarios</a>
+    </li>
   </ul>
 </li>
 <li class="dropdown">
@@ -549,34 +552,26 @@ div.tocify {
 ## 5 A_1                    3
 ## 6 A_1                    4</code></pre>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
-<pre><code>## ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.1 ──</code></pre>
-<pre><code>## ✓ ggplot2 3.3.5     ✓ purrr   0.3.4
-## ✓ tibble  3.1.6     ✓ dplyr   1.0.8
-## ✓ tidyr   1.2.0     ✓ stringr 1.4.0
-## ✓ readr   2.1.2     ✓ forcats 0.5.1</code></pre>
-<pre><code>## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-## x dplyr::filter() masks stats::filter()
-## x dplyr::lag()    masks stats::lag()</code></pre>
 </div>
 <div id="re-organizar-los-datos-en-dos-columnas" class="section level2">
 <h2>Re-organizar los datos en dos columnas</h2>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(Eucalyptis_2, <span class="fu">aes</span>(Num_Semillas, <span class="at">fill=</span>Arbol_Grupo))<span class="sc">+</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>()<span class="sc">+</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>Arbol_Grupo)</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(Eucalyptis_2, <span class="fu">aes</span>(Num_Semillas, <span class="at">fill=</span>Arbol_Grupo))<span class="sc">+</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>()<span class="sc">+</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>Arbol_Grupo)</span></code></pre></div>
 <pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
 <p><img src="Variacion_Subindividual_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">&quot;Eucalyptis_Histogram.png&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">&quot;Eucalyptis_Histogram.png&quot;</span>)</span></code></pre></div>
 <pre><code>## Saving 7 x 5 in image
 ## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
 <p>Cual es la variación en el número de semillas por árbol</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>Eucalyptis_2 <span class="sc">%&gt;%</span> </span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Num_Semillas, Arbol_Grupo) <span class="sc">%&gt;%</span> </span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Arbol_Grupo) <span class="sc">%&gt;%</span></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean=</span> <span class="fu">mean</span>(Num_Semillas),</span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">varianza =</span> <span class="fu">var</span>(Num_Semillas),</span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>            desviación<span class="at">_estandar =</span> <span class="fu">sd</span>(Num_Semillas),</span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>            <span class="at">CV=</span>desviación_estandar<span class="sc">/</span>mean)</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>Eucalyptis_2 <span class="sc">%&gt;%</span> </span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Num_Semillas, Arbol_Grupo) <span class="sc">%&gt;%</span> </span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Arbol_Grupo) <span class="sc">%&gt;%</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean=</span> <span class="fu">mean</span>(Num_Semillas),</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">varianza =</span> <span class="fu">var</span>(Num_Semillas),</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>            desviación<span class="at">_estandar =</span> <span class="fu">sd</span>(Num_Semillas),</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>            <span class="at">CV=</span>desviación_estandar<span class="sc">/</span>mean)</span></code></pre></div>
 <pre><code>## # A tibble: 6 × 5
 ##   Arbol_Grupo  mean varianza desviación_estandar     CV
 ##   &lt;chr&gt;       &lt;dbl&gt;    &lt;dbl&gt;               &lt;dbl&gt;  &lt;dbl&gt;
@@ -587,8 +582,8 @@ div.tocify {
 ## 5 A_5          2.99  0.0701               0.265  0.0886
 ## 6 A_6          2.99  0.0201               0.142  0.0474</code></pre>
 <p>Ahora evaluar si más variación dentro del árbol o entre arboles, usando un analis de varianza (ANOVA)</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>model1<span class="ot">=</span><span class="fu">aov</span>(Num_Semillas<span class="sc">~</span>Arbol_Grupo, <span class="at">data =</span> Eucalyptis_2)</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model1)</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>model1<span class="ot">=</span><span class="fu">aov</span>(Num_Semillas<span class="sc">~</span>Arbol_Grupo, <span class="at">data =</span> Eucalyptis_2)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model1)</span></code></pre></div>
 <pre><code>##               Df Sum Sq Mean Sq F value Pr(&gt;F)    
 ## Arbol_Grupo    5  21.72   4.344   48.38 &lt;2e-16 ***
 ## Residuals   1791 160.78   0.090                   
@@ -609,16 +604,16 @@ div.tocify {
 <div id="un-gráfico-de-la-variación-entre-arboles" class="section level2">
 <h2>Un gráfico de la variación entre arboles</h2>
 <p>Hacemos una gráfico de la diferencias entre los arboles y su desviación estandard</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>E3<span class="ot">=</span>Eucalyptis_2 <span class="sc">%&gt;%</span> </span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Num_Semillas, Arbol_Grupo) <span class="sc">%&gt;%</span> </span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Arbol_Grupo) <span class="sc">%&gt;%</span></span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean=</span> <span class="fu">mean</span>(Num_Semillas),</span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">varianza =</span> <span class="fu">var</span>(Num_Semillas),</span>
-<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>            desviación<span class="at">_estandar =</span> <span class="fu">sd</span>(Num_Semillas),</span>
-<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>            <span class="at">CV=</span>desviación_estandar<span class="sc">/</span>mean)</span>
-<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>E3</span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>E3<span class="ot">=</span>Eucalyptis_2 <span class="sc">%&gt;%</span> </span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Num_Semillas, Arbol_Grupo) <span class="sc">%&gt;%</span> </span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Arbol_Grupo) <span class="sc">%&gt;%</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean=</span> <span class="fu">mean</span>(Num_Semillas),</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">varianza =</span> <span class="fu">var</span>(Num_Semillas),</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>            desviación<span class="at">_estandar =</span> <span class="fu">sd</span>(Num_Semillas),</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>            <span class="at">CV=</span>desviación_estandar<span class="sc">/</span>mean)</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>E3</span></code></pre></div>
 <pre><code>## # A tibble: 6 × 5
 ##   Arbol_Grupo  mean varianza desviación_estandar     CV
 ##   &lt;chr&gt;       &lt;dbl&gt;    &lt;dbl&gt;               &lt;dbl&gt;  &lt;dbl&gt;
@@ -628,14 +623,14 @@ div.tocify {
 ## 4 A_4          2.99  0.00664              0.0815 0.0272
 ## 5 A_5          2.99  0.0701               0.265  0.0886
 ## 6 A_6          2.99  0.0201               0.142  0.0474</code></pre>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(E3, <span class="fu">aes</span>(<span class="at">y=</span>mean, <span class="at">x=</span>Arbol_Grupo))<span class="sc">+</span></span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()<span class="sc">+</span></span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="fu">aes</span>(<span class="at">ymin=</span>mean<span class="sc">-</span>desviación_estandar, <span class="at">ymax=</span>mean<span class="sc">+</span>desviación_estandar), <span class="at">width=</span>.<span class="dv">2</span>,</span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>                <span class="at">position=</span><span class="fu">position_dodge</span>(<span class="fl">0.05</span>))<span class="sc">+</span></span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Promedio y la desviación estandard </span><span class="sc">\n</span><span class="st">del número de semillas por fruto&quot;</span>)<span class="sc">+</span></span>
-<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Arboles muestrados&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(E3, <span class="fu">aes</span>(<span class="at">y=</span>mean, <span class="at">x=</span>Arbol_Grupo))<span class="sc">+</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()<span class="sc">+</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="fu">aes</span>(<span class="at">ymin=</span>mean<span class="sc">-</span>desviación_estandar, <span class="at">ymax=</span>mean<span class="sc">+</span>desviación_estandar), <span class="at">width=</span>.<span class="dv">2</span>,</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>                <span class="at">position=</span><span class="fu">position_dodge</span>(<span class="fl">0.05</span>))<span class="sc">+</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Promedio y la desviación estandard </span><span class="sc">\n</span><span class="st">del número de semillas por fruto&quot;</span>)<span class="sc">+</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Arboles muestrados&quot;</span>)</span></code></pre></div>
 <p><img src="Variacion_Subindividual_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">&quot;mean_SD.png&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">&quot;mean_SD.png&quot;</span>)</span></code></pre></div>
 <pre><code>## Saving 7 x 5 in image</code></pre>
 </div>
 </div>

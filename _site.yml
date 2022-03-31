@@ -29,7 +29,9 @@ navbar:
         -
           href: Variacion_Subindividual.html
           text: "Variación Subindividual"          
-          
+        -
+          href: Demografia_Cementerios.html
+          text: "Demografía de Cementarios"         
           
           
       text: Modulos
