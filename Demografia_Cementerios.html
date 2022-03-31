@@ -33,6 +33,7 @@
 <link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
 <script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/navigation-1.1/codefolding.js"></script>
 
 <style type="text/css">
   code{white-space: pre-wrap;}
@@ -118,6 +119,15 @@ code span.va { color: #19177c; } /* Variable */
 code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 
+.sourceCode .row {
+  width: 100%;
+}
+.sourceCode {
+  overflow-x: auto;
+}
+.code-folding-btn {
+  margin-right: -30px;
+}
 </style>
 <script>
 // apply pandoc div.sourceCode style to pre.sourceCode instead
@@ -306,6 +316,9 @@ $(document).ready(function () {
 </style>
 
 <!-- code folding -->
+<style type="text/css">
+.code-folding-btn { margin-bottom: 4px; }
+</style>
 
 
 
@@ -490,6 +503,14 @@ div.tocify {
 
 <div id="header">
 
+<div class="btn-group pull-right float-right">
+<button type="button" class="btn btn-default btn-xs btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Code</span> <span class="caret"></span></button>
+<ul class="dropdown-menu dropdown-menu-right" style="min-width: 50px;">
+<li><a id="rmd-show-all-code" href="#">Show All Code</a></li>
+<li><a id="rmd-hide-all-code" href="#">Hide All Code</a></li>
+</ul>
+</div>
+
 
 
 <h1 class="title toc-ignore">Demografia de Cementerios</h1>
@@ -558,62 +579,16 @@ div.tocify {
 <hr />
 <div id="tabla-de-recolección-de-datos-ejemplo" class="section level3">
 <h3>Tabla de recolección de datos, Ejemplo</h3>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gt)</span></code></pre></div>
 <p>Aqui expande sus datos a incluir 150 personas por sitios/grupos</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>Mis_Datos_sitio_1<span class="ot">=</span> <span class="fu">tribble</span>(</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span>Num_Ind, <span class="sc">~</span>Año_Naci, <span class="sc">~</span>Año_Fallecio, <span class="sc">~</span>Edad_Fallacer, <span class="sc">~</span>Genero,</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1</span>, <span class="dv">1898</span>, <span class="dv">1899</span>, <span class="dv">1</span>, <span class="st">&quot;M&quot;</span>,</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="dv">2</span>, <span class="dv">1867</span>, <span class="dv">1967</span>,<span class="dv">100</span>,<span class="st">&quot;F&quot;</span>,</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="dv">3</span>,  <span class="cn">NA</span>   ,  <span class="cn">NA</span> ,<span class="cn">NA</span> , <span class="st">&quot;.&quot;</span>,</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="dv">150</span>,<span class="dv">1890</span>,<span class="dv">1945</span>,<span class="dv">55</span>,<span class="st">&quot;M&quot;</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>Mis_Datos_sitio_1</span></code></pre></div>
-<pre><code>## # A tibble: 4 × 5
-##   Num_Ind Año_Naci Año_Fallecio Edad_Fallacer Genero
-##     &lt;dbl&gt;    &lt;dbl&gt;        &lt;dbl&gt;         &lt;dbl&gt; &lt;chr&gt; 
-## 1       1     1898         1899             1 M     
-## 2       2     1867         1967           100 F     
-## 3       3       NA           NA            NA .     
-## 4     150     1890         1945            55 M</code></pre>
-</div>
-</div>
-<div id="resumir-los-datos-en-una-table" class="section level1">
-<h1>Resumir los datos en una table</h1>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>Resumir_datos<span class="ot">=</span> <span class="fu">tribble</span>(</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span><span class="st">&quot;Classes de Edad&quot;</span>, <span class="sc">~</span><span class="st">&quot;Num_muerto en esa clase, dx&quot;</span>, <span class="sc">~</span><span class="st">&quot;Supervivencia de natalidad, lx&quot;</span>, <span class="sc">~</span><span class="st">&quot;Supervivencia por 1000&quot;</span>, <span class="sc">~</span><span class="st">&quot;Log10&quot;</span>,</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;0-9&quot;</span>, <span class="cn">NA</span>, <span class="cn">NA</span>, <span class="cn">NA</span>, <span class="cn">NA</span>,</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;10-19&quot;</span>, <span class="cn">NA</span>, <span class="cn">NA</span>,<span class="cn">NA</span>,<span class="cn">NA</span>,</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;20-19&quot;</span>,  <span class="cn">NA</span>   ,  <span class="cn">NA</span> ,<span class="cn">NA</span> , <span class="cn">NA</span>,</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;90+&quot;</span>,<span class="cn">NA</span>,<span class="cn">NA</span>,<span class="cn">NA</span>,<span class="cn">NA</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>Resumir_datos</span></code></pre></div>
-<pre><code>## # A tibble: 4 × 5
-##   `Classes de Edad` `Num_muerto en esa…` `Supervivencia…` `Supervivencia…` Log10
-##   &lt;chr&gt;             &lt;lgl&gt;                &lt;lgl&gt;            &lt;lgl&gt;            &lt;lgl&gt;
-## 1 0-9               NA                   NA               NA               NA   
-## 2 10-19             NA                   NA               NA               NA   
-## 3 20-19             NA                   NA               NA               NA   
-## 4 90+               NA                   NA               NA               NA</code></pre>
-<p>Ejemplo con 160 personas</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>Resumir_datos2<span class="ot">=</span> <span class="fu">tribble</span>(</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span><span class="st">&quot;Classes de Edad&quot;</span>, <span class="sc">~</span><span class="st">&quot;Num_muerto en esa clase, dx&quot;</span>, <span class="sc">~</span><span class="st">&quot;Supervivencia de natalidad, lx&quot;</span>, <span class="sc">~</span><span class="st">&quot;Supervivencia por 1000&quot;</span>, <span class="sc">~</span><span class="st">&quot;Log10&quot;</span>,</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;0-9&quot;</span>, <span class="dv">8</span>, <span class="dv">160</span>, <span class="dv">1000</span>, <span class="fl">3.00</span>,</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;10-19&quot;</span>, <span class="dv">7</span>, <span class="dv">152</span>,<span class="dv">950</span>,<span class="fl">2.98</span>,</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;20-29&quot;</span>,  <span class="dv">13</span>   ,  <span class="dv">145</span> ,<span class="dv">906</span> , <span class="fl">2.96</span>,</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;30-39&quot;</span>, <span class="dv">9</span>,<span class="dv">132</span>,<span class="dv">825</span>,<span class="fl">2.95</span>,</span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;40-49&quot;</span>,<span class="dv">13</span>,<span class="dv">123</span>,<span class="dv">469</span>,<span class="fl">2.89</span>,</span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;50-59&quot;</span>,<span class="dv">21</span>,<span class="dv">110</span>,<span class="dv">688</span>,<span class="fl">2.84</span>,</span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;60-69&quot;</span>,<span class="dv">23</span>,<span class="dv">89</span>,<span class="dv">556</span>,<span class="fl">2.75</span>,</span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;70-79&quot;</span>,<span class="dv">39</span>,<span class="dv">66</span>,<span class="dv">413</span>,<span class="fl">2.62</span>,</span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;80-89&quot;</span>,<span class="dv">22</span>,<span class="dv">27</span>,<span class="dv">169</span>,<span class="fl">2.23</span>,</span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;90-99&quot;</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">31</span>,<span class="fl">1.49</span>,</span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;100+&quot;</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">6</span>,<span class="dv">0</span></span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a><span class="fu">gt</span>(Resumir_datos2)</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>Mis_Datos_sitio_1<span class="ot">=</span> <span class="fu">tribble</span>(</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span>Num_Ind, <span class="sc">~</span>Año_Naci, <span class="sc">~</span>Año_Fallecio, <span class="sc">~</span>Edad_Fallacer, <span class="sc">~</span>Genero,</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1</span>, <span class="dv">1898</span>, <span class="dv">1899</span>, <span class="dv">1</span>, <span class="st">&quot;M&quot;</span>,</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="dv">2</span>, <span class="dv">1867</span>, <span class="dv">1967</span>,<span class="dv">100</span>,<span class="st">&quot;F&quot;</span>,</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="dv">3</span>,  <span class="cn">NA</span>   ,  <span class="cn">NA</span> ,<span class="cn">NA</span> , <span class="st">&quot;.&quot;</span>,</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="dv">150</span>,<span class="dv">1890</span>,<span class="dv">1945</span>,<span class="dv">55</span>,<span class="st">&quot;M&quot;</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">gt</span>(Mis_Datos_sitio_1)</span></code></pre></div>
 <div id="elqitwzjno" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
@@ -1021,6 +996,918 @@ div.tocify {
   
   <thead class="gt_col_headings">
     <tr>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">Num_Ind</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">Año_Naci</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">Año_Fallecio</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">Edad_Fallacer</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">Genero</th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr><td class="gt_row gt_right">1</td>
+<td class="gt_row gt_right">1898</td>
+<td class="gt_row gt_right">1899</td>
+<td class="gt_row gt_right">1</td>
+<td class="gt_row gt_left">M</td></tr>
+    <tr><td class="gt_row gt_right">2</td>
+<td class="gt_row gt_right">1867</td>
+<td class="gt_row gt_right">1967</td>
+<td class="gt_row gt_right">100</td>
+<td class="gt_row gt_left">F</td></tr>
+    <tr><td class="gt_row gt_right">3</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_left">.</td></tr>
+    <tr><td class="gt_row gt_right">150</td>
+<td class="gt_row gt_right">1890</td>
+<td class="gt_row gt_right">1945</td>
+<td class="gt_row gt_right">55</td>
+<td class="gt_row gt_left">M</td></tr>
+  </tbody>
+  
+  
+</table>
+</div>
+<hr />
+</div>
+</div>
+<div id="resumir-los-datos-en-una-table" class="section level1">
+<h1>Resumir los datos en una table</h1>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>Resumir_datos<span class="ot">=</span> <span class="fu">tribble</span>(</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span><span class="st">&quot;Classes de Edad&quot;</span>, <span class="sc">~</span><span class="st">&quot;Num_muerto en esa clase, dx&quot;</span>, <span class="sc">~</span><span class="st">&quot;Supervivencia de natalidad, lx&quot;</span>, <span class="sc">~</span><span class="st">&quot;Supervivencia por 1000&quot;</span>, <span class="sc">~</span><span class="st">&quot;Log10&quot;</span>,</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;0-9&quot;</span>, <span class="cn">NA</span>, <span class="cn">NA</span>, <span class="cn">NA</span>, <span class="cn">NA</span>,</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;10-19&quot;</span>, <span class="cn">NA</span>, <span class="cn">NA</span>,<span class="cn">NA</span>,<span class="cn">NA</span>,</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;20-19&quot;</span>,  <span class="cn">NA</span>   ,  <span class="cn">NA</span> ,<span class="cn">NA</span> , <span class="cn">NA</span>,</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;90+&quot;</span>,<span class="cn">NA</span>,<span class="cn">NA</span>,<span class="cn">NA</span>,<span class="cn">NA</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="fu">gt</span>(Resumir_datos)</span></code></pre></div>
+<div id="mcwnhlnddr" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>html {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+}
+
+#mcwnhlnddr .gt_table {
+  display: table;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#mcwnhlnddr .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#mcwnhlnddr .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#mcwnhlnddr .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 0;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#mcwnhlnddr .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#mcwnhlnddr .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#mcwnhlnddr .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#mcwnhlnddr .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#mcwnhlnddr .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#mcwnhlnddr .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#mcwnhlnddr .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#mcwnhlnddr .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#mcwnhlnddr .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#mcwnhlnddr .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#mcwnhlnddr .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#mcwnhlnddr .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#mcwnhlnddr .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#mcwnhlnddr .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#mcwnhlnddr .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#mcwnhlnddr .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#mcwnhlnddr .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#mcwnhlnddr .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#mcwnhlnddr .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#mcwnhlnddr .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#mcwnhlnddr .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#mcwnhlnddr .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#mcwnhlnddr .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#mcwnhlnddr .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#mcwnhlnddr .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-left: 4px;
+  padding-right: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#mcwnhlnddr .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#mcwnhlnddr .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#mcwnhlnddr .gt_left {
+  text-align: left;
+}
+
+#mcwnhlnddr .gt_center {
+  text-align: center;
+}
+
+#mcwnhlnddr .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#mcwnhlnddr .gt_font_normal {
+  font-weight: normal;
+}
+
+#mcwnhlnddr .gt_font_bold {
+  font-weight: bold;
+}
+
+#mcwnhlnddr .gt_font_italic {
+  font-style: italic;
+}
+
+#mcwnhlnddr .gt_super {
+  font-size: 65%;
+}
+
+#mcwnhlnddr .gt_footnote_marks {
+  font-style: italic;
+  font-weight: normal;
+  font-size: 75%;
+  vertical-align: 0.4em;
+}
+
+#mcwnhlnddr .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#mcwnhlnddr .gt_slash_mark {
+  font-size: 0.7em;
+  line-height: 0.7em;
+  vertical-align: 0.15em;
+}
+
+#mcwnhlnddr .gt_fraction_numerator {
+  font-size: 0.6em;
+  line-height: 0.6em;
+  vertical-align: 0.45em;
+}
+
+#mcwnhlnddr .gt_fraction_denominator {
+  font-size: 0.6em;
+  line-height: 0.6em;
+  vertical-align: -0.05em;
+}
+</style>
+<table class="gt_table">
+  
+  <thead class="gt_col_headings">
+    <tr>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">Classes de Edad</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1">Num_muerto en esa clase, dx</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1">Supervivencia de natalidad, lx</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1">Supervivencia por 1000</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1">Log10</th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr><td class="gt_row gt_left">0-9</td>
+<td class="gt_row gt_center">NA</td>
+<td class="gt_row gt_center">NA</td>
+<td class="gt_row gt_center">NA</td>
+<td class="gt_row gt_center">NA</td></tr>
+    <tr><td class="gt_row gt_left">10-19</td>
+<td class="gt_row gt_center">NA</td>
+<td class="gt_row gt_center">NA</td>
+<td class="gt_row gt_center">NA</td>
+<td class="gt_row gt_center">NA</td></tr>
+    <tr><td class="gt_row gt_left">20-19</td>
+<td class="gt_row gt_center">NA</td>
+<td class="gt_row gt_center">NA</td>
+<td class="gt_row gt_center">NA</td>
+<td class="gt_row gt_center">NA</td></tr>
+    <tr><td class="gt_row gt_left">90+</td>
+<td class="gt_row gt_center">NA</td>
+<td class="gt_row gt_center">NA</td>
+<td class="gt_row gt_center">NA</td>
+<td class="gt_row gt_center">NA</td></tr>
+  </tbody>
+  
+  
+</table>
+</div>
+<hr />
+<p>Ejemplo de una tabla de vida con 160 personas en un cohorte</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>Resumir_datos2<span class="ot">=</span> <span class="fu">tribble</span>(</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span><span class="st">&quot;Classes de Edad&quot;</span>, <span class="sc">~</span><span class="st">&quot;Num_muerto en esa clase, dx&quot;</span>, <span class="sc">~</span><span class="st">&quot;Supervivencia de natalidad, lx&quot;</span>, <span class="sc">~</span><span class="st">&quot;Supervivencia por 1000&quot;</span>, <span class="sc">~</span><span class="st">&quot;Log10&quot;</span>,</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;0-9&quot;</span>, <span class="dv">8</span>, <span class="dv">160</span>, <span class="dv">1000</span>, <span class="fl">3.00</span>,</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;10-19&quot;</span>, <span class="dv">7</span>, <span class="dv">152</span>,<span class="dv">950</span>,<span class="fl">2.98</span>,</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;20-29&quot;</span>,  <span class="dv">13</span>   ,  <span class="dv">145</span> ,<span class="dv">906</span> , <span class="fl">2.96</span>,</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;30-39&quot;</span>, <span class="dv">9</span>,<span class="dv">132</span>,<span class="dv">825</span>,<span class="fl">2.95</span>,</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;40-49&quot;</span>,<span class="dv">13</span>,<span class="dv">123</span>,<span class="dv">469</span>,<span class="fl">2.89</span>,</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;50-59&quot;</span>,<span class="dv">21</span>,<span class="dv">110</span>,<span class="dv">688</span>,<span class="fl">2.84</span>,</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;60-69&quot;</span>,<span class="dv">23</span>,<span class="dv">89</span>,<span class="dv">556</span>,<span class="fl">2.75</span>,</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;70-79&quot;</span>,<span class="dv">39</span>,<span class="dv">66</span>,<span class="dv">413</span>,<span class="fl">2.62</span>,</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;80-89&quot;</span>,<span class="dv">22</span>,<span class="dv">27</span>,<span class="dv">169</span>,<span class="fl">2.23</span>,</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;90-99&quot;</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">31</span>,<span class="fl">1.49</span>,</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;100+&quot;</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">6</span>,<span class="dv">0</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="fu">gt</span>(Resumir_datos2)</span></code></pre></div>
+<div id="wrfxsbcujv" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>html {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+}
+
+#wrfxsbcujv .gt_table {
+  display: table;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#wrfxsbcujv .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#wrfxsbcujv .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#wrfxsbcujv .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 0;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#wrfxsbcujv .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#wrfxsbcujv .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#wrfxsbcujv .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#wrfxsbcujv .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#wrfxsbcujv .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#wrfxsbcujv .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#wrfxsbcujv .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#wrfxsbcujv .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#wrfxsbcujv .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#wrfxsbcujv .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#wrfxsbcujv .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#wrfxsbcujv .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#wrfxsbcujv .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#wrfxsbcujv .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#wrfxsbcujv .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#wrfxsbcujv .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#wrfxsbcujv .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#wrfxsbcujv .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#wrfxsbcujv .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#wrfxsbcujv .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#wrfxsbcujv .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#wrfxsbcujv .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#wrfxsbcujv .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#wrfxsbcujv .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#wrfxsbcujv .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-left: 4px;
+  padding-right: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#wrfxsbcujv .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#wrfxsbcujv .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#wrfxsbcujv .gt_left {
+  text-align: left;
+}
+
+#wrfxsbcujv .gt_center {
+  text-align: center;
+}
+
+#wrfxsbcujv .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#wrfxsbcujv .gt_font_normal {
+  font-weight: normal;
+}
+
+#wrfxsbcujv .gt_font_bold {
+  font-weight: bold;
+}
+
+#wrfxsbcujv .gt_font_italic {
+  font-style: italic;
+}
+
+#wrfxsbcujv .gt_super {
+  font-size: 65%;
+}
+
+#wrfxsbcujv .gt_footnote_marks {
+  font-style: italic;
+  font-weight: normal;
+  font-size: 75%;
+  vertical-align: 0.4em;
+}
+
+#wrfxsbcujv .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#wrfxsbcujv .gt_slash_mark {
+  font-size: 0.7em;
+  line-height: 0.7em;
+  vertical-align: 0.15em;
+}
+
+#wrfxsbcujv .gt_fraction_numerator {
+  font-size: 0.6em;
+  line-height: 0.6em;
+  vertical-align: 0.45em;
+}
+
+#wrfxsbcujv .gt_fraction_denominator {
+  font-size: 0.6em;
+  line-height: 0.6em;
+  vertical-align: -0.05em;
+}
+</style>
+<table class="gt_table">
+  
+  <thead class="gt_col_headings">
+    <tr>
       <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">Classes de Edad</th>
       <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">Num_muerto en esa clase, dx</th>
       <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">Supervivencia de natalidad, lx</th>
@@ -1089,6 +1976,7 @@ div.tocify {
   
 </table>
 </div>
+<hr />
 <div id="uno-de-los-problema" class="section level3">
 <h3>Uno de los problema</h3>
 <p>Un problema con el estudio de las curvas de supervivencia es que se debe seguir una cohorte de nacimiento hasta la muerte del último individuo. ¿Cómo se alteraría la curva de supervivencia de 1940 con respecto a la de 1800?</p>
@@ -1103,13 +1991,15 @@ div.tocify {
 <li>Se agravan los problemas ambientales y aumentan las enfermedades relacionadas con la contaminación.</li>
 </ul></li>
 </ul>
+<hr />
 </div>
-</div>
-<div id="documentos" class="section level1">
-<h1>Documentos</h1>
+<div id="documentos" class="section level3">
+<h3>Documentos</h3>
 <p><a href="PDF/Cemetery_Demography.pdf">Ejercico de demografia en Ingles</a></p>
 <p><a href="PDF/Cementary%20lab.pdf">Demography from Physical cemeteris</a></p>
 <p><a href="PDF/10_Population%20growth.pdf">Presentación sobre demografia</a></p>
+<hr />
+</div>
 <div id="referencias-suplementarias" class="section level3">
 <h3>Referencias suplementarias</h3>
 <p>REFERENCES</p>
@@ -1155,6 +2045,11 @@ $(document).ready(function () {
 </script>
 
 <!-- code folding -->
+<script>
+$(document).ready(function () {
+  window.initializeCodeFolding("hide" === "show");
+});
+</script>
 
 <script>
 $(document).ready(function ()  {

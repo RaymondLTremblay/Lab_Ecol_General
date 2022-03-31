@@ -8,6 +8,7 @@ output:
 #  theme: simplex   To have the TOC in Red
     toc: yes
     toc_float: yes
+    code_folding: hide
 ---
 
 ```{r setup, include=FALSE}
@@ -96,7 +97,7 @@ Analisis de datos
 
 ### Tabla de recolección de datos, Ejemplo
   
-```{r warning=FALSE}
+```{r warning=FALSE, include=FALSE}
 library(tidyverse)
 library(gt)
 ```
@@ -113,9 +114,10 @@ Mis_Datos_sitio_1= tribble(
   150,1890,1945,55,"M"
 )
 
-Mis_Datos_sitio_1
+gt(Mis_Datos_sitio_1)
 ```
 
+***
 
 # Resumir los datos en una table
 
@@ -128,11 +130,13 @@ Resumir_datos= tribble(
   "90+",NA,NA,NA,NA
 )
 
-Resumir_datos
+gt(Resumir_datos)
 ```
 
+***
 
-Ejemplo con 160 personas
+
+Ejemplo de una tabla de vida con 160 personas en un cohorte
 
 
 ```{r}
@@ -154,6 +158,7 @@ Resumir_datos2= tribble(
 gt(Resumir_datos2)
 ```
 
+***
 
 ### Uno de los problema 
 
@@ -166,9 +171,9 @@ Un problema con el estudio de las curvas de supervivencia es que se debe seguir 
    - Los avances médicos continúan y se eliminan la mayoría de las enfermedades y la mortalidad infantil.
    - Se agravan los problemas ambientales y aumentan las enfermedades relacionadas con la contaminación.
 
+***
 
-
-# Documentos
+### Documentos
 
 [Ejercico de demografia en Ingles](PDF/Cemetery_Demography.pdf)
 
@@ -177,7 +182,7 @@ Un problema con el estudio de las curvas de supervivencia es que se debe seguir 
 [Presentación sobre demografia](PDF/10_Population growth.pdf)
 
 
-
+***
 
 ### Referencias suplementarias
 
