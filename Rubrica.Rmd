@@ -124,3 +124,55 @@ text %>%
   
 ```
 
+
+
+
+```{r include=FALSE}
+library(read.so)
+table=read_md('
+|Sección| Inadecuado=0| Adecuado=1| Bueno=2| Muy Bien=3|Excelente=4|
+|---------|---------------|-------------|-----------|-------------|-------------|
+Titulo |0|1|2|3|4|
+Resumen |0|1|2|3|4|
+Introducción |0|1|2|3|4|
+Métodos y materiales |0|1|2|3|4|
+Resultados |0|1|2|3|4|
+Discusión |0|1|2|3|4|
+Literatura Citada |0|1|2|3|4|
+Gramática y organización |0|1|2|3|4|')
+
+
+table
+```
+
+***
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+library(fields)
+
+Table= table %>% 
+  gt() %>% 
+  tab_header(
+    title = md("**Rubrica para Evaluar Trabajos de laboratorio y de investigación**")
+  ) %>% 
+  tab_style(list(
+    cell_text(align = "center")
+  ), locations = cells_title()
+  ) %>% 
+  tab_style(
+    style = list(
+      cell_text(align="center", style="italic", color="#812F33")
+    ),
+    locations = cells_column_labels()
+  ) %>% 
+  data_color( # Update cell colors...
+    columns = c(Sección), # ...for supp column!
+    colors = "#72CD9C"
+  )
+Table
+```
+
+```{r}
+Table %>% 
+  gtsave("Rubrica_Valores.html")
+```
