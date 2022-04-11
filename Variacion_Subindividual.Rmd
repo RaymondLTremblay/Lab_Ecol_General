@@ -74,6 +74,7 @@ ANALISIS de los datos
 library(readxl)
 Eucalyptis_2 <- read_excel("Eucalyptis_2.xlsx")
 head(Eucalyptis_2)
+length(Eucalyptis_2$Arbol_Grupo)
 ```
 
  
@@ -83,7 +84,7 @@ head(Eucalyptis_2)
 library(tidyverse)
 ```
  
-## Re-organizar los datos en dos columnas
+## distribucion de los datos por grupo
 
 ```{r}
 ggplot(Eucalyptis_2, aes(Num_Semillas, fill=Arbol_Grupo))+
@@ -102,10 +103,12 @@ Eucalyptis_2 %>%
   select(Num_Semillas, Arbol_Grupo) %>% 
   group_by(Arbol_Grupo) %>%
   drop_na() %>% 
-  summarise(mean= mean(Num_Semillas),
+  summarise(promedio= mean(Num_Semillas),
             varianza = var(Num_Semillas),
             desviación_estandar = sd(Num_Semillas),
-            CV=desviación_estandar/mean)
+            CV=desviación_estandar/promedio)
+
+
 ```
 
 
@@ -145,13 +148,15 @@ E3=Eucalyptis_2 %>%
             varianza = var(Num_Semillas),
             desviación_estandar = sd(Num_Semillas),
             CV=desviación_estandar/mean)
-
-E3
+library(gt)
+#gt(E3)
+#ggsave("E3.png")
 ggplot(E3, aes(y=mean, x=Arbol_Grupo))+
   geom_point()+
-  geom_errorbar(aes(ymin=mean-desviación_estandar, ymax=mean+desviación_estandar), width=.2,
+  geom_errorbar(aes(ymin=mean-desviación_estandar,                                   ymax=mean+desviación_estandar), 
+                width=.2,
                 position=position_dodge(0.05))+
-  ylab("Promedio y la desviación estandard \ndel número de semillas por fruto")+
+  ylab("Promedio y \n la desviación estandard \n del número de semillas por fruto")+
   xlab("Arboles muestrados")
 
 ggsave("mean_SD.png")

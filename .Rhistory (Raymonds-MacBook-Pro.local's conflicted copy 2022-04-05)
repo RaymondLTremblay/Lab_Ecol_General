@@ -1,0 +1,512 @@
+ggplot(Intra_Specific_Comp_Ast, aes(Num_Plantas, fill=Grupo))+
+ggplot(Intra_Specific_Comp_Ast, aes(Num_Plantas, fill=Grupo))+
+geom_histogram(position="dodge")+
+scale_x_continuous(breaks = c(1:8))
+ggplot(Intra_Specific_Comp_Ast, aes(Num_Plantas, fill=Grupo))+
+geom_histogram(position="dodge")+
+scale_x_continuous(breaks = c(1:9))
+ggplot(Intra_Specific_Comp_Ast, aes(Num_Plantas, fill=Grupo))+
+geom_histogram(position="dodge")+
+scale_x_continuous(breaks = c(1:9))+
+xlab("Números de plantas por cuandrante")
+coef(Model1)
+Model1=glm(Num_Inflorecencia~Num_Plantas+Grupo-1, data=Intra_Specific_Comp_Ast , family="poisson")
+summary(Model1)
+Model1=glm(Num_Inflorecencia~Num_Plantas+Grupo-1, data=Intra_Specific_Comp_Ast , family="poisson")
+summary(Model1)
+```{r}
+coef(Model1)
+exp(coef(Model1))
+27.2 - 0.935*5
+ggplot(Intra_Specific_Comp_Ast, aes(Num_Plantas, fill=Grupo))+
+geom_histogram(position="dodge")+
+scale_x_continuous(breaks = c(1:9))+
+xlab("Números de plantas por cuandrante")
+#install.packages("devtools")
+#devtools::install_github("alistaire47/read.so")
+#library(read.so)
+library(tidyverse)
+library(ggplot2)
+knitr::opts_chunk$set(echo = TRUE)
+library(readr)
+Intra_Specific_Comp_Ast <- read_csv("Intra_Specific_Comp_Ast.csv")
+ggplot(Intra_Specific_Comp_Ast, aes(Num_Plantas, fill=Grupo))+
+geom_histogram(position="dodge")+
+scale_x_continuous(breaks = c(1:9))+
+xlab("Números de plantas por cuandrante")
+ggplot(Intra_Specific_Comp_Ast, aes(Num_Plantas, Num_Inflorecencia, color=Grupo)) +
+geom_point()+
+geom_smooth(method = "glm", family="poisson", se=TRUE)+
+facet_wrap(~Grupo)
+Model1=glm(Num_Inflorecencia~Num_Plantas+Grupo-1, data=Intra_Specific_Comp_Ast , family="poisson")
+summary(Model1) # Estos valores estan en la escala de log_10
+exp(coef(Model1))
+27.2 - 0.935*5
+install.packages(ggplot2, dependencies = TRUE)
+install.packages("ggplot2", dependencies = TRUE)
+install.packages("ggplot2", dependencies = TRUE)
+knitr::opts_chunk$set(echo = TRUE)
+#install.packages("devtools")
+#devtools::install_github("alistaire47/read.so")
+#library(read.so)
+library(tidyverse)
+library(ggplot2)
+#install.packages("ggplot2", dependencies = TRUE)
+library(readr)
+Intra_Specific_Comp_Ast <- read_csv("Intra_Specific_Comp_Ast.csv")
+ggplot2::ggplot(Intra_Specific_Comp_Ast, aes(Num_Plantas, fill=Grupo))+
+geom_histogram(position="dodge")+
+scale_x_continuous(breaks = c(1:9))+
+xlab("Números de plantas por cuandrante")
+ggplot(Intra_Specific_Comp_Ast, aes(Num_Plantas, Num_Inflorecencia, color=Grupo)) +
+geom_point()+
+geom_smooth(method = "glm", family="poisson", se=TRUE)+
+facet_wrap(~Grupo)
+Model1=glm(Num_Inflorecencia~Num_Plantas+Grupo-1, data=Intra_Specific_Comp_Ast , family="poisson")
+summary(Model1) # Estos valores estan en la escala de log_10
+exp(coef(Model1))
+27.2 - 0.935*5
+knitr::opts_chunk$set(echo = TRUE)
+library(readr)
+Intra_Specific_Comp_Ast <- read_csv("Intra_Specific_Comp_Ast.csv")
+ggplot2::ggplot(Intra_Specific_Comp_Ast, aes(Num_Plantas, fill=Grupo))+
+geom_histogram(position="dodge")+
+scale_x_continuous(breaks = c(1:9))+
+xlab("Números de plantas por cuandrante")
+knitr::opts_chunk$set(echo = TRUE)
+library(readr)
+Intra_Specific_Comp_Ast <- read_csv("Intra_Specific_Comp_Ast.csv")
+ggplot2::ggplot(Intra_Specific_Comp_Ast, aes(Num_Plantas), fill=Grupo)+
+geom_histogram(position="dodge")+
+scale_x_continuous(breaks = c(1:9))+
+xlab("Números de plantas por cuandrante")
+ggplot(Intra_Specific_Comp_Ast, aes(Num_Plantas, Num_Inflorecencia, color=Grupo)) +
+geom_point()+
+geom_smooth(method = "glm", family="poisson", se=TRUE)+
+facet_wrap(~Grupo)
+#install.packages("devtools")
+#devtools::install_github("alistaire47/read.so")
+#library(read.so)
+library(tidyverse)
+library(ggplot2)
+#install.packages("ggplot2", dependencies = TRUE)
+ggplot2::ggplot(Intra_Specific_Comp_Ast, aes(Num_Plantas), fill=Grupo)+
+geom_histogram(position="dodge")+
+scale_x_continuous(breaks = c(1:9))+
+xlab("Números de plantas por cuandrante")
+ggplot2::ggplot(Intra_Specific_Comp_Ast, aes(Num_Plantas, fill=Grupo)+
+geom_histogram(position="dodge")+
+scale_x_continuous(breaks = c(1:9))+
+xlab("Números de plantas por cuandrante")
+ggplot2::ggplot(Intra_Specific_Comp_Ast, aes(Num_Plantas), color=Grupo)+
+geom_histogram(position="dodge")+
+scale_x_continuous(breaks = c(1:9))+
+xlab("Números de plantas por cuandrante")
+group=Grupo)+
+group=Grupo)+
+ggplot2::ggplot(Intra_Specific_Comp_Ast, aes(Num_Plantas), color=Grupo)+
+geom_histogram(position="dodge")+
+scale_x_continuous(breaks = c(1:9))+
+xlab("Números de plantas por cuandrante")
+ggplot2::ggplot(Intra_Specific_Comp_Ast, aes(Num_Plantas, color=Grupo)+
+scale_x_continuous(breaks = c(1:9))+
+ggplot2::ggplot(Intra_Specific_Comp_Ast, aes(Num_Plantas, color=Grupo))+
+geom_histogram(position="dodge")+
+scale_x_continuous(breaks = c(1:9))+
+xlab("Números de plantas por cuandrante")
+ggplot(Intra_Specific_Comp_Ast, aes(Num_Plantas, Num_Inflorecencia, color=Grupo)) +
+ggplot(Intra_Specific_Comp_Ast, aes(Num_Plantas, Num_Inflorecencia, color=Grupo)) +
+geom_point()+
+geom_smooth(method = "glm", family="poisson", se=TRUE)+
+facet_wrap(~Grupo)
+ggplot(Intra_Specific_Comp_Ast, aes(Num_Plantas, Num_Inflorecencia, color=Grupo)) +
+geom_point()+
+geom_smooth(method = "glm", family="poisson", se=TRUE)+
+facet_wrap(~Grupo)
+ggplot(Intra_Specific_Comp_Ast, aes(Num_Plantas, Num_Inflorecencia, color=Grupo)) +
+geom_point()+
+geom_smooth(method ="lm")+
+facet_wrap(~Grupo)
+ggplot(Intra_Specific_Comp_Ast, aes(Num_Plantas, Num_Inflorecencia, color=Grupo)) +
+geom_point()+
+geom_smooth(method ="glm", family=poisson)+
+facet_wrap(~Grupo)
+ggplot(Intra_Specific_Comp_Ast, aes(Num_Plantas, Num_Inflorecencia, color=Grupo)) +
+geom_point()+
+geom_smooth(method ="glm", family="poisson")+
+facet_wrap(~Grupo)
+ggplot2::ggplot(Intra_Specific_Comp_Ast, aes(x=Num_Plantas, color=Grupo))+
+geom_histogram(position="dodge")+
+scale_x_continuous(breaks = c(1:9))+
+xlab("Números de plantas por cuandrante")
+ggplot2::ggplot(Intra_Specific_Comp_Ast, aes(x=Num_Plantas, fill=Grupo))+
+geom_histogram(position="dodge")+
+scale_x_continuous(breaks = c(1:9))+
+xlab("Números de plantas por cuandrante")
+ggplot(Intra_Specific_Comp_Ast, aes(x=Num_Plantas, fill=Grupo))+
+geom_histogram(position="dodge")+
+scale_x_continuous(breaks = c(1:9))+
+xlab("Números de plantas por cuandrante")
+remove.packages("ggplot2")
+install.packages("ggplot2", dependencies = TRUE)
+install.packages("ggplot2", dependencies = TRUE)
+knitr::opts_chunk$set(echo = TRUE)
+ggplot(Intra_Specific_Comp_Ast, aes(x=Num_Plantas, fill=Grupo))+
+geom_histogram(position="dodge")+
+scale_x_continuous(breaks = c(1:9))+
+xlab("Números de plantas por cuandrante")
+library(ggplot2)
+library(readr)
+Intra_Specific_Comp_Ast <- read_csv("Intra_Specific_Comp_Ast.csv")
+ggplot(Intra_Specific_Comp_Ast, aes(x=Num_Plantas, fill=Grupo))+
+geom_histogram(position="dodge")+
+scale_x_continuous(breaks = c(1:9))+
+xlab("Números de plantas por cuandrante")
+ggplot(Intra_Specific_Comp_Ast, aes(Num_Plantas, Num_Inflorecencia, color=Grupo)) +
+geom_point()+
+geom_smooth(method ="glm", family="poisson")+
+facet_wrap(~Grupo)
+exp(coef(Model1))
+knitr::opts_chunk$set(echo = TRUE)
+#install.packages("devtools")
+#devtools::install_github("alistaire47/read.so")
+#library(read.so)
+library(tidyverse)
+library(ggplot2)
+#install.packages("ggplot2", dependencies = TRUE)
+library(readr)
+Intra_Specific_Comp_Ast <- read_csv("Intra_Specific_Comp_Ast.csv")
+library(ggplot2)
+ggplot(Intra_Specific_Comp_Ast, aes(x=Num_Plantas, fill=Grupo))+
+geom_histogram(position="dodge")+
+scale_x_continuous(breaks = c(1:9))+
+xlab("Números de plantas por cuandrante")
+library(ggplot2)
+ggplot(Intra_Specific_Comp_Ast, aes(Num_Plantas, Num_Inflorecencia, color=Grupo)) +
+geom_point()+
+geom_smooth(method ="glm", family="poisson")+
+facet_wrap(~Grupo)
+Model1=glm(Num_Inflorecencia~Num_Plantas+Grupo-1, data=Intra_Specific_Comp_Ast , family="poisson")
+summary(Model1) # Estos valores estan en la escala de log_10
+exp(coef(Model1))
+27.2 - 0.935*5
+exp(coef(Model1))
+library(readxl)
+G5 <- read_excel("G5.xlsx", sheet = "Sheet2")
+View(G5)
+knitr::opts_chunk$set(echo = TRUE)
+library(readxl)
+G5 <- read_excel("G5.xlsx", sheet = "Sheet2")
+library(ggplot2)
+names(G5)
+ggplot(G5,aes(x=Num_Plantas, fill=Grupo))+
+geom_histogram()
+ggplot(G5,aes(x=Num_Plantas, fill=Grupo))+
+geom_histogram(position="dodge")
+ggplot(G5,aes(x=Num_Plantas, fill=Grupo))+
+geom_histogram(position="dodge")+
+scale_x_continuous(breaks = c(1:9))
+ggplot(G5,aes(x=Num_Plantas, fill=Grupo))+
+geom_histogram(position="dodge")+
+scale_x_continuous(breaks = c(1:9))+
+xlab("Números de plantas por cuandrante")
+ggplot(G5,aes(x=Num_Plantas, fill=Grupo))+
+geom_histogram(position="dodge")+
+scale_x_continuous(breaks = c(1:9))+
+xlab("Números de plantas por cuandrante")+
+ylab("Frecuencia")
+ggplot(G5, aes(Num_Plantas, Num_Inflorecencia, color=Grupo)) +
+geom_point()
+ggplot(G5, aes(Num_Plantas, Num_Inflorecencia, color=Grupo)) +
+geom_point()
+ggplot(G5, aes(Num_Plantas, Num_Inflorecencia, color=Grupo)) +
+geom_point()+
+geom_smooth(method ="glm", family="poisson")
+ggplot(G5, aes(Num_Plantas, Num_Inflorecencia, color=Grupo)) +
+geom_point()+
+geom_smooth(method ="glm", family="poisson")+
+facet_wrap(~Grupo)
+library(ggplot2)
+ggplot(G5, aes(Num_Plantas, Num_Inflorecencia, color=Grupo)) +
+geom_point()+
+geom_smooth(method ="glm", family="poisson")+
+facet_wrap(~Grupo)
+ggsave("Competencia_grupos.png")
+Model1=glm(Num_Inflorecencia~Num_Plantas+Grupo-1, data=G5 , family="poisson")
+summary(Model1) # Estos valores estan en la escala de log_10
+knitr::opts_chunk$set(echo = TRUE)
+#install.packages("devtools")
+#devtools::install_github("alistaire47/read.so")
+#library(read.so)
+library(tidyverse)
+library(ggplot2)
+#install.packages("ggplot2", dependencies = TRUE)
+library(readxl)
+G5 <- read_excel("G5.xlsx", sheet = "Sheet2")
+install.packages("ggplot2", dependencies = TRUE)
+library(ggplot2)
+names(G5)
+ggplot(G5,aes(x=Num_Plantas, fill=Grupo))+
+geom_histogram(position="dodge")+
+scale_x_continuous(breaks = c(1:9))+
+xlab("Números de plantas por cuandrante")+
+ylab("Frecuencia")
+library(ggplot2)
+ggplot(G5, aes(Num_Plantas, Num_Inflorecencia, color=Grupo)) +
+geom_point()+
+geom_smooth(method ="glm", family="poisson")+
+facet_wrap(~Grupo)
+ggsave("Competencia_grupos.png")
+Model1=glm(Num_Inflorecencia~Num_Plantas+Grupo-1, data=G5 , family="poisson")
+summary(Model1) # Estos valores estan en la escala de log_10
+exp(coef(Model1))
+27.2 - 0.935*5
+install.packages("ggplot2", dependencies = TRUE)
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(read.so)
+install.packages("read.so")
+install.packages("devtools")
+devtools::install_github("alistaire47/read.so")
+library(read.so)
+library(readxl)
+Eucalyptis <- read_excel("Eucalyptis.xlsx")
+View(Eucalyptis)
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+head(Eucalyptis)
+pivot_longer(Eucalyptis, names_to = "Arbol", values_to = "count")
+pivot_longer(!Eucalyptis, names_to = "Arbol", values_to = "count")
+Eucalyptis %>%
+pivot_longer( cols =starts_with("Num"),
+names_to = "arbol",
+values_to = "Num_semillas")
+library(readxl)
+Eucalyptis_2 <- read_excel("Eucalyptis_2.xlsx")
+head(Eucalyptis_2)
+library(tidyverse)
+ggplot(Eucalyptis_2, aes(Num_Semillas, group=Arbol_Grupo))+
+geom_histogram()
+ggplot(Eucalyptis_2, aes(Num_Semilllas, group=Arbol_Grupo))+
+geom_histogram()
+ggplot(Eucalyptis_2, aes(Num_Semilllas), group=Arbol_Grupo)+
+geom_histogram()
+library(readxl)
+Eucalyptis_2 <- read_excel("Eucalyptis_2.xlsx")
+head(Eucalyptis_2)
+ggplot(Eucalyptis_2, aes(Num_Semillas), group=Arbol_Grupo)+
+geom_histogram()
+ggplot(Eucalyptis_2, aes(Num_Semillas), color=Arbol_Grupo)+
+geom_histogram()
+ggplot(Eucalyptis_2, aes(Num_Semillas), color=Arbol_Grupo)+
+geom_histogram()+
+facet_wrap(~Arbol_Grupo)
+ggplot(Eucalyptis_2, aes(Num_Semillas, color=Arbol_Grupo))+
+geom_histogram()+
+facet_wrap(~Arbol_Grupo)
+ggplot(Eucalyptis_2, aes(Num_Semillas, fill=Arbol_Grupo))+
+geom_histogram()+
+facet_wrap(~Arbol_Grupo)
+Eucalyptis_2 %>%
+select(Num_Semillas, Arbol_Grupo) %>%
+group_by(Arbol_Grupo) %>%
+summarize(mean=mean(Arbol_Grupo))
+Eucalyptis_2 %>%
+select(Num_Semillas, Arbol_Grupo) %>%
+group_by(Arbol_Grupo) %>%
+drop_na() %>%
+summarize(mean=mean(Arbol_Grupo))
+Eucalyptis_2 %>%
+select(Num_Semillas, Arbol_Grupo) %>%
+group_by(Arbol_Grupo) %>%
+drop_na() %>%
+summarise(mean= mean(Num_Semillas))
+Eucalyptis_2 %>%
+select(Num_Semillas, Arbol_Grupo) %>%
+group_by(Arbol_Grupo) %>%
+drop_na() %>%
+summarise(mean= mean(Num_Semillas),
+varianza = var(Num_Semillas))
+Eucalyptis_2 %>%
+select(Num_Semillas, Arbol_Grupo) %>%
+group_by(Arbol_Grupo) %>%
+drop_na() %>%
+summarise(mean= mean(Num_Semillas),
+varianza = var(Num_Semillas),
+deviación_estandar = sd(Num_Semillas))
+Eucalyptis_2 %>%
+select(Num_Semillas, Arbol_Grupo) %>%
+group_by(Arbol_Grupo) %>%
+drop_na() %>%
+summarise(mean= mean(Num_Semillas),
+varianza = var(Num_Semillas),
+desviación_estandar = sd(Num_Semillas),
+CV=desviación_estandar/mean)
+model1=aov(Num_Semillas~Arbol_Grupo, data = Eucalyptis_2)
+summary(model1)
+ggplot(Eucalyptis_2, aes(Num_Semillas, fill=Arbol_Grupo))+
+geom_boxplot()
+ggplot(Eucalyptis_2, aes(Num_Semillas, fill=Arbol_Grupo))+
+geom_violin()
+ggplot(Eucalyptis_2, aes(Num_Semillas)+
+ggplot(Eucalyptis_2, aes(Num_Semillas))+
+geom_violin()
+ggplot(Eucalyptis_2, aes(Num_Semillas))+
+ggplot(Eucalyptis_2, aes(Num_Semillas))+
+geom_violin()
+ggplot(Eucalyptis_2, aes(Num_Semillas, x=Arbol_Grupo))+
+geom_violin()
+ggplot(Eucalyptis_2, aes(Num_Semillas, x=Arbol_Grupo))+
+geom_boxplot()
+ggplot(Eucalyptis_2, aes(Num_Semillas, x=Arbol_Grupo))+
+geom_violin()
+E3=Eucalyptis_2 %>%
+select(Num_Semillas, Arbol_Grupo) %>%
+group_by(Arbol_Grupo) %>%
+drop_na() %>%
+summarise(mean= mean(Num_Semillas),
+varianza = var(Num_Semillas),
+desviación_estandar = sd(Num_Semillas),
+CV=desviación_estandar/mean)
+E3=Eucalyptis_2 %>%
+select(Num_Semillas, Arbol_Grupo) %>%
+group_by(Arbol_Grupo) %>%
+drop_na() %>%
+summarise(mean= mean(Num_Semillas),
+varianza = var(Num_Semillas),
+desviación_estandar = sd(Num_Semillas),
+CV=desviación_estandar/mean)
+E3
+ggplot(E3, aes(y=mean, x=Arbol_Grupo))+
+geom_errorbar(aes(ymin=mean-desviación_estandar, ymax=mean+desviación_estandar), width=.2,
+position=position_dodge(0.05))
+ggplot(E3, aes(y=mean, x=Arbol_Grupo))+
+geom_point()+
+geom_errorbar(aes(ymin=mean-desviación_estandar, ymax=mean+desviación_estandar), width=.2,
+position=position_dodge(0.05))
+ggsave("mean_SD.png")
+ggplot(Eucalyptis_2, aes(Num_Semillas, fill=Arbol_Grupo))+
+geom_histogram()+
+facet_wrap(~Arbol_Grupo)
+ggsave("Eucalyptis_Histogram.png")
+Eucalyptis_2 %>%
+select(Num_Semillas, Arbol_Grupo) %>%
+group_by(Arbol_Grupo) %>%
+drop_na() %>%
+summarise(mean= mean(Num_Semillas),
+varianza = var(Num_Semillas),
+desviación_estandar = sd(Num_Semillas),
+CV=desviación_estandar/mean)
+model1=aov(Num_Semillas~Arbol_Grupo, data = Eucalyptis_2)
+summary(model1)
+E3=Eucalyptis_2 %>%
+select(Num_Semillas, Arbol_Grupo) %>%
+group_by(Arbol_Grupo) %>%
+drop_na() %>%
+summarise(mean= mean(Num_Semillas),
+varianza = var(Num_Semillas),
+desviación_estandar = sd(Num_Semillas),
+CV=desviación_estandar/mean)
+E3
+ggplot(E3, aes(y=mean, x=Arbol_Grupo))+
+geom_point()+
+geom_errorbar(aes(ymin=mean-desviación_estandar, ymax=mean+desviación_estandar), width=.2,
+position=position_dodge(0.05))
+ggsave("mean_SD.png")
+ggplot(E3, aes(y=mean, x=Arbol_Grupo))+
+geom_point()+
+geom_errorbar(aes(ymin=mean-desviación_estandar, ymax=mean+desviación_estandar), width=.2,
+position=position_dodge(0.05))+
+ylab("Promedio y la desviación estandard del número de semillas por fruto")
+ggplot(E3, aes(y=mean, x=Arbol_Grupo))+
+geom_point()+
+geom_errorbar(aes(ymin=mean-desviación_estandar, ymax=mean+desviación_estandar), width=.2,
+position=position_dodge(0.05))+
+ylab("Promedio y la desviación estandard \ndel número de semillas por fruto")
+ggplot(E3, aes(y=mean, x=Arbol_Grupo))+
+geom_point()+
+geom_errorbar(aes(ymin=mean-desviación_estandar, ymax=mean+desviación_estandar), width=.2,
+position=position_dodge(0.05))+
+ylab("Promedio y la desviación estandard \ndel número de semillas por fruto")+
+xlab("Arboles muestrados")
+library(readxl)
+Eucalyptis_2 <- read_excel("Eucalyptis_2.xlsx")
+View(Eucalyptis_2)
+knitr::opts_chunk$set(echo = TRUE)
+library(readxl)
+Eucalyptis_2 <- read_excel("Eucalyptis_2.xlsx")
+head(Eucalyptis_2)
+length(Eucalyptis_2$Arbol_Grupo)
+ggplot(Eucalyptis_2, aes(Num_Semillas, fill=Arbol_Grupo))+
+geom_histogram()+
+facet_wrap(~Arbol_Grupo)
+library(readxl)
+Eucalyptis_2 <- read_excel("Eucalyptis_2.xlsx")
+head(Eucalyptis_2)
+length(Eucalyptis_2$Arbol_Grupo)
+ggplot(Eucalyptis_2, aes(Num_Semillas, fill=Arbol_Grupo))+
+geom_histogram()+
+facet_wrap(~Arbol_Grupo)
+library(tidyverse)
+ggplot(Eucalyptis_2, aes(Num_Semillas, fill=Arbol_Grupo))+
+geom_histogram()+
+facet_wrap(~Arbol_Grupo)
+ggsave("Eucalyptis_Histogram.png")
+Eucalyptis_2 %>%
+select(Num_Semillas, Arbol_Grupo) %>%
+group_by(Arbol_Grupo) %>%
+drop_na() %>%
+summarise(promedio= mean(Num_Semillas),
+varianza = var(Num_Semillas),
+desviación_estandar = sd(Num_Semillas),
+CV=desviación_estandar/promedio)
+E3=Eucalyptis_2 %>%
+select(Num_Semillas, Arbol_Grupo) %>%
+group_by(Arbol_Grupo) %>%
+drop_na() %>%
+summarise(mean= mean(Num_Semillas),
+varianza = var(Num_Semillas),
+desviación_estandar = sd(Num_Semillas),
+CV=desviación_estandar/mean)
+E3
+ggplot(E3, aes(y=mean, x=Arbol_Grupo))+
+geom_point()+
+geom_errorbar(aes(ymin=mean-desviación_estandar,              ymax=mean+desviación_estandar),
+width=.2,
+position=position_dodge(0.05))+
+ylab("Promedio y la desviación estandard \ndel número de semillas por fruto")+
+xlab("Arboles muestrados")
+ggplot(E3, aes(y=mean, x=Arbol_Grupo))+
+geom_point()+
+geom_errorbar(aes(ymin=mean-desviación_estandar,                                   ymax=mean+desviación_estandar),
+width=.2,
+position=position_dodge(0.05))+
+ylab("Promedio y la desviación estandard  del número de semillas por fruto")+
+xlab("Arboles muestrados")
+ggplot(E3, aes(y=mean, x=Arbol_Grupo))+
+geom_point()+
+geom_errorbar(aes(ymin=mean-desviación_estandar,                                   ymax=mean+desviación_estandar),
+width=.2,
+position=position_dodge(0.05))+
+ylab("Promedio y la desviación estandard \n del número de semillas por fruto")+
+xlab("Arboles muestrados")
+ggplot(E3, aes(y=mean, x=Arbol_Grupo))+
+geom_point()+
+geom_errorbar(aes(ymin=mean-desviación_estandar,                                   ymax=mean+desviación_estandar),
+width=.2,
+position=position_dodge(0.05))+
+ylab("Promedio y \n la desviación estandard \n del número de semillas por fruto")+
+xlab("Arboles muestrados")
+ggsave("E3.png")
+E3=Eucalyptis_2 %>%
+select(Num_Semillas, Arbol_Grupo) %>%
+group_by(Arbol_Grupo) %>%
+drop_na() %>%
+summarise(mean= mean(Num_Semillas),
+varianza = var(Num_Semillas),
+desviación_estandar = sd(Num_Semillas),
+CV=desviación_estandar/mean)
+ggsave("E3.png")
+library(gt)
+gt(E3)
+ggsave("E3.png")
